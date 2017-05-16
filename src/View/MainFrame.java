@@ -37,6 +37,7 @@ public class MainFrame {
 	private JList listSpecie;
 	private JList listAnalisys;
 	private JTextField textFieldSpecieName;
+	private JTextField textFieldCategoryName;
 
 	/**
 	 * Create the application.
@@ -180,6 +181,19 @@ public class MainFrame {
 		layeredPaneCategory.setBorder(null);
 		layeredPaneCategory.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add category", null, layeredPaneCategory, null);
+		
+		textFieldCategoryName = new JTextField();
+		textFieldCategoryName.setBounds(323, 151, 86, 20);
+		layeredPaneCategory.add(textFieldCategoryName);
+		textFieldCategoryName.setColumns(10);
+		
+		JButton btnAddCategory = new JButton("Add category");
+		btnAddCategory.setBounds(184, 256, 242, 88);
+		layeredPaneCategory.add(btnAddCategory);
+		
+		JLabel lblCategoryName = new JLabel("Category Name");
+		lblCategoryName.setBounds(65, 154, 165, 14);
+		layeredPaneCategory.add(lblCategoryName);
 		
 		JLayeredPane layeredPaneExplore = new JLayeredPane();
 		layeredPaneExplore.setForeground(new Color(51, 51, 51));
