@@ -32,4 +32,11 @@ public class User {
 		return password;
 	}
 
+	/**
+	 * @return the privilege
+	 */
+	public Privilege getPrivilege() {
+		return privilege;
+	}
+
 }
