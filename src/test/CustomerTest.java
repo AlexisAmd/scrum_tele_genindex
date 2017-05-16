@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
-import java.awt.event.ActionEvent;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class LoginTest {
+public class CustomerTest {
     
-    public LoginTest() {
+    public CustomerTest() {
     }
     
     @BeforeClass
@@ -39,53 +39,55 @@ public class LoginTest {
     }
 
     /**
-     * Test of actionPerformed method, of class Login.
+     * Test of getName method, of class Customer.
      */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent e = null;
-        Login instance = null;
-        instance.actionPerformed(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of showData method, of class Login.
-     */
-    @Test
-    public void testShowData() {
-        System.out.println("showData");
-        Login instance = null;
-        instance.showData();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of retourneLogin method, of class Login.
-     */
-    @Test
-    public void testRetourneLogin() {
-        System.out.println("retourneLogin");
-        Login instance = null;
+    public void testGetName() {
+        System.out.println("getName");
+        Customer instance = null;
         String expResult = "";
-        String result = instance.retourneLogin();
+        String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of retournePasswd method, of class Login.
+     * Test of getTown method, of class Customer.
      */
     @Test
-    public void testRetournePasswd() {
-        System.out.println("retournePasswd");
-        Login instance = null;
+    public void testGetTown() {
+        System.out.println("getTown");
+        Customer instance = null;
         String expResult = "";
-        String result = instance.retournePasswd();
+        String result = instance.getTown();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of addOrder method, of class Customer.
+     */
+    @Test
+    public void testAddOrder() {
+        System.out.println("addOrder");
+        Order theOrder = null;
+        Customer instance = null;
+        instance.addOrder(theOrder);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getOrders method, of class Customer.
+     */
+    @Test
+    public void testGetOrders() {
+        System.out.println("getOrders");
+        Customer instance = null;
+        List<Order> expResult = null;
+        List<Order> result = instance.getOrders();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

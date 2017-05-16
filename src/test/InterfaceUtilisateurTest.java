@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import javax.swing.JPanel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class ResultStatusTest {
+public class InterfaceUtilisateurTest {
     
-    public ResultStatusTest() {
+    public InterfaceUtilisateurTest() {
     }
     
     @BeforeClass
@@ -38,27 +39,14 @@ public class ResultStatusTest {
     }
 
     /**
-     * Test of values method, of class ResultStatus.
+     * Test of getPanel method, of class InterfaceUtilisateur.
      */
     @Test
-    public void testValues() {
-        System.out.println("values");
-        ResultStatus[] expResult = null;
-        ResultStatus[] result = ResultStatus.values();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of valueOf method, of class ResultStatus.
-     */
-    @Test
-    public void testValueOf() {
-        System.out.println("valueOf");
-        String name = "";
-        ResultStatus expResult = null;
-        ResultStatus result = ResultStatus.valueOf(name);
+    public void testGetPanel() {
+        System.out.println("getPanel");
+        InterfaceUtilisateur instance = null;
+        JPanel expResult = null;
+        JPanel result = instance.getPanel();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

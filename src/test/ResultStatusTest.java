@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class Exemple_Use_BddTest {
+public class ResultStatusTest {
     
-    public Exemple_Use_BddTest() {
+    public ResultStatusTest() {
     }
     
     @BeforeClass
@@ -38,13 +38,28 @@ public class Exemple_Use_BddTest {
     }
 
     /**
-     * Test of test_bdd method, of class Exemple_Use_Bdd.
+     * Test of values method, of class ResultStatus.
      */
     @Test
-    public void testTest_bdd() {
-        System.out.println("test_bdd");
-        Exemple_Use_Bdd instance = new Exemple_Use_Bdd();
-        instance.test_bdd();
+    public void testValues() {
+        System.out.println("values");
+        ResultStatus[] expResult = null;
+        ResultStatus[] result = ResultStatus.values();
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of valueOf method, of class ResultStatus.
+     */
+    @Test
+    public void testValueOf() {
+        System.out.println("valueOf");
+        String name = "";
+        ResultStatus expResult = null;
+        ResultStatus result = ResultStatus.valueOf(name);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

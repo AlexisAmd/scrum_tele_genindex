@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import javax.swing.JPanel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class ScrapieResultTest {
+public class Frame_motherTest {
     
-    public ScrapieResultTest() {
+    public Frame_motherTest() {
     }
     
     @BeforeClass
@@ -38,28 +39,28 @@ public class ScrapieResultTest {
     }
 
     /**
-     * Test of getScrapieValue method, of class ScrapieResult.
+     * Test of setFrameLogin method, of class Frame_mother.
      */
     @Test
-    public void testGetScrapieValue() {
-        System.out.println("getScrapieValue");
-        ScrapieResult instance = new ScrapieResult();
-        RawData expResult = null;
-        RawData result = instance.getScrapieValue();
-        assertEquals(expResult, result);
+    public void testSetFrameLogin() {
+        System.out.println("setFrameLogin");
+        JPanel newPan = null;
+        Login logout = null;
+        Frame_mother instance = new Frame_mother();
+        instance.setFrameLogin(newPan, logout);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setScrapieValue method, of class ScrapieResult.
+     * Test of setFrame method, of class Frame_mother.
      */
     @Test
-    public void testSetScrapieValue() {
-        System.out.println("setScrapieValue");
-        RawData value = null;
-        ScrapieResult instance = new ScrapieResult();
-        instance.setScrapieValue(value);
+    public void testSetFrame() {
+        System.out.println("setFrame");
+        JPanel newPan = null;
+        Frame_mother instance = new Frame_mother();
+        instance.setFrame(newPan);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
-import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class SpecieCategoryTest {
+public class RawDataTest {
     
-    public SpecieCategoryTest() {
+    public RawDataTest() {
     }
     
     @BeforeClass
@@ -39,42 +38,29 @@ public class SpecieCategoryTest {
     }
 
     /**
-     * Test of getName method, of class SpecieCategory.
+     * Test of getPosition method, of class RawData.
      */
     @Test
-    public void testGetName() {
-        System.out.println("getName");
-        SpecieCategory instance = null;
-        String expResult = "";
-        String result = instance.getName();
+    public void testGetPosition() {
+        System.out.println("getPosition");
+        RawData instance = null;
+        int expResult = 0;
+        int result = instance.getPosition();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getSpecies method, of class SpecieCategory.
+     * Test of getValue method, of class RawData.
      */
     @Test
-    public void testGetSpecies() {
-        System.out.println("getSpecies");
-        SpecieCategory instance = null;
-        Set<Specie> expResult = null;
-        Set<Specie> result = instance.getSpecies();
+    public void testGetValue() {
+        System.out.println("getValue");
+        RawData instance = null;
+        int expResult = 0;
+        int result = instance.getValue();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of addSpecie method, of class SpecieCategory.
-     */
-    @Test
-    public void testAddSpecie() {
-        System.out.println("addSpecie");
-        Specie specie = null;
-        SpecieCategory instance = null;
-        instance.addSpecie(specie);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

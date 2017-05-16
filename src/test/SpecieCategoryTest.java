@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
-import java.util.List;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class CustomerTest {
+public class SpecieCategoryTest {
     
-    public CustomerTest() {
+    public SpecieCategoryTest() {
     }
     
     @BeforeClass
@@ -39,12 +39,12 @@ public class CustomerTest {
     }
 
     /**
-     * Test of getName method, of class Customer.
+     * Test of getName method, of class SpecieCategory.
      */
     @Test
     public void testGetName() {
         System.out.println("getName");
-        Customer instance = null;
+        SpecieCategory instance = null;
         String expResult = "";
         String result = instance.getName();
         assertEquals(expResult, result);
@@ -53,42 +53,28 @@ public class CustomerTest {
     }
 
     /**
-     * Test of getTown method, of class Customer.
+     * Test of getSpecies method, of class SpecieCategory.
      */
     @Test
-    public void testGetTown() {
-        System.out.println("getTown");
-        Customer instance = null;
-        String expResult = "";
-        String result = instance.getTown();
+    public void testGetSpecies() {
+        System.out.println("getSpecies");
+        SpecieCategory instance = null;
+        Set<Specie> expResult = null;
+        Set<Specie> result = instance.getSpecies();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of addOrder method, of class Customer.
+     * Test of addSpecie method, of class SpecieCategory.
      */
     @Test
-    public void testAddOrder() {
-        System.out.println("addOrder");
-        Order theOrder = null;
-        Customer instance = null;
-        instance.addOrder(theOrder);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getOrders method, of class Customer.
-     */
-    @Test
-    public void testGetOrders() {
-        System.out.println("getOrders");
-        Customer instance = null;
-        List<Order> expResult = null;
-        List<Order> result = instance.getOrders();
-        assertEquals(expResult, result);
+    public void testAddSpecie() {
+        System.out.println("addSpecie");
+        Specie specie = null;
+        SpecieCategory instance = null;
+        instance.addSpecie(specie);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

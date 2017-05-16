@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class SampleTest {
+public class ResultTest {
     
-    public SampleTest() {
+    public ResultTest() {
     }
     
     @BeforeClass
@@ -39,100 +38,101 @@ public class SampleTest {
     }
 
     /**
-     * Test of getIdSample method, of class Sample.
+     * Test of getStatus method, of class Result.
      */
     @Test
-    public void testGetIdSample() {
-        System.out.println("getIdSample");
-        Sample instance = null;
-        int expResult = 0;
-        int result = instance.getIdSample();
+    public void testGetStatus() {
+        System.out.println("getStatus");
+        Result instance = new ResultImpl();
+        ResultStatus expResult = null;
+        ResultStatus result = instance.getStatus();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of addResult method, of class Sample.
+     * Test of setStatus method, of class Result.
      */
     @Test
-    public void testAddResult() {
-        System.out.println("addResult");
-        Result theResult = null;
-        Sample instance = null;
-        instance.addResult(theResult);
+    public void testSetStatus() {
+        System.out.println("setStatus");
+        ResultStatus value = null;
+        Result instance = new ResultImpl();
+        instance.setStatus(value);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getResult method, of class Sample.
+     * Test of getInterpretation method, of class Result.
      */
     @Test
-    public void testGetResult() {
-        System.out.println("getResult");
-        Sample instance = null;
+    public void testGetInterpretation() {
+        System.out.println("getInterpretation");
+        Result instance = new ResultImpl();
         String expResult = "";
-        String result = instance.getResult();
+        String result = instance.getInterpretation();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getResults method, of class Sample.
+     * Test of setInterpretation method, of class Result.
      */
     @Test
-    public void testGetResults() {
-        System.out.println("getResults");
-        Sample instance = null;
-        List<Result> expResult = null;
-        List<Result> result = instance.getResults();
+    public void testSetInterpretation() {
+        System.out.println("setInterpretation");
+        String inter = "";
+        Result instance = new ResultImpl();
+        instance.setInterpretation(inter);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getReadNumber method, of class Result.
+     */
+    @Test
+    public void testGetReadNumber() {
+        System.out.println("getReadNumber");
+        Result instance = new ResultImpl();
+        int expResult = 0;
+        int result = instance.getReadNumber();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getAnalysis method, of class Sample.
+     * Test of validate method, of class Result.
      */
     @Test
-    public void testGetAnalysis() {
-        System.out.println("getAnalysis");
-        Sample instance = null;
-        Analysis expResult = null;
-        Analysis result = instance.getAnalysis();
-        assertEquals(expResult, result);
+    public void testValidate() {
+        System.out.println("validate");
+        boolean yes = false;
+        Result instance = new ResultImpl();
+        instance.validate(yes);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getOrder method, of class Sample.
+     * Test of firstRead method, of class Result.
      */
     @Test
-    public void testGetOrder() {
-        System.out.println("getOrder");
-        Sample instance = null;
-        Order expResult = null;
-        Order result = instance.getOrder();
-        assertEquals(expResult, result);
+    public void testFirstRead() {
+        System.out.println("firstRead");
+        boolean readable = false;
+        String inter = "";
+        Result instance = new ResultImpl();
+        instance.firstRead(readable, inter);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isCompleted method, of class Sample.
-     */
-    @Test
-    public void testIsCompleted() {
-        System.out.println("isCompleted");
-        Sample instance = null;
-        boolean expResult = false;
-        boolean result = instance.isCompleted();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public class ResultImpl extends Result {
     }
     
 }

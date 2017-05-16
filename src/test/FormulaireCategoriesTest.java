@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class UniqueIdSampleTest {
+public class FormulaireCategoriesTest {
     
-    public UniqueIdSampleTest() {
+    public FormulaireCategoriesTest() {
     }
     
     @BeforeClass
@@ -38,15 +39,14 @@ public class UniqueIdSampleTest {
     }
 
     /**
-     * Test of newNumber method, of class UniqueIdSample.
+     * Test of actionPerformed method, of class FormulaireCategories.
      */
     @Test
-    public void testNewNumber() {
-        System.out.println("newNumber");
-        UniqueIdSample instance = new UniqueIdSample();
-        int expResult = 0;
-        int result = instance.newNumber();
-        assertEquals(expResult, result);
+    public void testActionPerformed() {
+        System.out.println("actionPerformed");
+        ActionEvent ae = null;
+        FormulaireCategories instance = null;
+        instance.actionPerformed(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

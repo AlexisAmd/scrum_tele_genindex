@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -17,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class Frame_motherTest {
+public class FormulaireCommandeTest {
     
-    public Frame_motherTest() {
+    public FormulaireCommandeTest() {
     }
     
     @BeforeClass
@@ -39,28 +40,28 @@ public class Frame_motherTest {
     }
 
     /**
-     * Test of setFrameLogin method, of class Frame_mother.
+     * Test of getPanel method, of class FormulaireCommande.
      */
     @Test
-    public void testSetFrameLogin() {
-        System.out.println("setFrameLogin");
-        JPanel newPan = null;
-        Login logout = null;
-        Frame_mother instance = new Frame_mother();
-        instance.setFrameLogin(newPan, logout);
+    public void testGetPanel() {
+        System.out.println("getPanel");
+        FormulaireCommande instance = null;
+        JPanel expResult = null;
+        JPanel result = instance.getPanel();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of setFrame method, of class Frame_mother.
+     * Test of actionPerformed method, of class FormulaireCommande.
      */
     @Test
-    public void testSetFrame() {
-        System.out.println("setFrame");
-        JPanel newPan = null;
-        Frame_mother instance = new Frame_mother();
-        instance.setFrame(newPan);
+    public void testActionPerformed() {
+        System.out.println("actionPerformed");
+        ActionEvent e = null;
+        FormulaireCommande instance = null;
+        instance.actionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

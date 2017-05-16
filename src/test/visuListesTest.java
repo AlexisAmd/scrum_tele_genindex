@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class RawDataTest {
+public class visuListesTest {
     
-    public RawDataTest() {
+    public visuListesTest() {
     }
     
     @BeforeClass
@@ -38,29 +39,14 @@ public class RawDataTest {
     }
 
     /**
-     * Test of getPosition method, of class RawData.
+     * Test of actionPerformed method, of class visuListes.
      */
     @Test
-    public void testGetPosition() {
-        System.out.println("getPosition");
-        RawData instance = null;
-        int expResult = 0;
-        int result = instance.getPosition();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getValue method, of class RawData.
-     */
-    @Test
-    public void testGetValue() {
-        System.out.println("getValue");
-        RawData instance = null;
-        int expResult = 0;
-        int result = instance.getValue();
-        assertEquals(expResult, result);
+    public void testActionPerformed() {
+        System.out.println("actionPerformed");
+        ActionEvent ae = null;
+        visuListes instance = null;
+        instance.actionPerformed(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
+import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class SexingResultTest {
+public class LoginTest {
     
-    public SexingResultTest() {
+    public LoginTest() {
     }
     
     @BeforeClass
@@ -38,55 +39,54 @@ public class SexingResultTest {
     }
 
     /**
-     * Test of getMaleValue method, of class SexingResult.
+     * Test of actionPerformed method, of class Login.
      */
     @Test
-    public void testGetMaleValue() {
-        System.out.println("getMaleValue");
-        SexingResult instance = new SexingResult();
-        RawData expResult = null;
-        RawData result = instance.getMaleValue();
+    public void testActionPerformed() {
+        System.out.println("actionPerformed");
+        ActionEvent e = null;
+        Login instance = null;
+        instance.actionPerformed(e);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of showData method, of class Login.
+     */
+    @Test
+    public void testShowData() {
+        System.out.println("showData");
+        Login instance = null;
+        instance.showData();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of retourneLogin method, of class Login.
+     */
+    @Test
+    public void testRetourneLogin() {
+        System.out.println("retourneLogin");
+        Login instance = null;
+        String expResult = "";
+        String result = instance.retourneLogin();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getFemaleValue method, of class SexingResult.
+     * Test of retournePasswd method, of class Login.
      */
     @Test
-    public void testGetFemaleValue() {
-        System.out.println("getFemaleValue");
-        SexingResult instance = new SexingResult();
-        RawData expResult = null;
-        RawData result = instance.getFemaleValue();
+    public void testRetournePasswd() {
+        System.out.println("retournePasswd");
+        Login instance = null;
+        String expResult = "";
+        String result = instance.retournePasswd();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setMaleValue method, of class SexingResult.
-     */
-    @Test
-    public void testSetMaleValue() {
-        System.out.println("setMaleValue");
-        RawData value = null;
-        SexingResult instance = new SexingResult();
-        instance.setMaleValue(value);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setFemaleValue method, of class SexingResult.
-     */
-    @Test
-    public void testSetFemaleValue() {
-        System.out.println("setFemaleValue");
-        RawData value = null;
-        SexingResult instance = new SexingResult();
-        instance.setFemaleValue(value);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

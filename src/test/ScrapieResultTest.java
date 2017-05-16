@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class SpecieTest {
+public class ScrapieResultTest {
     
-    public SpecieTest() {
+    public ScrapieResultTest() {
     }
     
     @BeforeClass
@@ -38,15 +38,28 @@ public class SpecieTest {
     }
 
     /**
-     * Test of getName method, of class Specie.
+     * Test of getScrapieValue method, of class ScrapieResult.
      */
     @Test
-    public void testGetName() {
-        System.out.println("getName");
-        Specie instance = null;
-        String expResult = "";
-        String result = instance.getName();
+    public void testGetScrapieValue() {
+        System.out.println("getScrapieValue");
+        ScrapieResult instance = new ScrapieResult();
+        RawData expResult = null;
+        RawData result = instance.getScrapieValue();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setScrapieValue method, of class ScrapieResult.
+     */
+    @Test
+    public void testSetScrapieValue() {
+        System.out.println("setScrapieValue");
+        RawData value = null;
+        ScrapieResult instance = new ScrapieResult();
+        instance.setScrapieValue(value);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

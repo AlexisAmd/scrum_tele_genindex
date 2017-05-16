@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
@@ -18,9 +18,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class SexingTestTest {
+public class FormulaireClientTest {
     
-    public SexingTestTest() {
+    public FormulaireClientTest() {
     }
     
     @BeforeClass
@@ -40,12 +40,12 @@ public class SexingTestTest {
     }
 
     /**
-     * Test of getPanel method, of class SexingTest.
+     * Test of getPanel method, of class FormulaireClient.
      */
     @Test
     public void testGetPanel() {
         System.out.println("getPanel");
-        SexingTest instance = null;
+        FormulaireClient instance = null;
         JPanel expResult = null;
         JPanel result = instance.getPanel();
         assertEquals(expResult, result);
@@ -54,13 +54,13 @@ public class SexingTestTest {
     }
 
     /**
-     * Test of actionPerformed method, of class SexingTest.
+     * Test of actionPerformed method, of class FormulaireClient.
      */
     @Test
     public void testActionPerformed() {
         System.out.println("actionPerformed");
         ActionEvent ae = null;
-        SexingTest instance = null;
+        FormulaireClient instance = null;
         instance.actionPerformed(ae);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

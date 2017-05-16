@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package genindex;
+package test;
 
-import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class visuListesTest {
+public class SpecieTest {
     
-    public visuListesTest() {
+    public SpecieTest() {
     }
     
     @BeforeClass
@@ -39,14 +38,15 @@ public class visuListesTest {
     }
 
     /**
-     * Test of actionPerformed method, of class visuListes.
+     * Test of getName method, of class Specie.
      */
     @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
-        ActionEvent ae = null;
-        visuListes instance = null;
-        instance.actionPerformed(ae);
+    public void testGetName() {
+        System.out.println("getName");
+        Specie instance = null;
+        String expResult = "";
+        String result = instance.getName();
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
