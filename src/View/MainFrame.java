@@ -21,6 +21,9 @@ import Controler.CtrlLogin;
 
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import javax.swing.JList;
+import javax.swing.border.EtchedBorder;
+import javax.swing.ListSelectionModel;
 
 public class MainFrame {
 
@@ -100,9 +103,33 @@ public class MainFrame {
 		layeredPaneOrder.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
 		
-		JLabel lblBite = new JLabel("BITE");
-		lblBite.setBounds(251, 177, 46, 14);
-		layeredPaneOrder.add(lblBite);
+		JList listCustomer = new JList();
+		listCustomer.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listCustomer.setBackground(Color.WHITE);
+		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listCustomer.setBounds(302, 91, 246, 41);
+		layeredPaneOrder.add(listCustomer);
+		
+		JList listCategory = new JList();
+		listCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listCategory.setBackground(Color.WHITE);
+		listCategory.setBounds(302, 155, 246, 41);
+		layeredPaneOrder.add(listCategory);
+		
+		JList listSpecie = new JList();
+		listSpecie.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listSpecie.setBackground(Color.WHITE);
+		listSpecie.setBounds(302, 214, 246, 41);
+		layeredPaneOrder.add(listSpecie);
+		
+		JList list = new JList();
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		list.setBackground(Color.WHITE);
+		list.setBounds(0, 0, 246, 41);
+		layeredPaneOrder.add(list);
 		
 		JLayeredPane layeredPaneSpecie = new JLayeredPane();
 		layeredPaneSpecie.setForeground(new Color(51, 51, 51));
