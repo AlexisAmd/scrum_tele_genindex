@@ -38,6 +38,7 @@ public class MainFrame {
 	private JList listAnalisys;
 	private JTextField textFieldSpecieName;
 	private JTextField textFieldCategoryName;
+	private JList listSpecieCategory;
 
 	/**
 	 * Create the application.
@@ -153,7 +154,7 @@ public class MainFrame {
 		layeredPaneSpecie.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
 		
-		JList listSpecieCategory = new JList();
+		listSpecieCategory = new JList();
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listSpecieCategory.setBounds(370, 93, 209, 41);
@@ -207,6 +208,14 @@ public class MainFrame {
 		layeredPane_6.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPane_6, null);
 		frame.setVisible(true);
+	}
+
+	public JTextField getTextFieldSpecieName() {
+		return textFieldSpecieName;
+	}
+
+	public JTextField getTextFieldCategoryName() {
+		return textFieldCategoryName;
 	}
 
 	public JTextField getTextFieldCompany() {
