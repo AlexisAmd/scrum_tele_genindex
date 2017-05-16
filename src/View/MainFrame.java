@@ -64,26 +64,33 @@ public class MainFrame {
 		layeredPaneCustomer.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 33, 633, 311);
-		layeredPaneCustomer.add(panel);
-		panel.setLayout(null);
-		
 		textFieldCompany = new JTextField();
-		textFieldCompany.setBounds(296, 55, 207, 39);
-		panel.add(textFieldCompany);
+		textFieldCompany.setBounds(258, 115, 207, 39);
+		layeredPaneCustomer.add(textFieldCompany);
 		textFieldCompany.setSelectionColor(new Color(66,139,202));
 		textFieldCompany.setForeground(new Color(51,51,51));
 		textFieldCompany.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldCompany.setColumns(10);
 		
 		textFieldTown = new JTextField();
-		textFieldTown.setBounds(296, 125, 207, 39);
-		panel.add(textFieldTown);
+		textFieldTown.setBounds(247, 195, 207, 39);
+		layeredPaneCustomer.add(textFieldTown);
 		textFieldTown.setSelectionColor(new Color(66, 139, 202));
 		textFieldTown.setForeground(new Color(51, 51, 51));
 		textFieldTown.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldTown.setColumns(10);
+		
+		JButton btnAddCustomer = new JButton("Add customer");
+		btnAddCustomer.setBounds(201, 298, 264, 68);
+		layeredPaneCustomer.add(btnAddCustomer);
+		
+		JLabel lblCompany = new JLabel("Company");
+		lblCompany.setBounds(84, 115, 46, 14);
+		layeredPaneCustomer.add(lblCompany);
+		
+		JLabel lblTown = new JLabel("Town");
+		lblTown.setBounds(63, 208, 46, 14);
+		layeredPaneCustomer.add(lblTown);
 		
 		
 		JLayeredPane layeredPaneOrder = new JLayeredPane();
