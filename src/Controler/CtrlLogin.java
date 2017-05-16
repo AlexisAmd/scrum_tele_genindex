@@ -22,8 +22,8 @@ public class CtrlLogin implements MouseListener {
 		String pwd = login.getTextFieldPwd().getText();
 		System.out.println(id);
 		System.out.println(pwd);
-		//main.loginUser(id.toString(), pwd.toString());
-		main.loginUser("Magalie", "123");
+		main.loginUser(login.getTextFieldUser().getText(), login.getTextFieldPwd().getText());
+		//main.loginUser("Magalie", "123");
 	}
 
 	@Override
