@@ -58,7 +58,7 @@ public class Main {
 
 	public boolean loginUser(String pid, String ppassword) {
 		for(User u : theUsers) {
-			if(u.getId().equals(pid) && u.getPassword().equals(ppassword)) {
+			if(u.getId().equals(pid) && u.getPassword().equals(ppassword)) { // On a trouvé un utilisateur
 				this.currentUser = u;
 				login.setVisible(false); // You can't see me!
 				login.dispose(); // Destroy the JFrame object
@@ -66,6 +66,8 @@ public class Main {
 				return true;
 			}
 		}
+		// On a pas trouvé d'utilisateur, le couple id/pwd est incorrect
+		login.showErrorBox();
 		return false;
 	}
 	
