@@ -10,10 +10,12 @@ public class User {
 	
 	private String id;
 	private String password;
+	private Privilege privilege;
 	
-	public User(String pid, String ppassword) {
+	public User(String pid, String ppassword, Privilege pprivilege) {
 		id = pid;
 		password = ppassword;
+		privilege = pprivilege;
 	}
 
 	/**

@@ -7,6 +7,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import Model.Analysis;
 import Model.Customer;
 import Model.Order;
+import Model.Privilege;
 import Model.RawData;
 import Model.Sample;
 import Model.ScrapieResult;
@@ -26,10 +27,11 @@ import View.MainFrame;
 
 public class Main {
 	
-	private Login login;
 	// The login page
-	private MainFrame frame;
+	private Login login;
 	// The frame
+	private MainFrame frame;
+	// The current User of the system
 	private User currentUser;
 	// Store the users of the system
 	public ArrayList<User> theUsers;
@@ -60,7 +62,6 @@ public class Main {
      */
 	public Main() {
 		generateData();
-		createCustomer("pierre dela", "messas city");
 		login = new Login(this);
 	}
 	
@@ -88,14 +89,14 @@ public class Main {
 	/**
 	 * Permet de créer un customer. Check au préalable si le nouveau customer n'existe pas déjà
 	 */
-	public void createCustomer(String name, String town) {
+	public void createCustomer(String pname, String ptown) {
 		
-		name = WordUtils.capitalizeFully(name);
-		town = WordUtils.capitalizeFully(town);
+		pname = WordUtils.capitalizeFully(pname);
+		ptown = WordUtils.capitalizeFully(ptown);
 		
 		boolean exist = false;
 		for(Customer c : theCustomers) {
-			if(( c.getName().toUpperCase().equals(name.toUpperCase()) )	&& 	( c.getTown().toUpperCase().equals(town.toUpperCase()) )) {
+			if(( c.getName().toUpperCase().equals(pname.toUpperCase()) )   && 	( c.getTown().toUpperCase().equals(ptown.toUpperCase()) )) {
 				exist = true;
 			}
 		}
@@ -103,8 +104,7 @@ public class Main {
 		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
 			// Gérer le message d'erreur
 		} else { // On peut créer le client
-			Customer nCustomer = new Customer(name, town);
-			System.out.println(nCustomer.getName() + nCustomer.getTown());
+			Customer nCustomer = new Customer(pname, ptown);
 			theCustomers.add(nCustomer);
 		}
 		
@@ -116,6 +116,8 @@ public class Main {
 	 */
 	public void createCategory(String pname) {
 		
+		pname = WordUtils.capitalizeFully(pname);
+
 		boolean exist = false;
 		for(SpecieCategory sC : theCategories) {
 			if(sC.getName().toUpperCase().equals(pname.toUpperCase())) {
@@ -138,6 +140,8 @@ public class Main {
 	 */
 	public void createSpecie(String pname, SpecieCategory pcategory) {
 		
+		pname = WordUtils.capitalizeFully(pname);
+
 		boolean exist = false;
 		for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
 			for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
@@ -166,9 +170,12 @@ public class Main {
         theCategories = new ArrayList<SpecieCategory>();
         theAnalyses = new ArrayList<Analysis>();
         theCustomers = new ArrayList<Customer>();
-        
+
+        Privilege secretary = new Privilege("Secretary");
+        Privilege validator = new Privilege("Validator");
+
         // User
-        User magalie = new User("Magalie", "123");
+        User magalie = new User("Magalie", "123", secretary);
         theUsers.add(magalie);
         
         // Customer "Mrs Rosemary Plumket", in Poitiers
