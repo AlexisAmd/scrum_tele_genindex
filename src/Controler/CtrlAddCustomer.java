@@ -8,14 +8,17 @@ import View.MainFrame;
 
 public class CtrlAddCustomer implements MouseListener {
 
-	public CtrlAddCustomer(Main main, MainFrame mainFrame) {
-		// TODO Auto-generated constructor stub
+	private Main main;
+	private MainFrame mainFrame;
+	
+	public CtrlAddCustomer(Main pmain, MainFrame pmainFrame) {
+		main = pmain;
+		mainFrame = pmainFrame;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		main.createCustomer(mainFrame.getTextFieldCompany().getText(), mainFrame.getTextFieldTown().getText());
 	}
 
 	@Override

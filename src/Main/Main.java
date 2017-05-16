@@ -109,6 +109,7 @@ public class Main {
 		} else { // On peut créer le client
 			Customer nCustomer = new Customer(pname, ptown);
 			theCustomers.add(nCustomer);
+			JOptionPane.showMessageDialog(new JFrame(), "Le client a bien été ajouté.");
 		}
 		
 	}
@@ -133,6 +134,7 @@ public class Main {
 		} else { // On peut créer la catégorie
 			SpecieCategory nCategory = new SpecieCategory(pname);
 			theCategories.add(nCategory);
+			JOptionPane.showMessageDialog(new JFrame(), "La catégorie a bien été créée.");
 		}
 	}
 	
@@ -159,6 +161,7 @@ public class Main {
 		} else { // On peut creér l'espèce et la range dans la catégorie demandée
 			Specie nSpecie = new Specie(pname);
 			pcategory.addSpecie(nSpecie);
+			JOptionPane.showMessageDialog(new JFrame(), "L'espèce a bien été ajoutée.");
 		}
 		
 	}
