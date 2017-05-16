@@ -2,6 +2,9 @@ package Main;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.apache.commons.lang3.text.WordUtils;
 
 import Model.Analysis;
@@ -102,7 +105,7 @@ public class Main {
 		}
 		
 		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
-			// Gérer le message d'erreur
+			JOptionPane.showMessageDialog(new JFrame(), "Ce client existe déjà.");
 		} else { // On peut créer le client
 			Customer nCustomer = new Customer(pname, ptown);
 			theCustomers.add(nCustomer);
@@ -126,7 +129,7 @@ public class Main {
 		}
 		
 		if(exist) { // La catégorie existe déjà
-			// Message d'erreur
+			JOptionPane.showMessageDialog(new JFrame(), "Cette catégorie existe déjà.");
 		} else { // On peut créer la catégorie
 			SpecieCategory nCategory = new SpecieCategory(pname);
 			theCategories.add(nCategory);
@@ -152,7 +155,7 @@ public class Main {
 		}
 		
 		if(exist) { // Il existe déjà une espèce similaire dans une catégorie
-			// Message d'errueur
+			JOptionPane.showMessageDialog(new JFrame(), "Cette espèce existe déjà.");
 		} else { // On peut creér l'espèce et la range dans la catégorie demandée
 			Specie nSpecie = new Specie(pname);
 			pcategory.addSpecie(nSpecie);
