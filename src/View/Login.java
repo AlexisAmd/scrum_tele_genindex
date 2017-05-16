@@ -92,7 +92,7 @@ public class Login extends JFrame {
 		btnSubmit.setForeground(Color.WHITE);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		btnSubmit.setBackground(new Color(66,139,202));
-		btnSubmit.setText("Submit");
+		btnSubmit.setText("Login");
 		btnSubmit.addMouseListener(new CtrlLogin(main, this));
 		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
 		
