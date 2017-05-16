@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=theAnalysis\ theSpecie\ theOrder
+comment0.target=Sample(Analysis,\ Specie,\ Order)
+comment1.params=
+comment1.target=int\ getIdSample()
+comment2.params=theResult
+comment2.target=void\ addResult(Result)
+comment3.params=
+comment3.target=java.lang.String\ getResult()
+comment3.text=\n\ Returns\ the\ last\ result\ of\ the\ sample,\ as\ the\ toString\ function\ of\ the\ result\n\ Returns\ the\ null\ String\ if\ no\ result\ available\n
+comment4.params=
+comment4.target=java.util.List\ getResults()
+comment5.params=
+comment5.target=Analysis\ getAnalysis()
+comment6.params=
+comment6.target=Order\ getOrder()
+comment7.params=
+comment7.target=boolean\ isCompleted()
+comment7.text=\n\ States\ if\ the\ sample\ has\ been\ completely\ analysed\ \:\n\ \t-\ the\ result\ is\ known\ and\ validated\n\ \t-\ or,\ after\ three\ attempts,\ it\ is\ not\ readable\n
+numComments=8

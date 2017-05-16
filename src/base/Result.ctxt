@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ResultStatus\ getStatus()
+comment1.params=value
+comment1.target=void\ setStatus(ResultStatus)
+comment2.params=
+comment2.target=java.lang.String\ getInterpretation()
+comment3.params=inter
+comment3.target=void\ setInterpretation(java.lang.String)
+comment3.text=\n\ Changes\ the\ interpretation,\ when\ possible\n
+comment4.params=yes
+comment4.target=void\ validate(boolean)
+comment4.text=\n\ Validates\ or\ not\ the\ result\n
+numComments=5

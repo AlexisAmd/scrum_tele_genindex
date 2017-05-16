@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=theName
+comment0.target=SpecieCategory(java.lang.String)
+comment0.text=\n\ Creates\ a\ new\ SpecieCategory\n
+comment1.params=
+comment1.target=java.lang.String\ getName()
+comment2.params=
+comment2.target=java.util.Set\ getSpecies()
+comment3.params=specie
+comment3.target=void\ addSpecie(Specie)
+comment3.text=\n\ Add\ a\ specie\ in\ the\ category\n
+numComments=4
