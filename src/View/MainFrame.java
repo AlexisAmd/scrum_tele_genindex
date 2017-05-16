@@ -36,6 +36,7 @@ public class MainFrame {
 	private JList listCategory;
 	private JList listSpecie;
 	private JList listAnalisys;
+	private JTextField textFieldSpecieName;
 
 	/**
 	 * Create the application.
@@ -150,6 +151,29 @@ public class MainFrame {
 		layeredPaneSpecie.setBorder(null);
 		layeredPaneSpecie.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
+		
+		JList listSpecieCategory = new JList();
+		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listSpecieCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listSpecieCategory.setBounds(370, 93, 209, 41);
+		layeredPaneSpecie.add(listSpecieCategory);
+		
+		textFieldSpecieName = new JTextField();
+		textFieldSpecieName.setBounds(370, 182, 209, 41);
+		layeredPaneSpecie.add(textFieldSpecieName);
+		textFieldSpecieName.setColumns(10);
+		
+		JLabel lblCategory = new JLabel("Category");
+		lblCategory.setBounds(142, 96, 46, 14);
+		layeredPaneSpecie.add(lblCategory);
+		
+		JLabel lblName = new JLabel("Name");
+		lblName.setBounds(142, 195, 46, 14);
+		layeredPaneSpecie.add(lblName);
+		
+		JButton btnAddSpecie = new JButton("Add specie");
+		btnAddSpecie.setBounds(234, 296, 255, 50);
+		layeredPaneSpecie.add(btnAddSpecie);
 		
 		JLayeredPane layeredPaneCategory = new JLayeredPane();
 		layeredPaneCategory.setForeground(new Color(51, 51, 51));
