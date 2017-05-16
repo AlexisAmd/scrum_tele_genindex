@@ -45,6 +45,9 @@ public class MainFrame {
 	private JTextField textFieldCategoryName;
 	private JList listSpecieCategory;
 	private JTable tableOrders;
+	private JLabel lblPercentageAnalysedSamples;
+	private JLabel lblPercentageNotAnalysedSamples;
+	private JLabel lblTotalOfSamples;
 
 	/**
 	 * Create the application.
@@ -239,7 +242,7 @@ public class MainFrame {
 		lblAnalysedSamples.setBounds(10, 31, 159, 34);
 		panel.add(lblAnalysedSamples);
 		
-		JLabel lblPercentageAnalysedSamples = new JLabel("NA");
+		lblPercentageAnalysedSamples = new JLabel("NA");
 		lblPercentageAnalysedSamples.setBounds(164, 31, 32, 34);
 		panel.add(lblPercentageAnalysedSamples);
 		
@@ -251,11 +254,11 @@ public class MainFrame {
 		lblTotalSamples.setBounds(10, 123, 159, 34);
 		panel.add(lblTotalSamples);
 		
-		JLabel lblPercentageNotAnalysedSamples = new JLabel("NA");
+		lblPercentageNotAnalysedSamples = new JLabel("NA");
 		lblPercentageNotAnalysedSamples.setBounds(164, 79, 32, 34);
 		panel.add(lblPercentageNotAnalysedSamples);
 		
-		JLabel lblTotalOfSamples = new JLabel("NA");
+		lblTotalOfSamples = new JLabel("NA");
 		lblTotalOfSamples.setBounds(164, 124, 32, 34);
 		panel.add(lblTotalOfSamples);
 		
@@ -265,6 +268,27 @@ public class MainFrame {
 		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
 		frame.setVisible(true);
+	}
+
+	/**
+	 * @param lblPercentageAnalysedSamples the lblPercentageAnalysedSamples to set
+	 */
+	private void setLblPercentageAnalysedSamples(JLabel lblPercentageAnalysedSamples) {
+		this.lblPercentageAnalysedSamples = lblPercentageAnalysedSamples;
+	}
+
+	/**
+	 * @param lblPercentageNotAnalysedSamples the lblPercentageNotAnalysedSamples to set
+	 */
+	private void setLblPercentageNotAnalysedSamples(JLabel lblPercentageNotAnalysedSamples) {
+		this.lblPercentageNotAnalysedSamples = lblPercentageNotAnalysedSamples;
+	}
+
+	/**
+	 * @param lblTotalOfSamples the lblTotalOfSamples to set
+	 */
+	private void setLblTotalOfSamples(JLabel lblTotalOfSamples) {
+		this.lblTotalOfSamples = lblTotalOfSamples;
 	}
 
 	public JTextField getTextFieldSpecieName() {
