@@ -58,9 +58,7 @@ public class Main {
 
 	public boolean loginUser(String pid, String ppassword) {
 		for(User u : theUsers) {
-			System.out.println("user"+u);
 			if(u.getId().equals(pid) && u.getPassword().equals(ppassword)) {
-				System.out.println("cure user a changé");
 				this.currentUser = u;
 				login.setVisible(false); // You can't see me!
 				login.dispose(); // Destroy the JFrame object
