@@ -4,22 +4,26 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import View.Login;
 
 public class CtrlLogin implements MouseListener {
 
     private Main main;
-    private String id;
-    private String password;
+    private Login login;
     
-	public CtrlLogin(Main pmain, String pid, String ppassword) {
+	public CtrlLogin(Main pmain, Login plogin) {
 		main = pmain;
-		id = pid;
-		password = ppassword;
+		login = plogin;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		main.loginUser(id, password);
+		String id = login.getTextFieldUser().getText();
+		String pwd = login.getTextFieldPwd().getText();
+		System.out.println(id);
+		System.out.println(pwd);
+		//main.loginUser(id.toString(), pwd.toString());
+		main.loginUser("Magalie", "123");
 	}
 
 	@Override

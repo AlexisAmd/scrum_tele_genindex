@@ -22,6 +22,8 @@ import java.awt.SystemColor;
 public class Login extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textFieldUser;
+	private JTextField textFieldPwd;
 
 	/**
 	 * Create the frame.
@@ -62,7 +64,7 @@ public class Login extends JFrame {
 		panelForm.add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(null);
 		
-		JTextField textFieldUser = new JTextField();
+		textFieldUser = new JTextField();
 		textFieldUser.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldUser.setToolTipText("Type your username here");
 		textFieldUser.setText("User");
@@ -70,7 +72,7 @@ public class Login extends JFrame {
 		textFieldUser.setBounds(0, 11, 338, 41);
 		panelContent.add(textFieldUser);
 		
-		JTextField textFieldPwd = new JTextField();
+		textFieldPwd = new JTextField();
 		textFieldPwd.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldPwd.setToolTipText("Type your password here");
 		textFieldPwd.setText("Password");
@@ -89,11 +91,25 @@ public class Login extends JFrame {
 		btnSubmit.setFont(new Font("Calibri", Font.BOLD, 24));
 		btnSubmit.setBackground(new Color(144, 238, 144));
 		btnSubmit.setText("Submit");
-		btnSubmit.addMouseListener(new CtrlLogin(main, "Magalie", "123"));
+		btnSubmit.addMouseListener(new CtrlLogin(main, this));
 		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
 		
 		this.setVisible(true);
 		
 	}
 
+	/**
+	 * @return the textFieldUser
+	 */
+	public JTextField getTextFieldUser() {
+		return textFieldUser;
+	}
+
+	/**
+	 * @return the textFieldPwd
+	 */
+	public JTextField getTextFieldPwd() {
+		return textFieldPwd;
+	}
+	
 }
