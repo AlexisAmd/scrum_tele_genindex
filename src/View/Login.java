@@ -10,6 +10,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.SystemColor;
 
 public class Login extends JFrame {
 
@@ -37,47 +41,64 @@ public class Login extends JFrame {
 	public Login() {
 		setTitle("Genindex - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 370, 272);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panelTitle = new JPanel();
-		contentPane.add(panelTitle, BorderLayout.NORTH);
+		panelTitle.setBounds(0, 0, 354, 38);
+		panelTitle.setBackground(new Color(144, 238, 144));
+		contentPane.add(panelTitle);
+		panelTitle.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblTitle = new JLabel("Connection \u00E0 GenIndex");
+		JLabel lblTitle = new JLabel("  LOGIN");
+		lblTitle.setForeground(new Color(255, 255, 255));
+		lblTitle.setBackground(new Color(144, 238, 144));
+		lblTitle.setVerticalAlignment(SwingConstants.BOTTOM);
+		lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
+		lblTitle.setFont(new Font("Calibri", Font.BOLD, 17));
 		panelTitle.add(lblTitle);
 		
 		JPanel panelForm = new JPanel();
-		contentPane.add(panelForm, BorderLayout.CENTER);
+		panelForm.setBounds(8, 45, 338, 117);
+		panelForm.setBackground(Color.WHITE);
+		contentPane.add(panelForm);
 		panelForm.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelTags = new JPanel();
-		panelForm.add(panelTags, BorderLayout.WEST);
-		panelTags.setLayout(new GridLayout(2, 1, 0, 0));
-		
-		JLabel lblUser = new JLabel("User");
-		panelTags.add(lblUser);
-		
-		JLabel lblPwd = new JLabel("Password");
-		panelTags.add(lblPwd);
-		
 		JPanel panelContent = new JPanel();
+		panelContent.setBackground(Color.WHITE);
 		panelForm.add(panelContent, BorderLayout.CENTER);
-		panelContent.setLayout(new GridLayout(2, 1, 0, 0));
+		panelContent.setLayout(null);
 		
 		JTextField textFieldUser = new JTextField();
+		textFieldUser.setFont(new Font("Calibri", Font.PLAIN, 14));
+		textFieldUser.setToolTipText("Type your username here");
+		textFieldUser.setText("User");
+		textFieldUser.setBackground(SystemColor.inactiveCaptionBorder);
+		textFieldUser.setBounds(0, 11, 338, 41);
 		panelContent.add(textFieldUser);
 		
 		JTextField textFieldPwd = new JTextField();
+		textFieldPwd.setFont(new Font("Calibri", Font.PLAIN, 14));
+		textFieldPwd.setToolTipText("Type your password here");
+		textFieldPwd.setText("Password");
+		textFieldPwd.setBackground(SystemColor.inactiveCaptionBorder);
+		textFieldPwd.setBounds(0, 63, 338, 41);
 		panelContent.add(textFieldPwd);
 		
 		JPanel panelSubmit = new JPanel();
-		contentPane.add(panelSubmit, BorderLayout.SOUTH);
+		panelSubmit.setBounds(8, 169, 338, 57);
+		panelSubmit.setBackground(new Color(255, 255, 255));
+		contentPane.add(panelSubmit);
 		panelSubmit.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnSubmit =  new JButton();
+		btnSubmit.setForeground(Color.WHITE);
+		btnSubmit.setFont(new Font("Calibri", Font.BOLD, 24));
+		btnSubmit.setBackground(new Color(144, 238, 144));
 		btnSubmit.setText("Submit");
 		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
 		
