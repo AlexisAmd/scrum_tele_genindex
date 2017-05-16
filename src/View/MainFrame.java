@@ -31,6 +31,11 @@ public class MainFrame {
 	private Main main;
 	private JTextField textFieldCompany;
 	private JTextField textFieldTown;
+	private JTextField textFieldNumberOfSamples;
+	private JList listCustomer;
+	private JList listCategory;
+	private JList listSpecie;
+	private JList listAnalisys;
 
 	/**
 	 * Create the application.
@@ -103,33 +108,42 @@ public class MainFrame {
 		layeredPaneOrder.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
 		
-		JList listCustomer = new JList();
+		listCustomer = new JList();
 		listCustomer.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listCustomer.setBounds(302, 91, 246, 41);
+		listCustomer.setBounds(299, 36, 246, 41);
 		layeredPaneOrder.add(listCustomer);
 		
-		JList listCategory = new JList();
+		listCategory = new JList();
 		listCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
-		listCategory.setBounds(302, 155, 246, 41);
+		listCategory.setBounds(299, 100, 246, 41);
 		layeredPaneOrder.add(listCategory);
 		
-		JList listSpecie = new JList();
+		listSpecie = new JList();
 		listSpecie.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
-		listSpecie.setBounds(302, 214, 246, 41);
+		listSpecie.setBounds(299, 159, 246, 41);
 		layeredPaneOrder.add(listSpecie);
 		
-		JList list = new JList();
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		list.setBackground(Color.WHITE);
-		list.setBounds(0, 0, 246, 41);
-		layeredPaneOrder.add(list);
+		listAnalisys = new JList();
+		listAnalisys.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listAnalisys.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listAnalisys.setBackground(Color.WHITE);
+		listAnalisys.setBounds(299, 229, 246, 41);
+		layeredPaneOrder.add(listAnalisys);
+		
+		textFieldNumberOfSamples = new JTextField();
+		textFieldNumberOfSamples.setBounds(299, 283, 46, 29);
+		layeredPaneOrder.add(textFieldNumberOfSamples);
+		textFieldNumberOfSamples.setColumns(10);
+		
+		JButton btnCreateOrder = new JButton("Create order");
+		btnCreateOrder.setBounds(245, 341, 246, 41);
+		layeredPaneOrder.add(btnCreateOrder);
 		
 		JLayeredPane layeredPaneSpecie = new JLayeredPane();
 		layeredPaneSpecie.setForeground(new Color(51, 51, 51));
@@ -156,4 +170,19 @@ public class MainFrame {
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPane_6, null);
 		frame.setVisible(true);
 	}
+
+	public JTextField getTextFieldCompany() {
+		return textFieldCompany;
+	}
+
+	public JTextField getTextFieldTown() {
+		return textFieldTown;
+	}
+
+	public JTextField getTextFieldNumberOfSamples() {
+		return textFieldNumberOfSamples;
+	}
+	
+	
+	
 }
