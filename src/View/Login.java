@@ -13,6 +13,8 @@ import Controler.CtrlLogin;
 import Main.Main;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -41,20 +43,20 @@ public class Login extends JFrame {
 		
 		JPanel panelTitle = new JPanel();
 		panelTitle.setBounds(0, 0, 354, 38);
-		panelTitle.setBackground(new Color(144, 238, 144));
+		panelTitle.setBackground(Color.WHITE);
 		contentPane.add(panelTitle);
-		panelTitle.setLayout(new GridLayout(0, 1, 0, 0));
+		panelTitle.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblTitle = new JLabel("  LOGIN");
-		lblTitle.setForeground(new Color(255, 255, 255));
-		lblTitle.setBackground(new Color(144, 238, 144));
+		JLabel lblTitle = new JLabel(" Connect to your account");
+		lblTitle.setForeground(new Color(51, 51, 51));
+		lblTitle.setBackground(Color.WHITE);
 		lblTitle.setVerticalAlignment(SwingConstants.BOTTOM);
-		lblTitle.setHorizontalAlignment(SwingConstants.LEFT);
-		lblTitle.setFont(new Font("Calibri", Font.BOLD, 17));
-		panelTitle.add(lblTitle);
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 19));
+		panelTitle.add(lblTitle, BorderLayout.CENTER);
 		
 		JPanel panelForm = new JPanel();
-		panelForm.setBounds(8, 45, 338, 117);
+		panelForm.setBounds(36, 53, 284, 109);
 		panelForm.setBackground(Color.WHITE);
 		contentPane.add(panelForm);
 		panelForm.setLayout(new BorderLayout(0, 0));
@@ -69,7 +71,7 @@ public class Login extends JFrame {
 		textFieldUser.setToolTipText("Type your username here");
 		textFieldUser.setText("User");
 		textFieldUser.setBackground(SystemColor.inactiveCaptionBorder);
-		textFieldUser.setBounds(0, 11, 338, 41);
+		textFieldUser.setBounds(0, 11, 283, 41);
 		panelContent.add(textFieldUser);
 		
 		textFieldPwd = new JTextField();
@@ -77,19 +79,19 @@ public class Login extends JFrame {
 		textFieldPwd.setToolTipText("Type your password here");
 		textFieldPwd.setText("Password");
 		textFieldPwd.setBackground(SystemColor.inactiveCaptionBorder);
-		textFieldPwd.setBounds(0, 63, 338, 41);
+		textFieldPwd.setBounds(0, 52, 283, 41);
 		panelContent.add(textFieldPwd);
 		
 		JPanel panelSubmit = new JPanel();
-		panelSubmit.setBounds(8, 169, 338, 57);
+		panelSubmit.setBounds(36, 162, 284, 47);
 		panelSubmit.setBackground(new Color(255, 255, 255));
 		contentPane.add(panelSubmit);
 		panelSubmit.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnSubmit =  new JButton();
 		btnSubmit.setForeground(Color.WHITE);
-		btnSubmit.setFont(new Font("Calibri", Font.BOLD, 24));
-		btnSubmit.setBackground(new Color(144, 238, 144));
+		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		btnSubmit.setBackground(new Color(66,139,202));
 		btnSubmit.setText("Submit");
 		btnSubmit.addMouseListener(new CtrlLogin(main, this));
 		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
@@ -111,5 +113,7 @@ public class Login extends JFrame {
 	public JTextField getTextFieldPwd() {
 		return textFieldPwd;
 	}
-	
+	public void showErrorBox() {
+		JOptionPane.showMessageDialog(new JFrame(), "Mauvais couple ID / Mot de passe.");
+	}
 }
