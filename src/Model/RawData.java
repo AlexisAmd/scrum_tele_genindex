@@ -1,6 +1,6 @@
 package Model;
 
-class RawData {
+public class RawData {
   /**
    * Peak position
    */
