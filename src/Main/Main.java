@@ -190,5 +190,40 @@ public class Main {
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
 	}
+
+	/**
+	 * @return the currentUser
+	 */
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	/**
+	 * @return the theUsers
+	 */
+	public ArrayList<User> getTheUsers() {
+		return theUsers;
+	}
+
+	/**
+	 * @return the theCategories
+	 */
+	public ArrayList<SpecieCategory> getTheCategories() {
+		return theCategories;
+	}
+
+	/**
+	 * @return the theAnalyses
+	 */
+	public ArrayList<Analysis> getTheAnalyses() {
+		return theAnalyses;
+	}
+
+	/**
+	 * @return the theCustomers
+	 */
+	public ArrayList<Customer> getTheCustomers() {
+		return theCustomers;
+	}
 	
 }
