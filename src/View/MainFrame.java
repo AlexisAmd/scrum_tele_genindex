@@ -28,6 +28,7 @@ import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class MainFrame {
 
@@ -217,14 +218,46 @@ public class MainFrame {
 		listCustomers.setBounds(197, 42, 405, 40);
 		layeredPaneExplore.add(listCustomers);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(31, 116, 355, 255);
+		layeredPaneExplore.add(scrollPane);
+		
 		tableOrders = new JTable();
+		scrollPane.setViewportView(tableOrders);
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		tableOrders.setBounds(50, 135, 268, 175);
-		layeredPaneExplore.add(tableOrders);
 		
 		JLabel lblChooseACustomer = new JLabel("Choose a customer");
 		lblChooseACustomer.setBounds(31, 45, 156, 37);
 		layeredPaneExplore.add(lblChooseACustomer);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(396, 203, 206, 168);
+		layeredPaneExplore.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblAnalysedSamples = new JLabel("AnalysedSamples");
+		lblAnalysedSamples.setBounds(10, 31, 159, 34);
+		panel.add(lblAnalysedSamples);
+		
+		JLabel lblPercentageAnalysedSamples = new JLabel("NA");
+		lblPercentageAnalysedSamples.setBounds(164, 31, 32, 34);
+		panel.add(lblPercentageAnalysedSamples);
+		
+		JLabel lblNonAnalysedSamples = new JLabel("Not Analysed Samples");
+		lblNonAnalysedSamples.setBounds(10, 79, 159, 34);
+		panel.add(lblNonAnalysedSamples);
+		
+		JLabel lblTotalSamples = new JLabel("Total");
+		lblTotalSamples.setBounds(10, 123, 159, 34);
+		panel.add(lblTotalSamples);
+		
+		JLabel lblPercentageNotAnalysedSamples = new JLabel("NA");
+		lblPercentageNotAnalysedSamples.setBounds(164, 79, 32, 34);
+		panel.add(lblPercentageNotAnalysedSamples);
+		
+		JLabel lblTotalOfSamples = new JLabel("NA");
+		lblTotalOfSamples.setBounds(164, 124, 32, 34);
+		panel.add(lblTotalOfSamples);
 		
 		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
 		layeredPaneCreateScrapieTest.setForeground(new Color(51, 51, 51));
