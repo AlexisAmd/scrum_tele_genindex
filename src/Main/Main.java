@@ -1,7 +1,20 @@
 package Main;
 import java.awt.EventQueue;
 import java.util.ArrayList;
-import Model.*;
+
+import org.apache.commons.lang3.text.WordUtils;
+
+import Model.Analysis;
+import Model.Customer;
+import Model.Order;
+import Model.RawData;
+import Model.Sample;
+import Model.ScrapieResult;
+import Model.ScrapieTest;
+import Model.SexingTest;
+import Model.Specie;
+import Model.SpecieCategory;
+import Model.User;
 import View.Login;
 import View.MainFrame;
 
@@ -47,6 +60,7 @@ public class Main {
      */
 	public Main() {
 		generateData();
+		createCustomer("pierre dela", "messas city");
 		login = new Login(this);
 	}
 	
@@ -76,17 +90,68 @@ public class Main {
 	 */
 	public void createCustomer(String name, String town) {
 		
+		name = WordUtils.capitalizeFully(name);
+		town = WordUtils.capitalizeFully(town);
+		
 		boolean exist = false;
 		for(Customer c : theCustomers) {
-			if(( c.getName().toUpperCase() == name.toUpperCase() )	&& 	( c.getTown().toUpperCase() == town.toUpperCase() )) {
+			if(( c.getName().toUpperCase().equals(name.toUpperCase()) )	&& 	( c.getTown().toUpperCase().equals(town.toUpperCase()) )) {
 				exist = true;
 			}
 		}
+		
 		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
 			// Gérer le message d'erreur
 		} else { // On peut créer le client
 			Customer nCustomer = new Customer(name, town);
+			System.out.println(nCustomer.getName() + nCustomer.getTown());
 			theCustomers.add(nCustomer);
+		}
+		
+	}
+	
+	/**
+	 * Permet d'ajouter une categorie qui n'existe pas encore
+	 * @param pname le nom de la catégorie
+	 */
+	public void createCategory(String pname) {
+		
+		boolean exist = false;
+		for(SpecieCategory sC : theCategories) {
+			if(sC.getName().toUpperCase().equals(pname.toUpperCase())) {
+				exist = true;
+			}
+		}
+		
+		if(exist) { // La catégorie existe déjà
+			// Message d'erreur
+		} else { // On peut créer la catégorie
+			SpecieCategory nCategory = new SpecieCategory(pname);
+			theCategories.add(nCategory);
+		}
+	}
+	
+	/**
+	 * Crée une espèce et lui donne une catégorie. L'espèce ne doit appartenir qu'à une seule catégorie
+	 * @param pname le nom de l'espèce
+	 * @param pcategory la catégorie à laquelle l'espèce appartient
+	 */
+	public void createSpecie(String pname, SpecieCategory pcategory) {
+		
+		boolean exist = false;
+		for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
+			for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+				if(s.getName().toUpperCase().equals(pname.toUpperCase())) {
+					exist = true;
+				}
+			}
+		}
+		
+		if(exist) { // Il existe déjà une espèce similaire dans une catégorie
+			// Message d'errueur
+		} else { // On peut creér l'espèce et la range dans la catégorie demandée
+			Specie nSpecie = new Specie(pname);
+			pcategory.addSpecie(nSpecie);
 		}
 		
 	}
