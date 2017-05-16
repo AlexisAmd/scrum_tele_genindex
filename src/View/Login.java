@@ -69,7 +69,7 @@ public class Login extends JFrame {
 		textFieldUser = new JTextField();
 		textFieldUser.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldUser.setToolTipText("Type your username here");
-		textFieldUser.setText("User");
+		textFieldUser.setText("Magalie");
 		textFieldUser.setBackground(SystemColor.inactiveCaptionBorder);
 		textFieldUser.setBounds(0, 11, 283, 41);
 		panelContent.add(textFieldUser);
@@ -77,7 +77,7 @@ public class Login extends JFrame {
 		textFieldPwd = new JTextField();
 		textFieldPwd.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldPwd.setToolTipText("Type your password here");
-		textFieldPwd.setText("Password");
+		textFieldPwd.setText("123");
 		textFieldPwd.setBackground(SystemColor.inactiveCaptionBorder);
 		textFieldPwd.setBounds(0, 52, 283, 41);
 		panelContent.add(textFieldPwd);
