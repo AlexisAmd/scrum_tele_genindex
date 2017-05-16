@@ -11,17 +11,22 @@ public class Main {
 	
     // With theCategories, all species are available
     public ArrayList<SpecieCategory> theCategories;
-    
     // theAnalyses stores the available analyses
     public ArrayList<Analysis> theAnalyses;
-    
     // theCustomers gives access to all samples and results
     public ArrayList<Customer> theCustomers;
     
+    /**
+     * Initialise des données
+     */
 	public Main() {
+		generateData();
 		new MainFrame(this);
 	}
 	
+	/**
+	 * Génère des données au préalable
+	 */
 	public void generateData() {
 		
 		// Init all lists;
@@ -142,6 +147,26 @@ public class Main {
         sc.addSpecie(s);
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
+	}
+	
+	/**
+	 * Permet de créer un customer. Check au préalable si le nouveau customer n'existe pas déjà
+	 */
+	public void createCustomer(String name, String town) {
+		
+		boolean exist = false;
+		for(Customer c : theCustomers) {
+			if(( c.getName().toUpperCase() == name.toUpperCase() )	&& 	( c.getTown().toUpperCase() == town.toUpperCase() )) {
+				exist = true;
+			}
+		}
+		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
+			// Gérer le message d'erreur
+		} else { // On peut créer le client
+			Customer nCustomer = new Customer(name, town);
+			theCustomers.add(nCustomer);
+		}
+		
 	}
 	
 }
