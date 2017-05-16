@@ -1,45 +1,49 @@
-package Controller;
+package Controler;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
-import View.MainFrame;
+import View.Login;
 
-public class CtrlAddCustomer implements MouseListener {
+public class CtrlLogin implements MouseListener {
 
-	public CtrlAddCustomer(Main main, MainFrame mainFrame) {
-		// TODO Auto-generated constructor stub
+    private Main main;
+    private Login login;
+    
+	public CtrlLogin(Main pmain, Login plogin) {
+		main = pmain;
+		
+		login = plogin;
 	}
-
+	
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+		main.loginUser(login.getTextFieldUser().getText(), login.getTextFieldPwd().getText());
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

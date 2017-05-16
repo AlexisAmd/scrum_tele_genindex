@@ -16,10 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
-import Controller.CtrlLogin;
-import Controller.CtrlAddCustomer;
+import Controler.CtrlAddCustomer;
+import Controler.CtrlLogin;
 
 import javax.swing.JTextField;
+import javax.swing.JPanel;
 
 public class MainFrame {
 
@@ -27,7 +28,6 @@ public class MainFrame {
 	private Main main;
 	private JTextField textFieldCompany;
 	private JTextField textFieldTown;
-	private JButton btnSubmitCustomer;
 
 	/**
 	 * Create the application.
@@ -64,29 +64,26 @@ public class MainFrame {
 		layeredPaneCustomer.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 33, 633, 311);
+		layeredPaneCustomer.add(panel);
+		panel.setLayout(null);
+		
 		textFieldCompany = new JTextField();
+		textFieldCompany.setBounds(296, 55, 207, 39);
+		panel.add(textFieldCompany);
 		textFieldCompany.setSelectionColor(new Color(66,139,202));
 		textFieldCompany.setForeground(new Color(51,51,51));
 		textFieldCompany.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldCompany.setBounds(218, 119, 207, 39);
-		layeredPaneCustomer.add(textFieldCompany);
 		textFieldCompany.setColumns(10);
 		
 		textFieldTown = new JTextField();
+		textFieldTown.setBounds(296, 125, 207, 39);
+		panel.add(textFieldTown);
 		textFieldTown.setSelectionColor(new Color(66, 139, 202));
 		textFieldTown.setForeground(new Color(51, 51, 51));
 		textFieldTown.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldTown.setColumns(10);
-		textFieldTown.setBounds(228, 179, 207, 39);
-		layeredPaneCustomer.add(textFieldTown);
-		
-		btnSubmitCustomer = new JButton();
-		btnSubmitCustomer.setForeground(Color.WHITE);
-		btnSubmitCustomer.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnSubmitCustomer.setBackground(new Color(66,139,202));
-		btnSubmitCustomer.setText("Add new customer");
-		btnSubmitCustomer.addMouseListener(new CtrlAddCustomer(main, this));
-		layeredPaneCustomer.add(btnSubmitCustomer);
 		
 		
 		JLayeredPane layeredPaneOrder = new JLayeredPane();
