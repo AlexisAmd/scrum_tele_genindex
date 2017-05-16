@@ -1,6 +1,8 @@
 package Main;
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import Model.*;
+import View.Login;
 import View.MainFrame;
 
 /**
@@ -11,6 +13,10 @@ import View.MainFrame;
 
 public class Main {
 	
+	private Login login;
+	// The login page
+	private MainFrame frame;
+	// The frame
 	private User currentUser;
 	// Store the users of the system
 	public ArrayList<User> theUsers;
@@ -21,12 +27,27 @@ public class Main {
     // theCustomers gives access to all samples and results
     public ArrayList<Customer> theCustomers;
     
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					new Main();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
     /**
      * Initialise des données
      */
 	public Main() {
 		generateData();
-		new MainFrame(this);
+		login = new Login(this);
 	}
 	
 	/**
@@ -39,7 +60,9 @@ public class Main {
 		for(User u : theUsers) {
 			if(u.getId() == pid && u.getPassword() == ppassword) {
 				currentUser = u;
-				// Procédure de génération de la seconde page.
+				login.setVisible(false); // You can't see me!
+				login.dispose(); // Destroy the JFrame object
+				frame = new MainFrame(this);
 				return true;
 			}
 		}
@@ -72,9 +95,14 @@ public class Main {
 	public void generateData() {
 		
 		// Init all lists;
+		theUsers = new ArrayList<User>();
         theCategories = new ArrayList<SpecieCategory>();
         theAnalyses = new ArrayList<Analysis>();
         theCustomers = new ArrayList<Customer>();
+        
+        // User
+        User magalie = new User("Magalie", "123");
+        theUsers.add(magalie);
         
         // Customer "Mrs Rosemary Plumket", in Poitiers
         Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");

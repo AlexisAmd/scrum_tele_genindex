@@ -1,33 +1,19 @@
 package View;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+
+import Main.Main;
 
 public class MainFrame {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame window = new MainFrame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private Main main;
 
 	/**
 	 * Create the application.
 	 */
-	public MainFrame() {
+	public MainFrame(Main pmain) {
+		main = pmain;
 		initialize();
 	}
 
@@ -38,6 +24,7 @@ public class MainFrame {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 }

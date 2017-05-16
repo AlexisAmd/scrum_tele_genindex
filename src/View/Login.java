@@ -8,6 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import Controler.CtrlLogin;
+import Main.Main;
+
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.awt.Color;
@@ -20,25 +24,10 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Login frame = new Login();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
+	 * @param main 
 	 */
-	public Login() {
+	public Login(Main main) {
 		setTitle("Genindex - Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 272);
@@ -100,8 +89,10 @@ public class Login extends JFrame {
 		btnSubmit.setFont(new Font("Calibri", Font.BOLD, 24));
 		btnSubmit.setBackground(new Color(144, 238, 144));
 		btnSubmit.setText("Submit");
+		btnSubmit.addMouseListener(new CtrlLogin(main, "Magalie", "123"));
 		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
 		
+		this.setVisible(true);
 		
 	}
 
