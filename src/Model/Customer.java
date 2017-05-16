@@ -2,7 +2,7 @@ package Model;
 
 import java.util.*;
 
-class Customer {
+public class Customer {
   /**
    * The different orders for the customer
    */

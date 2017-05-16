@@ -1,3 +1,14 @@
+<<<<<<< HEAD
 /bin/
 
 .classpath
+=======
+
+\.settings/org\.eclipse\.jdt\.core\.prefs
+
+\.project
+
+\.classpath
+
+bin/Model/
+>>>>>>> origin/master
