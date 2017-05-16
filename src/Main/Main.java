@@ -1,6 +1,7 @@
 package Main;
 import java.util.ArrayList;
 import Model.*;
+import View.MainFrame;
 
 /**
  * Permet de lancer l'application
