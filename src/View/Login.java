@@ -3,8 +3,10 @@ package View;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
@@ -65,8 +67,21 @@ public class Login extends JFrame {
 		panelForm.add(panelContent, BorderLayout.CENTER);
 		panelContent.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panelContent.add(lblNewLabel);
+		JTextField textFieldUser = new JTextField();
+		panelContent.add(textFieldUser);
+		
+		JTextField textFieldPwd = new JTextField();
+		panelContent.add(textFieldPwd);
+		
+		JPanel panelSubmit = new JPanel();
+		contentPane.add(panelSubmit, BorderLayout.SOUTH);
+		panelSubmit.setLayout(new BorderLayout(0, 0));
+		
+		JButton btnSubmit =  new JButton();
+		btnSubmit.setText("Submit");
+		panelSubmit.add(btnSubmit, BorderLayout.CENTER);
+		
+		
 	}
 
 }
