@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
+import javax.swing.JTable;
 
 public class MainFrame {
 
@@ -39,6 +40,7 @@ public class MainFrame {
 	private JTextField textFieldSpecieName;
 	private JTextField textFieldCategoryName;
 	private JList listSpecieCategory;
+	private JTable tableOrders;
 
 	/**
 	 * Create the application.
@@ -202,11 +204,21 @@ public class MainFrame {
 		layeredPaneExplore.setBackground(Color.WHITE);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 		
-		JLayeredPane layeredPane_6 = new JLayeredPane();
-		layeredPane_6.setForeground(new Color(51, 51, 51));
-		layeredPane_6.setBorder(null);
-		layeredPane_6.setBackground(Color.WHITE);
-		tabbedPane.addTab("Create Scrapie Test", null, layeredPane_6, null);
+		JList listCustomers = new JList();
+		listCustomers.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listCustomers.setBounds(81, 42, 521, 40);
+		layeredPaneExplore.add(listCustomers);
+		
+		tableOrders = new JTable();
+		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		tableOrders.setBounds(50, 135, 268, 175);
+		layeredPaneExplore.add(tableOrders);
+		
+		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
+		layeredPaneCreateScrapieTest.setForeground(new Color(51, 51, 51));
+		layeredPaneCreateScrapieTest.setBorder(null);
+		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
+		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
 		frame.setVisible(true);
 	}
 
@@ -229,7 +241,4 @@ public class MainFrame {
 	public JTextField getTextFieldNumberOfSamples() {
 		return textFieldNumberOfSamples;
 	}
-	
-	
-	
 }
