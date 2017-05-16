@@ -1,3 +1,4 @@
+package Main;
 import java.util.ArrayList;
 import Model.*;
 
@@ -9,6 +10,9 @@ import Model.*;
 
 public class Main {
 	
+	private User currentUser;
+	// Store the users of the system
+	public ArrayList<User> theUsers;
     // With theCategories, all species are available
     public ArrayList<SpecieCategory> theCategories;
     // theAnalyses stores the available analyses
@@ -22,6 +26,43 @@ public class Main {
 	public Main() {
 		generateData();
 		new MainFrame(this);
+	}
+	
+	/**
+	 * Si les paramètres sont corrects, génère la vue suivante
+	 * @param pid
+	 * @param ppassword
+	 */
+
+	public boolean loginUser(String pid, String ppassword) {
+		for(User u : theUsers) {
+			if(u.getId() == pid && u.getPassword() == ppassword) {
+				currentUser = u;
+				// Procédure de génération de la seconde page.
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Permet de créer un customer. Check au préalable si le nouveau customer n'existe pas déjà
+	 */
+	public void createCustomer(String name, String town) {
+		
+		boolean exist = false;
+		for(Customer c : theCustomers) {
+			if(( c.getName().toUpperCase() == name.toUpperCase() )	&& 	( c.getTown().toUpperCase() == town.toUpperCase() )) {
+				exist = true;
+			}
+		}
+		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
+			// Gérer le message d'erreur
+		} else { // On peut créer le client
+			Customer nCustomer = new Customer(name, town);
+			theCustomers.add(nCustomer);
+		}
+		
 	}
 	
 	/**
@@ -147,26 +188,6 @@ public class Main {
         sc.addSpecie(s);
         sxt = new SexingTest(s,133,35,135,67);
         theAnalyses.add(sxt);
-	}
-	
-	/**
-	 * Permet de créer un customer. Check au préalable si le nouveau customer n'existe pas déjà
-	 */
-	public void createCustomer(String name, String town) {
-		
-		boolean exist = false;
-		for(Customer c : theCustomers) {
-			if(( c.getName().toUpperCase() == name.toUpperCase() )	&& 	( c.getTown().toUpperCase() == town.toUpperCase() )) {
-				exist = true;
-			}
-		}
-		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
-			// Gérer le message d'erreur
-		} else { // On peut créer le client
-			Customer nCustomer = new Customer(name, town);
-			theCustomers.add(nCustomer);
-		}
-		
 	}
 	
 }
