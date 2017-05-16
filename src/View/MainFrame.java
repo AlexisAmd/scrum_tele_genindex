@@ -17,6 +17,9 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
 import Controler.CtrlAddCustomer;
+import Controler.CtrlCreateCategory;
+import Controler.CtrlCreateOrder;
+import Controler.CtrlCreateSpecie;
 import Controler.CtrlLogin;
 
 import javax.swing.JTextField;
@@ -36,7 +39,7 @@ public class MainFrame {
 	private JList listCustomer;
 	private JList listCategory;
 	private JList listSpecie;
-	private JList listAnalisys;
+	private JList listAnalysis;
 	private JTextField textFieldSpecieName;
 	private JTextField textFieldCategoryName;
 	private JList listSpecieCategory;
@@ -95,6 +98,7 @@ public class MainFrame {
 		
 		JButton btnAddCustomer = new JButton("Add customer");
 		btnAddCustomer.setBounds(201, 298, 264, 68);
+		btnAddCustomer.addMouseListener(new CtrlAddCustomer(main, this));
 		layeredPaneCustomer.add(btnAddCustomer);
 		
 		JLabel lblCompany = new JLabel("Company");
@@ -134,12 +138,12 @@ public class MainFrame {
 		listSpecie.setBounds(299, 159, 246, 41);
 		layeredPaneOrder.add(listSpecie);
 		
-		listAnalisys = new JList();
-		listAnalisys.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listAnalisys.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listAnalisys.setBackground(Color.WHITE);
-		listAnalisys.setBounds(299, 229, 246, 41);
-		layeredPaneOrder.add(listAnalisys);
+		listAnalysis = new JList();
+		listAnalysis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listAnalysis.setBackground(Color.WHITE);
+		listAnalysis.setBounds(299, 229, 246, 41);
+		layeredPaneOrder.add(listAnalysis);
 		
 		textFieldNumberOfSamples = new JTextField();
 		textFieldNumberOfSamples.setBounds(299, 283, 46, 29);
@@ -147,7 +151,8 @@ public class MainFrame {
 		textFieldNumberOfSamples.setColumns(10);
 		
 		JButton btnCreateOrder = new JButton("Create order");
-		btnCreateOrder.setBounds(245, 341, 246, 41);
+		btnCreateOrder.addMouseListener(new CtrlCreateOrder(main, this));
+		btnCreateOrder.setBounds(199, 352, 246, 41);
 		layeredPaneOrder.add(btnCreateOrder);
 		
 		JLayeredPane layeredPaneSpecie = new JLayeredPane();
@@ -175,9 +180,11 @@ public class MainFrame {
 		lblName.setBounds(142, 195, 46, 14);
 		layeredPaneSpecie.add(lblName);
 		
-		JButton btnAddSpecie = new JButton("Add specie");
-		btnAddSpecie.setBounds(234, 296, 255, 50);
-		layeredPaneSpecie.add(btnAddSpecie);
+		JButton btnCreateSpecie = new JButton("Add specie");
+		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this));
+		btnCreateSpecie.setBounds(234, 296, 255, 50);
+		
+		layeredPaneSpecie.add(btnCreateSpecie);
 		
 		JLayeredPane layeredPaneCategory = new JLayeredPane();
 		layeredPaneCategory.setForeground(new Color(51, 51, 51));
@@ -190,9 +197,10 @@ public class MainFrame {
 		layeredPaneCategory.add(textFieldCategoryName);
 		textFieldCategoryName.setColumns(10);
 		
-		JButton btnAddCategory = new JButton("Add category");
-		btnAddCategory.setBounds(184, 256, 242, 88);
-		layeredPaneCategory.add(btnAddCategory);
+		JButton btnCreateCategory = new JButton("Add category");
+		btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this));
+		btnCreateCategory.setBounds(184, 256, 242, 88);
+		layeredPaneCategory.add(btnCreateCategory);
 		
 		JLabel lblCategoryName = new JLabel("Category Name");
 		lblCategoryName.setBounds(65, 154, 165, 14);
@@ -206,13 +214,17 @@ public class MainFrame {
 		
 		JList listCustomers = new JList();
 		listCustomers.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listCustomers.setBounds(81, 42, 521, 40);
+		listCustomers.setBounds(197, 42, 405, 40);
 		layeredPaneExplore.add(listCustomers);
 		
 		tableOrders = new JTable();
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		tableOrders.setBounds(50, 135, 268, 175);
 		layeredPaneExplore.add(tableOrders);
+		
+		JLabel lblChooseACustomer = new JLabel("Choose a customer");
+		lblChooseACustomer.setBounds(31, 45, 156, 37);
+		layeredPaneExplore.add(lblChooseACustomer);
 		
 		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
 		layeredPaneCreateScrapieTest.setForeground(new Color(51, 51, 51));
