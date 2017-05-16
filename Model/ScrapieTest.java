@@ -1,3 +1,4 @@
+package Model;
 
 /**
  * Creates a new result for a Scrapie Test

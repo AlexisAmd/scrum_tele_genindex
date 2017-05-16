@@ -1,3 +1,4 @@
+package Model;
 
 
 import static org.junit.Assert.*;
@@ -146,7 +147,7 @@ public class SampleTest
     public void Test_isCompleted_Unreadable_After_Validated()
     {
         //Dans un cas idéal, on ne devrait pas pouvoir ajouter un result alors que le
-        // dernier effectué est validé (true). Il faut empêcher cela.
+        // dernier effectué est validé (true). Il faut emp?cher cela.
         // On a un résultat valide donc normalement, le sample est complété ...
         Sample sample1 = new Sample(Sexing, Specie, Order);
         RawData male = new RawData(1, 1);

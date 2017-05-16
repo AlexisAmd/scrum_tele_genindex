@@ -1,3 +1,4 @@
+package Model;
 
 class SexingTest extends Analysis {
   /**

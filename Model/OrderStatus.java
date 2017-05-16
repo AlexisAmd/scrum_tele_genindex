@@ -1,3 +1,4 @@
+package Model;
 
 /**
  * List of correct values for order status

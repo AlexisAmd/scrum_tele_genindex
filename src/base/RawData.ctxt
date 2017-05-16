@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=pos\ val
-comment0.target=RawData(int,\ int)
-comment1.params=
-comment1.target=int\ getPosition()
-comment2.params=
-comment2.target=int\ getValue()
-numComments=3
