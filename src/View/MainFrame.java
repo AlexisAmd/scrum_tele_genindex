@@ -27,11 +27,13 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Cursor;
+import java.awt.Component;
 
 public class MainFrame {
 
@@ -106,7 +108,7 @@ public class MainFrame {
 		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);
 		
 		textFieldCompany = new JTextField();
-		textFieldCompany.setBounds(322, 115, 237, 39);
+		textFieldCompany.setBounds(198, 115, 407, 39);
 		layeredPaneCustomer.add(textFieldCompany);
 		textFieldCompany.setSelectionColor(new Color(66,139,202));
 		textFieldCompany.setForeground(new Color(51,51,51));
@@ -114,7 +116,7 @@ public class MainFrame {
 		textFieldCompany.setColumns(10);
 		
 		textFieldTown = new JTextField();
-		textFieldTown.setBounds(322, 165, 237, 39);
+		textFieldTown.setBounds(198, 165, 407, 39);
 		layeredPaneCustomer.add(textFieldTown);
 		textFieldTown.setSelectionColor(new Color(66, 139, 202));
 		textFieldTown.setForeground(new Color(51, 51, 51));
@@ -122,22 +124,27 @@ public class MainFrame {
 		textFieldTown.setColumns(10);
 		
 		JButton btnAddCustomer = new JButton("Add customer");
-		btnAddCustomer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
-		btnAddCustomer.setBorderPainted(false);
-		btnAddCustomer.setAutoscrolls(true);
+		btnAddCustomer.setBackground(new Color(66,139,202));
+		btnAddCustomer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAddCustomer.setForeground(Color.WHITE);
 		btnAddCustomer.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnAddCustomer.setBackground(new Color(66,139,202));
+		
 		btnAddCustomer.setBounds(198, 343, 248, 39);
 		btnAddCustomer.addMouseListener(new CtrlAddCustomer(main, this));
 		layeredPaneCustomer.add(btnAddCustomer);
 		
 		JLabel lblCompany = new JLabel("Company");
-		lblCompany.setBounds(84, 115, 46, 14);
+		lblCompany.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCompany.setForeground(new Color(51, 51, 51));
+		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCompany.setBounds(10, 116, 151, 39);
 		layeredPaneCustomer.add(lblCompany);
 		
 		JLabel lblTown = new JLabel("Town");
-		lblTown.setBounds(63, 208, 46, 14);
+		lblTown.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblTown.setForeground(new Color(51, 51, 51));
+		lblTown.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTown.setBounds(10, 164, 151, 39);
 		layeredPaneCustomer.add(lblTown);
 		
 		
@@ -152,32 +159,32 @@ public class MainFrame {
 		listCustomer.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listCustomer.setBounds(322, 44, 237, 39);
+		listCustomer.setBounds(198, 44, 407, 39);
 		layeredPaneOrder.add(listCustomer);
 		
 		listCategory = new JList();
 		listCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
-		listCategory.setBounds(322, 94, 237, 39);
+		listCategory.setBounds(198, 94, 407, 39);
 		layeredPaneOrder.add(listCategory);
 		
 		listSpecie = new JList();
 		listSpecie.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
-		listSpecie.setBounds(322, 146, 237, 39);
+		listSpecie.setBounds(198, 146, 407, 39);
 		layeredPaneOrder.add(listSpecie);
 		
 		listAnalysis = new JList();
 		listAnalysis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
-		listAnalysis.setBounds(322, 198, 237, 39);
+		listAnalysis.setBounds(198, 198, 407, 39);
 		layeredPaneOrder.add(listAnalysis);
 		
 		textFieldNumberOfSamples = new JTextField();
-		textFieldNumberOfSamples.setBounds(322, 248, 63, 39);
+		textFieldNumberOfSamples.setBounds(198, 248, 63, 39);
 		layeredPaneOrder.add(textFieldNumberOfSamples);
 		textFieldNumberOfSamples.setColumns(10);
 		
@@ -200,11 +207,11 @@ public class MainFrame {
 		listSpecieCategory = new JList();
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		listSpecieCategory.setBounds(322, 93, 237, 39);
+		listSpecieCategory.setBounds(198, 93, 407, 39);
 		layeredPaneSpecie.add(listSpecieCategory);
 		
 		textFieldSpecieName = new JTextField();
-		textFieldSpecieName.setBounds(322, 143, 237, 39);
+		textFieldSpecieName.setBounds(198, 143, 407, 39);
 		layeredPaneSpecie.add(textFieldSpecieName);
 		textFieldSpecieName.setColumns(10);
 		
@@ -233,7 +240,7 @@ public class MainFrame {
 		tabbedPane.addTab("Add category", null, layeredPaneCategory, null);
 		
 		textFieldCategoryName = new JTextField();
-		textFieldCategoryName.setBounds(322, 142, 237, 39);
+		textFieldCategoryName.setBounds(198, 142, 407, 39);
 		layeredPaneCategory.add(textFieldCategoryName);
 		textFieldCategoryName.setColumns(10);
 		
