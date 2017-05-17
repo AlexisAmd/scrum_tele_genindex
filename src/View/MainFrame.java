@@ -99,7 +99,7 @@ public class MainFrame {
 		}
 		
 		frmGenindex = new JFrame();
-		frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
+		//frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
 		frmGenindex.getContentPane().setBackground(Color.WHITE);
 		frmGenindex.setTitle("GENINDEX");
 		frmGenindex.setResizable(false);
@@ -180,7 +180,7 @@ public class MainFrame {
 		labelCustomer.setBounds(10, 42, 151, 39);
 		layeredPaneOrder.add(labelCustomer);
 		
-		listCustomer = new JComboBox();
+		listCustomer = new JComboBox(new ModelListCustomer());
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
@@ -192,7 +192,7 @@ public class MainFrame {
 		listCategory.setBounds(198, 94, 407, 39);
 		layeredPaneOrder.add(listCategory);
 		
-		listSpecie = new JComboBox();
+		listSpecie = new JComboBox(new ModelListSpecie());
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
@@ -321,7 +321,7 @@ public class MainFrame {
 		layeredPaneExplore.setBackground(Color.WHITE);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 		
-		JComboBox listCustomers = new JComboBox();
+		JComboBox listCustomers = new JComboBox(new ModelListCustomer());
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
