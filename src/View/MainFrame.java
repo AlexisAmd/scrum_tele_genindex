@@ -216,11 +216,17 @@ public class MainFrame {
 		textFieldSpecieName.setColumns(10);
 		
 		JLabel lblCategory = new JLabel("Category");
-		lblCategory.setBounds(142, 96, 46, 14);
+		lblCategory.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCategory.setForeground(new Color(51, 51, 51));
+		lblCategory.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategory.setBounds(10, 96, 151, 39);
 		layeredPaneSpecie.add(lblCategory);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(142, 195, 46, 14);
+		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblName.setForeground(new Color(51, 51, 51));
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblName.setBounds(10, 141, 151, 39);
 		layeredPaneSpecie.add(lblName);
 		
 		JButton btnCreateSpecie = new JButton("Add specie");
@@ -255,7 +261,10 @@ public class MainFrame {
 		layeredPaneCategory.add(btnCreateCategory);
 		
 		JLabel lblCategoryName = new JLabel("Category Name");
-		lblCategoryName.setBounds(65, 154, 165, 14);
+		lblCategoryName.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCategoryName.setForeground(new Color(51, 51, 51));
+		lblCategoryName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategoryName.setBounds(10, 140, 151, 39);
 		layeredPaneCategory.add(lblCategoryName);
 		
 		JLayeredPane layeredPaneExplore = new JLayeredPane();
@@ -270,6 +279,8 @@ public class MainFrame {
 		layeredPaneExplore.add(listCustomers);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setForeground(new Color(51, 51, 51));
+		scrollPane.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		scrollPane.setBounds(31, 116, 355, 255);
 		layeredPaneExplore.add(scrollPane);
 		
@@ -278,11 +289,14 @@ public class MainFrame {
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		
 		JLabel lblChooseACustomer = new JLabel("Choose a customer");
-		lblChooseACustomer.setBounds(31, 45, 156, 37);
+		lblChooseACustomer.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblChooseACustomer.setForeground(new Color(51, 51, 51));
+		lblChooseACustomer.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblChooseACustomer.setBounds(10, 42, 151, 39);
 		layeredPaneExplore.add(lblChooseACustomer);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(396, 203, 206, 168);
+		panel.setBounds(396, 116, 206, 255);
 		layeredPaneExplore.add(panel);
 		panel.setLayout(null);
 		
