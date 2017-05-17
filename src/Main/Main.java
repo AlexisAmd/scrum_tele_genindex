@@ -211,6 +211,8 @@ public class Main {
 		
 		// Ajoute la commande à la liste des commandes du client
 		selectedCustomer.addOrder(nOrder);
+		
+		JOptionPane.showMessageDialog(new JFrame(), "The order has been created.");
 
 	}
 		
