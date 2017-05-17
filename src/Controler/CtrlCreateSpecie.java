@@ -4,21 +4,25 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import Model.SpecieCategory;
 import View.MainFrame;
 
 public class CtrlCreateSpecie implements MouseListener {
 
 	private Main main;
 	private MainFrame mainFrame;
+	private SpecieCategory selectedCategory;
+
 	
-	public CtrlCreateSpecie(Main pmain, MainFrame pmainFrame) {
+	public CtrlCreateSpecie(Main pmain, MainFrame pmainFrame, SpecieCategory pSelectedCategory) {
 		main = pmain;
 		mainFrame = pmainFrame;
+		selectedCategory = pSelectedCategory;
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// main.createSpecie(mainFrame.getTextFieldSpecieName().getText(), "A COMPLETER");
+		main.createSpecie(mainFrame.getTextFieldSpecieName().getText(), selectedCategory);
 	}
 
 	@Override

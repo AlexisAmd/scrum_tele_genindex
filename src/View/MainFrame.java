@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 
 
 import Main.Main;
+import Model.SpecieCategory;
+
 import java.awt.GridLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
@@ -258,6 +260,8 @@ public class MainFrame {
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
 		
 		listSpecieCategory = new JComboBox(new ModelListCategory(main));
+		SpecieCategory selectedCategory =  (SpecieCategory) listSpecieCategory.getSelectedItem();
+		
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setBounds(198, 93, 407, 39);
 		layeredPaneSpecie.add(listSpecieCategory);
@@ -282,7 +286,7 @@ public class MainFrame {
 		layeredPaneSpecie.add(lblName);
 		
 		JButton btnCreateSpecie = new JButton("Add specie");
-		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this));
+		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this, selectedCategory));
 		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateSpecie.setBorderPainted(false);
 		btnCreateSpecie.setForeground(Color.WHITE);
@@ -310,6 +314,8 @@ public class MainFrame {
 		btnCreateCategory.setFont(fontLabel);
 		btnCreateCategory.setBackground(blueBootstrap);
 		btnCreateCategory.setBounds(198, 343, 248, 39);
+		//TODO CREEER LISTENER POUR CE BOUTON
+		btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this));
 		layeredPaneCategory.add(btnCreateCategory);
 		
 		JLabel lblCategoryName = new JLabel("Category Name");
