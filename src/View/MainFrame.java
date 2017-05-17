@@ -27,6 +27,8 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Cursor;
@@ -62,7 +64,25 @@ public class MainFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		frame = new JFrame();
+		frame.setTitle("Genindex");
+		frame.setResizable(false);
 		frame.getContentPane().setForeground(new Color(66,139,202));
 		frame.setBounds(100, 100, 664, 476);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
