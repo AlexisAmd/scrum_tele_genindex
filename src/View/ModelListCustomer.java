@@ -7,8 +7,13 @@ import Main.Main;
 
 public class ModelListCustomer implements ComboBoxModel {
 
-	public ModelListCustomer() {
-		// TODO Auto-generated constructor stub
+	private Main main;
+	
+	public ModelListCustomer(Main pmain) {
+		main = pmain;
+		for(Customer c : main.getTheCustomers()) {
+			this.addElement(c);
+		}
 	}
 
 	public ModelListCustomer(Main main) {
