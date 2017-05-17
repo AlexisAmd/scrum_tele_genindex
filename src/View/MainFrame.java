@@ -37,10 +37,12 @@ import java.awt.Component;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
+import java.awt.Toolkit;
+import java.awt.SystemColor;
 
 public class MainFrame {
 
-	private JFrame frame;
+	private JFrame frmGenindex;
 	private Main main;
 	private JTextField textFieldCompany;
 	private JTextField textFieldTown;
@@ -61,6 +63,7 @@ public class MainFrame {
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
+	private Color blueBootstrap =  new Color(66,139,202);
 
 	/**
 	 * Create the application.
@@ -90,24 +93,26 @@ public class MainFrame {
 			e.printStackTrace();
 		}
 		
-		frame = new JFrame();
-		frame.setTitle("Genindex");
-		frame.setResizable(false);
-		frame.getContentPane().setForeground(new Color(66,139,202));
-		frame.setBounds(100, 100, 664, 476);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
+		frmGenindex = new JFrame();
+		frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
+		frmGenindex.getContentPane().setBackground(Color.WHITE);
+		frmGenindex.setTitle("GENINDEX");
+		frmGenindex.setResizable(false);
+		frmGenindex.getContentPane().setForeground(Color.RED);
+		frmGenindex.setBounds(100, 100, 664, 476);
+		frmGenindex.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGenindex.getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setFocusTraversalPolicyProvider(true);
 		tabbedPane.setFocusCycleRoot(true);
 		tabbedPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		tabbedPane.setAutoscrolls(true);
-		tabbedPane.setBackground(new Color(66,139,202));
+		tabbedPane.setBackground(blueBootstrap);
 		tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		tabbedPane.setOpaque(true);
 		tabbedPane.setForeground(darkBlack);
-		frame.getContentPane().add(tabbedPane);
+		frmGenindex.getContentPane().add(tabbedPane);
 		
 		JLayeredPane layeredPaneCustomer = new JLayeredPane();
 		layeredPaneCustomer.setForeground(new Color(51, 51, 51));
@@ -118,7 +123,7 @@ public class MainFrame {
 		textFieldCompany = new JTextField();
 		textFieldCompany.setBounds(198, 115, 407, 39);
 		layeredPaneCustomer.add(textFieldCompany);
-		textFieldCompany.setSelectionColor(new Color(66,139,202));
+		textFieldCompany.setSelectionColor(blueBootstrap);
 		textFieldCompany.setForeground(darkBlack);
 		textFieldCompany.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldCompany.setColumns(10);
@@ -132,7 +137,7 @@ public class MainFrame {
 		textFieldTown.setColumns(10);
 		
 		JButton btnAddCustomer = new JButton("Add customer");
-		btnAddCustomer.setBackground(new Color(66,139,202));
+		btnAddCustomer.setBackground(blueBootstrap);
 		btnAddCustomer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAddCustomer.setForeground(Color.WHITE);
 		btnAddCustomer.setFont(fontLabel);
@@ -202,7 +207,7 @@ public class MainFrame {
 		btnCreateOrder.setBorderPainted(false);
 		btnCreateOrder.setForeground(Color.WHITE);
 		btnCreateOrder.setFont(fontLabel);
-		btnCreateOrder.setBackground(new Color(66,139,202));
+		btnCreateOrder.setBackground(blueBootstrap);
 		btnCreateOrder.setBounds(198, 343, 248, 39);
 		layeredPaneOrder.add(btnCreateOrder);
 		
@@ -243,7 +248,7 @@ public class MainFrame {
 		btnCreateSpecie.setBorderPainted(false);
 		btnCreateSpecie.setForeground(Color.WHITE);
 		btnCreateSpecie.setFont(fontLabel);
-		btnCreateSpecie.setBackground(new Color(66,139,202));
+		btnCreateSpecie.setBackground(blueBootstrap);
 		btnCreateSpecie.setBounds(198, 343, 248, 39);
 		layeredPaneSpecie.add(btnCreateSpecie);
 		
@@ -264,7 +269,7 @@ public class MainFrame {
 		btnCreateCategory.setBorderPainted(false);
 		btnCreateCategory.setForeground(Color.WHITE);
 		btnCreateCategory.setFont(fontLabel);
-		btnCreateCategory.setBackground(new Color(66,139,202));
+		btnCreateCategory.setBackground(blueBootstrap);
 		btnCreateCategory.setBounds(198, 343, 248, 39);
 		layeredPaneCategory.add(btnCreateCategory);
 		
@@ -346,7 +351,7 @@ public class MainFrame {
 		tableOrders.getColumnModel().getColumn(3).setPreferredWidth(1);
 		tableOrders.getColumnModel().getColumn(3).setMinWidth(0);
 		tableOrders.getColumnModel().getColumn(3).setMaxWidth(1);
-		tableOrders.setSelectionBackground(new Color(66, 139, 202));
+		tableOrders.setSelectionBackground(new Color(204, 204, 255));
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		//TODO FIN TABLE A EXPORTER DANS UN EAUTRE VUE
@@ -368,37 +373,39 @@ public class MainFrame {
 		panelStatistics.setLayout(null);
 		
 		JLabel lblAnalysedSamples = new JLabel("Analysed Samples");
-		lblAnalysedSamples.setFont(fontLabel);
+		lblAnalysedSamples.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblAnalysedSamples.setForeground(darkBlack);
-		lblAnalysedSamples.setBounds(10, 31, 159, 34);
+		lblAnalysedSamples.setBounds(10, 38, 159, 34);
 		panelStatistics.add(lblAnalysedSamples);
 		
 		lblPercentageAnalysedSamples = new JLabel("NA");
-		lblPercentageAnalysedSamples.setBounds(164, 31, 32, 34);
-		lblPercentageAnalysedSamples.setFont(fontLabel);
-		lblPercentageAnalysedSamples.setForeground(darkBlack);
+		lblPercentageAnalysedSamples.setBounds(164, 38, 32, 34);
+		lblPercentageAnalysedSamples.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblPercentageAnalysedSamples.setForeground(blueBootstrap);
 		panelStatistics.add(lblPercentageAnalysedSamples);
 		
 		JLabel lblNonAnalysedSamples = new JLabel("Not Analysed Samples");
-		lblNonAnalysedSamples.setBounds(10, 79, 159, 34);
-		lblNonAnalysedSamples.setFont(fontLabel);
+		lblNonAnalysedSamples.setBounds(10, 110, 159, 34);
+		lblNonAnalysedSamples.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNonAnalysedSamples.setForeground(darkBlack);
 		panelStatistics.add(lblNonAnalysedSamples);
 		
 		JLabel lblTotalSamples = new JLabel("Total");
-		lblTotalSamples.setBounds(10, 123, 159, 34);
-		lblTotalSamples.setFont(fontLabel);
+		lblTotalSamples.setBounds(10, 182, 159, 34);
+		lblTotalSamples.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTotalSamples.setForeground(darkBlack);
 		panelStatistics.add(lblTotalSamples);
 		
 		lblPercentageNotAnalysedSamples = new JLabel("NA");
-		lblPercentageNotAnalysedSamples.setBounds(164, 79, 32, 34);
-		lblPercentageNotAnalysedSamples.setFont(fontLabel);
-		lblPercentageNotAnalysedSamples.setForeground(darkBlack);
+		lblPercentageNotAnalysedSamples.setBounds(164, 182, 32, 34);
+		lblPercentageNotAnalysedSamples.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblPercentageNotAnalysedSamples.setForeground(blueBootstrap);
 		panelStatistics.add(lblPercentageNotAnalysedSamples);
 		
 		lblTotalOfSamples = new JLabel("NA");
-		lblTotalOfSamples.setBounds(164, 124, 32, 34);
+		lblTotalOfSamples.setForeground(blueBootstrap);
+		lblTotalOfSamples.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTotalOfSamples.setBounds(164, 110, 32, 34);
 		panelStatistics.add(lblTotalOfSamples);
 		
 		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
@@ -406,7 +413,7 @@ public class MainFrame {
 		layeredPaneCreateScrapieTest.setBorder(null);
 		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
-		frame.setVisible(true);
+		frmGenindex.setVisible(true);
 	}
 
 	/**

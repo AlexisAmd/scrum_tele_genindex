@@ -21,6 +21,8 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
 
 public class Login extends JFrame {
 
@@ -33,7 +35,9 @@ public class Login extends JFrame {
 	 * @param main 
 	 */
 	public Login(Main main) {
-		setTitle("Genindex - Login");
+		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
+		setType(Type.POPUP);
+		setTitle("GENINDEX");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 370, 272);
 		contentPane = new JPanel();
@@ -114,5 +118,4 @@ public class Login extends JFrame {
 	public JTextField getTextFieldPwd() {
 		return textFieldPwd;
 	}
-
 }
