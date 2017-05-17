@@ -50,8 +50,6 @@ public class MainFrame {
 
 	private JFrame frmGenindex;
 	private Main main;
-	private JTextField textFieldCompany;
-	private JTextField textFieldTown;
 	private JTextField textFieldNumberOfSamples;
 	private JComboBox listCustomer;
 	private JComboBox listCategory;
@@ -66,13 +64,14 @@ public class MainFrame {
 	private JLabel lblTotalOfSamples;
 	private JLayeredPane layeredPaneOrder;
 	
+	// Les panes
+	
+	private JLayeredPane layeredPaneCustomer, scrapiePane;
 	
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
-	private JTextField textFieldPosition;
-	private JTextField textFieldValue;
 
 	/**
 	 * Create the application.
@@ -123,52 +122,10 @@ public class MainFrame {
 		tabbedPane.setForeground(darkBlack);
 		frmGenindex.getContentPane().add(tabbedPane);
 		
-		JLayeredPane layeredPaneCustomer = new JLayeredPane();
-		layeredPaneCustomer.setForeground(new Color(51, 51, 51));
-		layeredPaneCustomer.setBorder(null);
-		layeredPaneCustomer.setBackground(Color.WHITE);
-		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);
+		// Ajout du pane Customer
 		
-		textFieldCompany = new JTextField();
-		textFieldCompany.setBounds(198, 115, 407, 39);
-		layeredPaneCustomer.add(textFieldCompany);
-		textFieldCompany.setSelectionColor(blueBootstrap);
-		textFieldCompany.setForeground(darkBlack);
-		textFieldCompany.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldCompany.setColumns(10);
-		
-		textFieldTown = new JTextField();
-		textFieldTown.setBounds(198, 165, 407, 39);
-		layeredPaneCustomer.add(textFieldTown);
-		textFieldTown.setSelectionColor(new Color(66, 139, 202));
-		textFieldTown.setForeground(new Color(51, 51, 51));
-		textFieldTown.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		textFieldTown.setColumns(10);
-		
-		JButton btnAddCustomer = new JButton("Add customer");
-		btnAddCustomer.setBackground(blueBootstrap);
-		btnAddCustomer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnAddCustomer.setForeground(Color.WHITE);
-		btnAddCustomer.setFont(fontLabel);
-		
-		btnAddCustomer.setBounds(198, 343, 248, 39);
-		btnAddCustomer.addMouseListener(new CtrlAddCustomer(main, this));
-		layeredPaneCustomer.add(btnAddCustomer);
-		
-		JLabel lblCompany = new JLabel("Company");
-		lblCompany.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCompany.setForeground(new Color(51, 51, 51));
-		lblCompany.setFont(fontLabel);
-		lblCompany.setBounds(10, 116, 151, 39);
-		layeredPaneCustomer.add(lblCompany);
-		
-		JLabel lblTown = new JLabel("Town");
-		lblTown.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblTown.setForeground(new Color(51, 51, 51));
-		lblTown.setFont(fontLabel);
-		lblTown.setBounds(10, 164, 151, 39);
-		layeredPaneCustomer.add(lblTown);
-		
+		layeredPaneCustomer = new LayeredPaneCustomer(main);
+		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);		
 		
 		layeredPaneOrder = new JLayeredPane();
 		layeredPaneOrder.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -453,30 +410,11 @@ public class MainFrame {
 		lblTotalOfSamples.setBounds(164, 110, 32, 34);
 		panelStatistics.add(lblTotalOfSamples);
 		
-		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
-		layeredPaneCreateScrapieTest.setForeground(new Color(51, 51, 51));
-		layeredPaneCreateScrapieTest.setBorder(null);
-		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
-		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
+		// Ajout du menu scrapie
 		
-		textFieldPosition = new JTextField();
-		textFieldPosition.setBounds(348, 182, 86, 20);
-		layeredPaneCreateScrapieTest.add(textFieldPosition);
-		textFieldPosition.setColumns(10);
-		
-		textFieldValue = new JTextField();
-		textFieldValue.setBounds(335, 248, 86, 20);
-		layeredPaneCreateScrapieTest.add(textFieldValue);
-		textFieldValue.setColumns(10);
-		
-		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie(main));
-		listSpecie1.setBounds(327, 73, 148, 38);
-		
-		layeredPaneCreateScrapieTest.add(listSpecie1);
-		
-		JButton btnCreateScrapieTest = new JButton("Create Scrapie Test");
-		btnCreateScrapieTest.setBounds(112, 312, 233, 38);
-		layeredPaneCreateScrapieTest.add(btnCreateScrapieTest);
+		scrapiePane = new LayeredPaneScrapieTest(main);
+		tabbedPane.addTab("Create Scrapie Test", null, scrapiePane, null);
+
 		frmGenindex.setVisible(true);
 	}
 
@@ -515,14 +453,6 @@ public class MainFrame {
 
 	public JTextField getTextFieldCategoryName() {
 		return textFieldCategoryName;
-	}
-
-	public JTextField getTextFieldCompany() {
-		return textFieldCompany;
-	}
-
-	public JTextField getTextFieldTown() {
-		return textFieldTown;
 	}
 
 	public JTextField getTextFieldNumberOfSamples() {

@@ -4,16 +4,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import View.LayeredPaneCustomer;
 import View.MainFrame;
 
 public class CtrlAddCustomer implements MouseListener {
 
 	private Main main;
-	private MainFrame mainFrame;
+	private LayeredPaneCustomer mainFrame;
 	
-	public CtrlAddCustomer(Main pmain, MainFrame pmainFrame) {
+	public CtrlAddCustomer(Main pmain, LayeredPaneCustomer layeredPaneCustomer) {
 		main = pmain;
-		mainFrame = pmainFrame;
+		mainFrame = layeredPaneCustomer;
 	}
 
 	@Override
