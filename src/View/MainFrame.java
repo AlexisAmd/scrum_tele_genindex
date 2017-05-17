@@ -98,7 +98,7 @@ public class MainFrame {
 		
 		// Ajout pane explore
 		
-		layeredPaneExplore = new JLayeredPane();
+		layeredPaneExplore = new LayeredPaneExplore(main);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 
 		// Ajout du menu scrapie

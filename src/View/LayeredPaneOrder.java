@@ -37,7 +37,6 @@ public class LayeredPaneOrder extends JLayeredPane {
 		this.setBorder(null);
 		this.setBackground(Color.WHITE);
 		
-		
 		JLabel labelCustomer = new JLabel("Customer");
 		labelCustomer.setHorizontalAlignment(SwingConstants.RIGHT);
 		labelCustomer.setForeground(new Color(51, 51, 51));
