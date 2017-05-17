@@ -25,6 +25,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 	private Color blueBootstrap =  new Color(66,139,202);
 	private JComboBox listSpecieCategory;
 	private JTextField textFieldSpecieName;
+	private Object selectedCategory;
 
 	public LayeredPaneSpecie(Main pmain) {
 		
@@ -35,7 +36,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.setBackground(Color.WHITE);
 		
 		listSpecieCategory = new JComboBox(new ModelListCategory(main));
-	    SpecieCategory selectedCategory =  (SpecieCategory) listSpecieCategory.getSelectedItem(); 
+	    selectedCategory =    listSpecieCategory.getSelectedItem(); 
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setBounds(198, 93, 407, 39);
 		this.add(listSpecieCategory);
@@ -60,7 +61,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.add(lblName);
 		
 		JButton btnCreateSpecie = new JButton("Add specie");
-	    btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this, selectedCategory)); 
+	    btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this)); 
 		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateSpecie.setBorderPainted(false);
 		btnCreateSpecie.setForeground(Color.WHITE);
@@ -82,5 +83,9 @@ public class LayeredPaneSpecie extends JLayeredPane {
 	 */
 	public JTextField getTextFieldSpecieName() {
 		return textFieldSpecieName;
+	}
+
+	public Object getSelectedCategory() {
+		return selectedCategory;
 	}
 }

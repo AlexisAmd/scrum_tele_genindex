@@ -15,14 +15,22 @@ public class CtrlCreateSpecie implements MouseListener {
   private SpecieCategory selectedCategory; 
  
    
-  public CtrlCreateSpecie(Main pmain, LayeredPaneSpecie layeredPaneSpecie, SpecieCategory pSelectedCategory) { 
+  public CtrlCreateSpecie(Main pmain, LayeredPaneSpecie layeredPaneSpecie) { 
     main = pmain; 
     mainFrame = layeredPaneSpecie; 
-    selectedCategory = pSelectedCategory; 
+    
   }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		SpecieCategory selectedCategory = null; 
+		
+		for (SpecieCategory sc : main.getTheCategories()){
+			if(sc.getName().equals(mainFrame.getSelectedCategory())){
+				selectedCategory =   sc;
+			};
+		}
+		System.out.println("selection = "+selectedCategory);
 	    main.createSpecie(mainFrame.getTextFieldSpecieName().getText(), selectedCategory); 	
 	}
 	

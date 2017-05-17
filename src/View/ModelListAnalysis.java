@@ -13,7 +13,7 @@ public class ModelListAnalysis extends DefaultComboBoxModel {
 	public ModelListAnalysis(Main pmain) {
 		main = pmain;
 		for(Analysis a : main.getTheAnalyses()) {
-			this.addElement(a);
+			this.addElement(a.getName());
 		}
 	}
 	
