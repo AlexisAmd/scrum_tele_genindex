@@ -24,7 +24,7 @@ public class CtrlCreateScapieTest implements MouseListener {
 		try {
 			// main.createScrapieText(pspecie, mainFrame.getTextFieldPeakPosition().getText(), mainFrame.getTextFieldPeakValue().getText());
 		} catch(NumberFormatException ex) {
-			JOptionPane.showMessageDialog(new JFrame(), "The input is not a number !");
+			JOptionPane.showMessageDialog(new JFrame(), "The input is not a number !", "Value error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

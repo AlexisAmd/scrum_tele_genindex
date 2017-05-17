@@ -78,48 +78,63 @@ public class MainFrame {
 		tabbedPane.setForeground(darkBlack);
 		frmGenindex.getContentPane().add(tabbedPane);
 		
-		// Ajout du pane Customer
+		// On récupère le privilège de l'utilisateur
+		String userPrivilege = main.getCurrentUser().getPrivilege().getName();
 		
-		layeredPaneCustomer = new LayeredPaneCustomer(main);
-		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);		
+		// Ajout du pane Customer
+		if(userPrivilege.equals("Secretary") || userPrivilege.equals("Admin")) {
+			layeredPaneCustomer = new LayeredPaneCustomer(main);
+			tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);		
+		}
 		
 		// Ajout du pane Ordre
 		
-		layeredPaneOrder = new LayeredPaneOrder(main);
-		tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
+		if(userPrivilege.equals("Secretary") || userPrivilege.equals("Admin")) {
+			layeredPaneOrder = new LayeredPaneOrder(main);
+			tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
+		}
 		
 		// Ajout pane espèce
 		
-		layeredPaneSpecie = new LayeredPaneSpecie(main);
-		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
-
+		if(userPrivilege.equals("Secretary") || userPrivilege.equals("Admin")) {
+			layeredPaneSpecie = new LayeredPaneSpecie(main);
+			tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
+		}
+		
 		// Ajout pane categorie
 		
-		layeredPaneCategory = new LayeredPaneCategory(main);
-		tabbedPane.addTab("Add category", null, layeredPaneCategory, null);
+		if(userPrivilege.equals("Secretary") || userPrivilege.equals("Admin")) {
+			layeredPaneCategory = new LayeredPaneCategory(main);
+			tabbedPane.addTab("Add category", null, layeredPaneCategory, null);
+		}
 		
 		// Ajout pane explore
 		
-		layeredPaneExplore = new LayeredPaneExplore(main);
-		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
-
+		if(userPrivilege.equals("Validator") || userPrivilege.equals("Admin")) {
+			layeredPaneExplore = new LayeredPaneExplore(main);
+			tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
+		}
+		
 		// Ajout du menu scrapie
 		
-		layeredPaneScrapie = new LayeredPaneScrapieTest(main);
-		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneScrapie, null);
+		if(userPrivilege.equals("Validator") || userPrivilege.equals("Admin")) {
+			layeredPaneScrapie = new LayeredPaneScrapieTest(main);
+			tabbedPane.addTab("Create Scrapie Test", null, layeredPaneScrapie, null);
+		}
 
 		frmGenindex.setVisible(true);
 		
 	}
 	
-public static void refresh(){
-layeredPaneCustomer.refresh();
-layeredPaneOrder.refresh();
-layeredPaneSpecie.refresh();
-layeredPaneCategory.refresh();
-layeredPaneExplore.refresh();
-layeredPaneScrapie.refresh();
-	
-}
+	public static void refresh(){
+		
+		layeredPaneCustomer.refresh();
+		layeredPaneOrder.refresh();
+		layeredPaneSpecie.refresh();
+		layeredPaneCategory.refresh();
+		layeredPaneExplore.refresh();
+		layeredPaneScrapie.refresh();
+		
+	}
 
 }

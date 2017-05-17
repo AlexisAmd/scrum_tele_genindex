@@ -90,7 +90,7 @@ public class Main {
 			}
 		}
 		// On a pas trouvé d'utilisateur, le couple id/pwd est incorrect
-		JOptionPane.showMessageDialog(new JFrame(), "Wrong ID / Password.");
+		JOptionPane.showMessageDialog(new JFrame(), "Wrong ID / Password.", "Login error", JOptionPane.ERROR_MESSAGE);
 		return false;
 	}
 	
@@ -100,7 +100,7 @@ public class Main {
 	public void createCustomer(String pname, String ptown) {
 		
 		if(pname.length() < 3 || pname.length() > 15 || ptown.length() < 3 || ptown.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).", "Completion error", JOptionPane.ERROR_MESSAGE);
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 			ptown = WordUtils.capitalizeFully(ptown);
@@ -113,7 +113,7 @@ public class Main {
 			}
 			
 			if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
-				JOptionPane.showMessageDialog(new JFrame(), "This customer already exist.");
+				JOptionPane.showMessageDialog(new JFrame(), "This customer already exist.", "Already exist", JOptionPane.ERROR_MESSAGE);
 			} else { // On peut créer le client
 				Customer nCustomer = new Customer(pname, ptown);
 				theCustomers.add(nCustomer);
@@ -130,7 +130,7 @@ public class Main {
 	 */
 	public void createCategory(String pname) {
 		if(pname.length() < 3 || pname.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).", "Completion error", JOptionPane.ERROR_MESSAGE);
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 	
@@ -142,7 +142,7 @@ public class Main {
 			}
 			
 			if(exist) { // La catégorie existe déjà
-				JOptionPane.showMessageDialog(new JFrame(), "This category already exist.");
+				JOptionPane.showMessageDialog(new JFrame(), "This category already exist.", "Already exist", JOptionPane.ERROR_MESSAGE);
 			} else { // On peut créer la catégorie
 				SpecieCategory nCategory = new SpecieCategory(pname);
 				theCategories.add(nCategory);
@@ -160,7 +160,7 @@ public class Main {
 	public void createSpecie(String pname, SpecieCategory pcategory) {
 		
 		if(pname.length() < 3 || pname.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).", "Completion error", JOptionPane.ERROR_MESSAGE);
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 	
@@ -176,7 +176,7 @@ public class Main {
 			}
 			
 			if(exist) { // Il existe déjà une espèce similaire dans une catégorie
-				JOptionPane.showMessageDialog(new JFrame(), "This specie already exist in the category " + catExist.getName());
+				JOptionPane.showMessageDialog(new JFrame(), "This specie already exist in the category " + catExist.getName(), "Already exist", JOptionPane.ERROR_MESSAGE);
 			} else { // On peut creér l'espèce et la range dans la catégorie demandée
 				Specie nSpecie = new Specie(pname);
 				pcategory.addSpecie(nSpecie);
@@ -226,7 +226,7 @@ public class Main {
 	public void createScrapieText(Specie pspecie, int ppos, int pval) {
 		
 		if(ppos < 0 || pval < 0) {
-			JOptionPane.showMessageDialog(new JFrame(), "Please enter positive values.");
+			JOptionPane.showMessageDialog(new JFrame(), "Please enter positive values.", "Not a proper value", JOptionPane.ERROR_MESSAGE);
 		} else {
 			ScrapieTest nScrapieTest = new ScrapieTest(pspecie, ppos, pval);
 			theAnalyses.add(nScrapieTest);
@@ -248,10 +248,25 @@ public class Main {
 
         Privilege secretary = new Privilege("Secretary");
         Privilege validator = new Privilege("Validator");
-
+        Privilege customer = new Privilege("Customer");
+        Privilege technician = new Privilege("Technician");
+        Privilege admin = new Privilege("Admin");
+        
         // User
         User magalie = new User("Magalie", "123", secretary);
         theUsers.add(magalie);
+        
+        User clotaire = new User("Clotaire", "123", validator);
+        theUsers.add(clotaire);
+        
+        User marcel = new User("Marcel", "123", technician);
+        theUsers.add(marcel);
+        
+        User vincent  = new User("Vincent", "123", customer);
+        theUsers.add(vincent);        
+        
+        User uadmin = new User("Admin", "123", admin);
+        theUsers.add(uadmin);
         
         // Customer "Mrs Rosemary Plumket", in Poitiers
         Customer rose = new Customer("Mrs Rosemary Plumket", "Poitiers");
@@ -384,6 +399,13 @@ public class Main {
 	public ArrayList<Analysis> getTheAnalyses() {
 		// TODO Auto-generated method stub
 		return theAnalyses;
+	}
+
+	/**
+	 * @return the currentUser
+	 */
+	public User getCurrentUser() {
+		return currentUser;
 	}
 
 

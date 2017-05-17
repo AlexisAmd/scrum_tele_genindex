@@ -74,7 +74,7 @@ public class Login extends JFrame {
 		textFieldUser = new JTextField();
 		textFieldUser.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldUser.setToolTipText("Type your username here");
-		textFieldUser.setText("Magalie");
+		textFieldUser.setText("Admin");
 		textFieldUser.setBackground(SystemColor.inactiveCaptionBorder);
 		textFieldUser.setBounds(0, 11, 283, 41);
 		panelContent.add(textFieldUser);
