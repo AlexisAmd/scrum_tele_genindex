@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -74,7 +75,7 @@ public class Login extends JFrame {
 		textFieldUser.setBounds(0, 11, 283, 41);
 		panelContent.add(textFieldUser);
 		
-		textFieldPwd = new JTextField();
+		textFieldPwd = new JPasswordField(20);
 		textFieldPwd.setFont(new Font("Calibri", Font.PLAIN, 14));
 		textFieldPwd.setToolTipText("Type your password here");
 		textFieldPwd.setText("123");
