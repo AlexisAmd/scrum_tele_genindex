@@ -4,8 +4,6 @@ import javax.swing.JFrame;
 
 
 import Main.Main;
-import Model.SpecieCategory;
-
 import java.awt.GridLayout;
 import javax.swing.JTabbedPane;
 import javax.swing.JLayeredPane;
@@ -213,47 +211,10 @@ public class MainFrame {
 		
 		// Ajout pane espèce
 		
-<<<<<<< HEAD
-		listSpecieCategory = new JComboBox(new ModelListCategory(main));
-		SpecieCategory selectedCategory =  (SpecieCategory) listSpecieCategory.getSelectedItem();
-		
-		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listSpecieCategory.setBounds(198, 93, 407, 39);
-		layeredPaneSpecie.add(listSpecieCategory);
-		
-		textFieldSpecieName = new JTextField();
-		textFieldSpecieName.setBounds(198, 143, 407, 39);
-		layeredPaneSpecie.add(textFieldSpecieName);
-		textFieldSpecieName.setColumns(10);
-		
-		JLabel lblCategory = new JLabel("Category");
-		lblCategory.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCategory.setForeground(new Color(51, 51, 51));
-		lblCategory.setFont(fontLabel);
-		lblCategory.setBounds(10, 96, 151, 39);
-		layeredPaneSpecie.add(lblCategory);
-		
-		JLabel lblName = new JLabel("Name");
-		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblName.setForeground(new Color(51, 51, 51));
-		lblName.setFont(fontLabel);
-		lblName.setBounds(10, 141, 151, 39);
-		layeredPaneSpecie.add(lblName);
-		
-		JButton btnCreateSpecie = new JButton("Add specie");
-		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this, selectedCategory));
-		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
-		btnCreateSpecie.setBorderPainted(false);
-		btnCreateSpecie.setForeground(Color.WHITE);
-		btnCreateSpecie.setFont(fontLabel);
-		btnCreateSpecie.setBackground(blueBootstrap);
-		btnCreateSpecie.setBounds(198, 343, 248, 39);
-		layeredPaneSpecie.add(btnCreateSpecie);
-=======
 		layeredPaneSpecie = new LayeredPaneSpecie(main);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
 
->>>>>>> origin/master
+		// Ajout pane categorie
 		
 		JLayeredPane layeredPaneCategory = new JLayeredPane();
 		layeredPaneCategory.setForeground(new Color(51, 51, 51));
@@ -274,8 +235,7 @@ public class MainFrame {
 		btnCreateCategory.setFont(fontLabel);
 		btnCreateCategory.setBackground(blueBootstrap);
 		btnCreateCategory.setBounds(198, 343, 248, 39);
-		//TODO CREEER LISTENER POUR CE BOUTON
-		btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this));
+	    btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this)); 
 		layeredPaneCategory.add(btnCreateCategory);
 		
 		JLabel lblCategoryName = new JLabel("Category Name");

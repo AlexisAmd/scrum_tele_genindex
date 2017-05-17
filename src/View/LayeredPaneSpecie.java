@@ -12,8 +12,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 
+import Controler.CtrlCreateCategory;
 import Controler.CtrlCreateSpecie;
 import Main.Main;
+import Model.SpecieCategory;
 
 public class LayeredPaneSpecie extends JLayeredPane {
 
@@ -33,6 +35,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.setBackground(Color.WHITE);
 		
 		listSpecieCategory = new JComboBox(new ModelListCategory(main));
+	    SpecieCategory selectedCategory =  (SpecieCategory) listSpecieCategory.getSelectedItem(); 
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setBounds(198, 93, 407, 39);
 		this.add(listSpecieCategory);
@@ -57,7 +60,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.add(lblName);
 		
 		JButton btnCreateSpecie = new JButton("Add specie");
-		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this));
+	    btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this, selectedCategory)); 
 		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateSpecie.setBorderPainted(false);
 		btnCreateSpecie.setForeground(Color.WHITE);
