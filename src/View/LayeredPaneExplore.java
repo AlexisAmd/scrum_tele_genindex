@@ -45,7 +45,7 @@ public class LayeredPaneExplore extends JLayeredPane {
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
-		listCustomers.setModel(new DefaultComboBoxModel(new String[] {"Item1", "Item2", "Item3"}));
+		listCustomers.setModel(new ModelListCustomer(main));
 
 	
 		listCustomers.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
