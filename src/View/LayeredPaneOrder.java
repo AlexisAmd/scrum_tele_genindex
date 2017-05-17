@@ -24,7 +24,8 @@ public class LayeredPaneOrder extends JLayeredPane {
 	private JComboBox listSpecie;
 	private JComboBox listAnalysis;
 	private JTextField textFieldNumberOfSamples;
-	
+	private Object selectedCategory, selectedCustomer, selectedSpecie, selectedAnalysis;
+
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
@@ -45,24 +46,28 @@ public class LayeredPaneOrder extends JLayeredPane {
 		this.add(labelCustomer);
 		
 		listCustomer = new JComboBox(new ModelListCustomer(main));
+	    selectedCustomer =    listCustomer.getSelectedItem(); 
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
 		this.add(listCustomer);
 		
 		listCategory = new JComboBox(new ModelListCategory(main));
+	    selectedCategory =    listCategory.getSelectedItem(); 
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
 		listCategory.setBounds(198, 94, 407, 39);
 		this.add(listCategory);
 		
 		listSpecie = new JComboBox(new ModelListSpecie(main));
+	    selectedSpecie =    listSpecie.getSelectedItem(); 
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
 		this.add(listSpecie);
 		
 		listAnalysis = new JComboBox(new ModelListAnalysis(main));
+	    selectedAnalysis =    listAnalysis.getSelectedItem(); 
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
 		listAnalysis.setBounds(198, 198, 407, 39);
@@ -146,5 +151,33 @@ public class LayeredPaneOrder extends JLayeredPane {
 	 */
 	public JTextField getTextFieldNumberOfSamples() {
 		return textFieldNumberOfSamples;
+	}
+
+	/**
+	 * @return the selectedCategory
+	 */
+	public Object getSelectedCategory() {
+		return selectedCategory;
+	}
+
+	/**
+	 * @return the selectedCustomer
+	 */
+	public Object getSelectedCustomer() {
+		return selectedCustomer;
+	}
+
+	/**
+	 * @return the selectedSpecie
+	 */
+	public Object getSelectedSpecie() {
+		return selectedSpecie;
+	}
+
+	/**
+	 * @return the selectedAnalysis
+	 */
+	public Object getSelectedAnalysis() {
+		return selectedAnalysis;
 	}
 }
