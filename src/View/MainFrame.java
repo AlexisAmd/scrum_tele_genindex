@@ -43,6 +43,8 @@ import java.awt.SystemColor;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainFrame {
 
@@ -471,8 +473,15 @@ public class MainFrame {
 		listSpecie1.setBounds(327, 73, 148, 38);
 		
 		layeredPaneCreateScrapieTest.add(listSpecie1);
+		
+		JButton btnCreateScrapieTest = new JButton("Create Scrapie Test");
+		btnCreateScrapieTest.setBounds(112, 312, 233, 38);
+		layeredPaneCreateScrapieTest.add(btnCreateScrapieTest);
 		frmGenindex.setVisible(true);
 	}
+
+
+
 
 	private ComboBoxModel ModelListAnalysis(Main main2) {
 		// TODO Auto-generated method stub
@@ -523,5 +532,4 @@ public class MainFrame {
 	public JFrame getFrmGenindex() {
 		return frmGenindex;
 	}
-
 }
