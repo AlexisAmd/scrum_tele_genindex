@@ -4,15 +4,16 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import View.LayeredPaneOrder;
 import View.MainFrame;
 
 public class CtrlCreateOrder implements MouseListener {
 
 	private Main main;
-	private MainFrame mainFrame;
+	private LayeredPaneOrder mainFrame;
 	
-	public CtrlCreateOrder(Main pmain, MainFrame pmainFrame) {
-		
+	public CtrlCreateOrder(Main pmain, LayeredPaneOrder layeredPaneOrder) {
+		mainFrame = layeredPaneOrder;
 	}
 
 	@Override

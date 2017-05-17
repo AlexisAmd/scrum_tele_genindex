@@ -380,9 +380,4 @@ public class Main {
 		return theCustomers;
 	}
 	
-	public void refresh() {
-		frame.getFrmGenindex().setVisible(false);
-		frame.getFrmGenindex().setVisible(true);
-	}
-	
 }
