@@ -114,7 +114,5 @@ public class Login extends JFrame {
 	public JTextField getTextFieldPwd() {
 		return textFieldPwd;
 	}
-	public void showErrorBox() {
-		JOptionPane.showMessageDialog(new JFrame(), "Mauvais couple ID / Mot de passe.");
-	}
+
 }

@@ -85,7 +85,7 @@ public class Main {
 			}
 		}
 		// On a pas trouvé d'utilisateur, le couple id/pwd est incorrect
-		login.showErrorBox();
+		JOptionPane.showMessageDialog(new JFrame(), "Wrong ID / Password.");
 		return false;
 	}
 	
@@ -95,7 +95,7 @@ public class Main {
 	public void createCustomer(String pname, String ptown) {
 		
 		if(pname.length() < 3 || pname.length() > 15 || ptown.length() < 3 || ptown.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter les champs (entre 3 et 15 caractères).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 			ptown = WordUtils.capitalizeFully(ptown);
@@ -108,11 +108,11 @@ public class Main {
 			}
 			
 			if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
-				JOptionPane.showMessageDialog(new JFrame(), "Ce client existe déjà.");
+				JOptionPane.showMessageDialog(new JFrame(), "This customer already exist.");
 			} else { // On peut créer le client
 				Customer nCustomer = new Customer(pname, ptown);
 				theCustomers.add(nCustomer);
-				JOptionPane.showMessageDialog(new JFrame(), "Le client a bien été ajouté.");
+				JOptionPane.showMessageDialog(new JFrame(), "The customer has been well created.");
 			}
 		}
 		
@@ -125,7 +125,7 @@ public class Main {
 	public void createCategory(String pname) {
 		
 		if(pname.length() < 3 || pname.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter le champs (entre 3 et 15 caractères).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 	
@@ -137,11 +137,11 @@ public class Main {
 			}
 			
 			if(exist) { // La catégorie existe déjà
-				JOptionPane.showMessageDialog(new JFrame(), "Cette catégorie existe déjà.");
+				JOptionPane.showMessageDialog(new JFrame(), "This category already exist.");
 			} else { // On peut créer la catégorie
 				SpecieCategory nCategory = new SpecieCategory(pname);
 				theCategories.add(nCategory);
-				JOptionPane.showMessageDialog(new JFrame(), "La catégorie a bien été créée.");
+				JOptionPane.showMessageDialog(new JFrame(), "The category has been well created.");
 			}
 		}
 	}
@@ -154,26 +154,46 @@ public class Main {
 	public void createSpecie(String pname, SpecieCategory pcategory) {
 		
 		if(pname.length() < 3 || pname.length() > 15) {
-			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter le champs (entre 3 et 15 caractères).");
+			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
 		} else {
 			pname = WordUtils.capitalizeFully(pname);
 	
 			boolean exist = false;
+			SpecieCategory catExist = null;
 			for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
 				for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
 					if(s.getName().toUpperCase().equals(pname.toUpperCase())) {
 						exist = true;
+						catExist = sC;
 					}
 				}
 			}
 			
 			if(exist) { // Il existe déjà une espèce similaire dans une catégorie
-				JOptionPane.showMessageDialog(new JFrame(), "Cette espèce existe déjà.");
+				JOptionPane.showMessageDialog(new JFrame(), "This specie already exist in the category " + catExist.getName());
 			} else { // On peut creér l'espèce et la range dans la catégorie demandée
 				Specie nSpecie = new Specie(pname);
 				pcategory.addSpecie(nSpecie);
-				JOptionPane.showMessageDialog(new JFrame(), "L'espèce a bien été ajoutée.");
+				JOptionPane.showMessageDialog(new JFrame(), "The specie has been added successfully.");
 			}
+		}
+		
+	}
+	
+	/**
+	 * Ajoute un scrapie test (vérifie que les valeurs ne sont pas inférieures à 0)
+	 * @param pspecie l'espèce
+	 * @param ppos la position
+	 * @param pval la valeur
+	 */
+	public void createScrapieText(Specie pspecie, int ppos, int pval) {
+		
+		if(ppos < 0 || pval < 0) {
+			JOptionPane.showMessageDialog(new JFrame(), "Please enter positive values.");
+		} else {
+			ScrapieTest nScrapieTest = new ScrapieTest(pspecie, ppos, pval);
+			theAnalyses.add(nScrapieTest);
+			JOptionPane.showMessageDialog(new JFrame(), "The scrapie test has been well created.");
 		}
 		
 	}
