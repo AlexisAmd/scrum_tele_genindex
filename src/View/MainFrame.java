@@ -67,6 +67,8 @@ public class MainFrame {
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
+	private JTextField textFieldPosition;
+	private JTextField textFieldValue;
 
 	/**
 	 * Create the application.
@@ -452,6 +454,21 @@ public class MainFrame {
 		layeredPaneCreateScrapieTest.setBorder(null);
 		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
+		
+		textFieldPosition = new JTextField();
+		textFieldPosition.setBounds(348, 182, 86, 20);
+		layeredPaneCreateScrapieTest.add(textFieldPosition);
+		textFieldPosition.setColumns(10);
+		
+		textFieldValue = new JTextField();
+		textFieldValue.setBounds(335, 248, 86, 20);
+		layeredPaneCreateScrapieTest.add(textFieldValue);
+		textFieldValue.setColumns(10);
+		
+		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie());
+		listSpecie1.setBounds(327, 73, 148, 38);
+		
+		layeredPaneCreateScrapieTest.add(listSpecie1);
 		frmGenindex.setVisible(true);
 	}
 
