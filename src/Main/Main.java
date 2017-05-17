@@ -122,6 +122,7 @@ public class Main {
 		
 	}
 	
+	
 	/**
 	 * Permet d'ajouter une categorie qui n'existe pas encore
 	 * @param pname le nom de la catégorie
