@@ -171,6 +171,13 @@ public class MainFrame {
 		layeredPaneOrder.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
 		
+		JLabel labelCustomer = new JLabel("Customer");
+		labelCustomer.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelCustomer.setForeground(new Color(51, 51, 51));
+		labelCustomer.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelCustomer.setBounds(10, 42, 151, 39);
+		layeredPaneOrder.add(labelCustomer);
+		
 		listCustomer = new JComboBox();
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -209,6 +216,34 @@ public class MainFrame {
 		btnCreateOrder.setBackground(blueBootstrap);
 		btnCreateOrder.setBounds(198, 343, 248, 39);
 		layeredPaneOrder.add(btnCreateOrder);
+		
+		JLabel labelCategory = new JLabel("Category");
+		labelCategory.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelCategory.setForeground(new Color(51, 51, 51));
+		labelCategory.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelCategory.setBounds(10, 92, 151, 39);
+		layeredPaneOrder.add(labelCategory);
+		
+		JLabel labelSpecie = new JLabel("Specie");
+		labelSpecie.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelSpecie.setForeground(new Color(51, 51, 51));
+		labelSpecie.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelSpecie.setBounds(10, 146, 151, 39);
+		layeredPaneOrder.add(labelSpecie);
+		
+		JLabel labelAnalysis = new JLabel("Analysis");
+		labelAnalysis.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelAnalysis.setForeground(new Color(51, 51, 51));
+		labelAnalysis.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelAnalysis.setBounds(10, 198, 151, 39);
+		layeredPaneOrder.add(labelAnalysis);
+		
+		JLabel labelNumberOfSamples = new JLabel("Number of Sample");
+		labelNumberOfSamples.setHorizontalAlignment(SwingConstants.RIGHT);
+		labelNumberOfSamples.setForeground(new Color(51, 51, 51));
+		labelNumberOfSamples.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelNumberOfSamples.setBounds(10, 248, 151, 39);
+		layeredPaneOrder.add(labelNumberOfSamples);
 		
 		JLayeredPane layeredPaneSpecie = new JLayeredPane();
 		layeredPaneSpecie.setForeground(new Color(51, 51, 51));
