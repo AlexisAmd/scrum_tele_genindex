@@ -13,6 +13,7 @@ import java.awt.Font;
 import java.awt.ComponentOrientation;
 import javax.swing.DebugGraphics;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
@@ -24,7 +25,7 @@ import Controler.CtrlLogin;
 
 import javax.swing.JTextField;
 import javax.swing.JPanel;
-import javax.swing.JList;
+import javax.swing.JComboBox;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
@@ -39,6 +40,8 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.TitledBorder;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
+import javax.swing.AbstractListModel;
+import javax.swing.DefaultComboBoxModel;
 
 public class MainFrame {
 
@@ -47,13 +50,13 @@ public class MainFrame {
 	private JTextField textFieldCompany;
 	private JTextField textFieldTown;
 	private JTextField textFieldNumberOfSamples;
-	private JList listCustomer;
-	private JList listCategory;
-	private JList listSpecie;
-	private JList listAnalysis;
+	private JComboBox listCustomer;
+	private JComboBox listCategory;
+	private JComboBox listSpecie;
+	private JComboBox listAnalysis;
 	private JTextField textFieldSpecieName;
 	private JTextField textFieldCategoryName;
-	private JList listSpecieCategory;
+	private JComboBox listSpecieCategory;
 	private JTable tableOrders;
 	private JLabel lblPercentageAnalysedSamples;
 	private JLabel lblPercentageNotAnalysedSamples;
@@ -168,29 +171,25 @@ public class MainFrame {
 		layeredPaneOrder.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Order", null, layeredPaneOrder, "Create a new order");
 		
-		listCustomer = new JList();
-		listCustomer.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listCustomer = new JComboBox();
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
 		layeredPaneOrder.add(listCustomer);
 		
-		listCategory = new JList();
-		listCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listCategory = new JComboBox();
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
 		listCategory.setBounds(198, 94, 407, 39);
 		layeredPaneOrder.add(listCategory);
 		
-		listSpecie = new JList();
-		listSpecie.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listSpecie = new JComboBox();
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
 		layeredPaneOrder.add(listSpecie);
 		
-		listAnalysis = new JList();
-		listAnalysis.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		listAnalysis = new JComboBox();
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
 		listAnalysis.setBounds(198, 198, 407, 39);
@@ -217,9 +216,8 @@ public class MainFrame {
 		layeredPaneSpecie.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
 		
-		listSpecieCategory = new JList();
+		listSpecieCategory = new JComboBox();
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listSpecieCategory.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		listSpecieCategory.setBounds(198, 93, 407, 39);
 		layeredPaneSpecie.add(listSpecieCategory);
 		
@@ -286,7 +284,13 @@ public class MainFrame {
 		layeredPaneExplore.setBackground(Color.WHITE);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 		
-		JList listCustomers = new JList();
+		JComboBox listCustomers = new JComboBox();
+		listCustomers.setForeground(darkBlack);
+		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		listCustomers.setBackground(Color.WHITE);
+		listCustomers.setModel(new DefaultComboBoxModel(new String[] {"Item1", "Item2", "Item3"}));
+
+	
 		listCustomers.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomers.setBounds(197, 42, 405, 40);
 		layeredPaneExplore.add(listCustomers);
