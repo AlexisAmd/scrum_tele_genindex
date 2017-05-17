@@ -179,21 +179,12 @@ public class Main {
 			} else { // On peut creér l'espèce et la range dans la catégorie demandée
 				Specie nSpecie = new Specie(pname);
 				pcategory.addSpecie(nSpecie);
-				
-				//affichage de toutes les especes en cosole
-				for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
-					for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
-						System.out.println(s);
-					}}
-				
-					}
-				
 				JOptionPane.showMessageDialog(new JFrame(), "The specie has been added successfully.");
 			}
+				
 		}
+	}
 		
-	
-	
 	/**
 	 * Ajoute un scrapie test (vérifie que les valeurs ne sont pas inférieures à 0)
 	 * @param pspecie l'espèce
