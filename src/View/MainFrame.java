@@ -34,6 +34,9 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Cursor;
 import java.awt.Component;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.TitledBorder;
 
 public class MainFrame {
 
@@ -53,6 +56,11 @@ public class MainFrame {
 	private JLabel lblPercentageAnalysedSamples;
 	private JLabel lblPercentageNotAnalysedSamples;
 	private JLabel lblTotalOfSamples;
+	
+	
+	//CSS
+	private Color darkBlack = new Color(51,51,51);
+	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 
 	/**
 	 * Create the application.
@@ -98,7 +106,7 @@ public class MainFrame {
 		tabbedPane.setBackground(new Color(66,139,202));
 		tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		tabbedPane.setOpaque(true);
-		tabbedPane.setForeground(new Color(51,51,51));
+		tabbedPane.setForeground(darkBlack);
 		frame.getContentPane().add(tabbedPane);
 		
 		JLayeredPane layeredPaneCustomer = new JLayeredPane();
@@ -111,7 +119,7 @@ public class MainFrame {
 		textFieldCompany.setBounds(198, 115, 407, 39);
 		layeredPaneCustomer.add(textFieldCompany);
 		textFieldCompany.setSelectionColor(new Color(66,139,202));
-		textFieldCompany.setForeground(new Color(51,51,51));
+		textFieldCompany.setForeground(darkBlack);
 		textFieldCompany.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textFieldCompany.setColumns(10);
 		
@@ -127,7 +135,7 @@ public class MainFrame {
 		btnAddCustomer.setBackground(new Color(66,139,202));
 		btnAddCustomer.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnAddCustomer.setForeground(Color.WHITE);
-		btnAddCustomer.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAddCustomer.setFont(fontLabel);
 		
 		btnAddCustomer.setBounds(198, 343, 248, 39);
 		btnAddCustomer.addMouseListener(new CtrlAddCustomer(main, this));
@@ -136,14 +144,14 @@ public class MainFrame {
 		JLabel lblCompany = new JLabel("Company");
 		lblCompany.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCompany.setForeground(new Color(51, 51, 51));
-		lblCompany.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCompany.setFont(fontLabel);
 		lblCompany.setBounds(10, 116, 151, 39);
 		layeredPaneCustomer.add(lblCompany);
 		
 		JLabel lblTown = new JLabel("Town");
 		lblTown.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTown.setForeground(new Color(51, 51, 51));
-		lblTown.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTown.setFont(fontLabel);
 		lblTown.setBounds(10, 164, 151, 39);
 		layeredPaneCustomer.add(lblTown);
 		
@@ -193,7 +201,7 @@ public class MainFrame {
 		btnCreateOrder.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateOrder.setBorderPainted(false);
 		btnCreateOrder.setForeground(Color.WHITE);
-		btnCreateOrder.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateOrder.setFont(fontLabel);
 		btnCreateOrder.setBackground(new Color(66,139,202));
 		btnCreateOrder.setBounds(198, 343, 248, 39);
 		layeredPaneOrder.add(btnCreateOrder);
@@ -218,14 +226,14 @@ public class MainFrame {
 		JLabel lblCategory = new JLabel("Category");
 		lblCategory.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCategory.setForeground(new Color(51, 51, 51));
-		lblCategory.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategory.setFont(fontLabel);
 		lblCategory.setBounds(10, 96, 151, 39);
 		layeredPaneSpecie.add(lblCategory);
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblName.setForeground(new Color(51, 51, 51));
-		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblName.setFont(fontLabel);
 		lblName.setBounds(10, 141, 151, 39);
 		layeredPaneSpecie.add(lblName);
 		
@@ -234,7 +242,7 @@ public class MainFrame {
 		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateSpecie.setBorderPainted(false);
 		btnCreateSpecie.setForeground(Color.WHITE);
-		btnCreateSpecie.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateSpecie.setFont(fontLabel);
 		btnCreateSpecie.setBackground(new Color(66,139,202));
 		btnCreateSpecie.setBounds(198, 343, 248, 39);
 		layeredPaneSpecie.add(btnCreateSpecie);
@@ -255,7 +263,7 @@ public class MainFrame {
 		btnCreateCategory.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateCategory.setBorderPainted(false);
 		btnCreateCategory.setForeground(Color.WHITE);
-		btnCreateCategory.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateCategory.setFont(fontLabel);
 		btnCreateCategory.setBackground(new Color(66,139,202));
 		btnCreateCategory.setBounds(198, 343, 248, 39);
 		layeredPaneCategory.add(btnCreateCategory);
@@ -263,7 +271,7 @@ public class MainFrame {
 		JLabel lblCategoryName = new JLabel("Category Name");
 		lblCategoryName.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblCategoryName.setForeground(new Color(51, 51, 51));
-		lblCategoryName.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCategoryName.setFont(fontLabel);
 		lblCategoryName.setBounds(10, 140, 151, 39);
 		layeredPaneCategory.add(lblCategoryName);
 		
@@ -286,6 +294,57 @@ public class MainFrame {
 		layeredPaneExplore.add(scrollPane);
 		
 		tableOrders = new JTable();
+		tableOrders.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tableOrders.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"ID", "Order", "Status", "Object"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, Object.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		tableOrders.getColumnModel().getColumn(0).setPreferredWidth(43);
+		tableOrders.getColumnModel().getColumn(1).setPreferredWidth(96);
+		tableOrders.getColumnModel().getColumn(2).setPreferredWidth(76);
+		tableOrders.getColumnModel().getColumn(3).setResizable(false);
+		tableOrders.getColumnModel().getColumn(3).setPreferredWidth(1);
+		tableOrders.getColumnModel().getColumn(3).setMinWidth(0);
+		tableOrders.getColumnModel().getColumn(3).setMaxWidth(1);
 		tableOrders.setSelectionBackground(new Color(66, 139, 202));
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(tableOrders);
@@ -294,38 +353,41 @@ public class MainFrame {
 		JLabel lblChooseACustomer = new JLabel("Choose a customer");
 		lblChooseACustomer.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblChooseACustomer.setForeground(new Color(51, 51, 51));
-		lblChooseACustomer.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblChooseACustomer.setBounds(10, 42, 151, 39);
+		lblChooseACustomer.setFont(fontLabel );
+		lblChooseACustomer.setBounds(41, 42, 140, 39);
 		layeredPaneExplore.add(lblChooseACustomer);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(396, 116, 206, 255);
-		layeredPaneExplore.add(panel);
-		panel.setLayout(null);
+		JPanel panelStatistics = new JPanel();
+		panelStatistics.setBorder(new TitledBorder(null, "Statistics", TitledBorder.LEADING, TitledBorder.TOP, null, darkBlack ));
+		panelStatistics.setBackground(new Color(255, 255, 255));
+		panelStatistics.setForeground(darkBlack);
+		panelStatistics.setBounds(396, 116, 206, 255);
+		layeredPaneExplore.add(panelStatistics);
+		panelStatistics.setLayout(null);
 		
 		JLabel lblAnalysedSamples = new JLabel("AnalysedSamples");
 		lblAnalysedSamples.setBounds(10, 31, 159, 34);
-		panel.add(lblAnalysedSamples);
+		panelStatistics.add(lblAnalysedSamples);
 		
 		lblPercentageAnalysedSamples = new JLabel("NA");
 		lblPercentageAnalysedSamples.setBounds(164, 31, 32, 34);
-		panel.add(lblPercentageAnalysedSamples);
+		panelStatistics.add(lblPercentageAnalysedSamples);
 		
 		JLabel lblNonAnalysedSamples = new JLabel("Not Analysed Samples");
 		lblNonAnalysedSamples.setBounds(10, 79, 159, 34);
-		panel.add(lblNonAnalysedSamples);
+		panelStatistics.add(lblNonAnalysedSamples);
 		
 		JLabel lblTotalSamples = new JLabel("Total");
 		lblTotalSamples.setBounds(10, 123, 159, 34);
-		panel.add(lblTotalSamples);
+		panelStatistics.add(lblTotalSamples);
 		
 		lblPercentageNotAnalysedSamples = new JLabel("NA");
 		lblPercentageNotAnalysedSamples.setBounds(164, 79, 32, 34);
-		panel.add(lblPercentageNotAnalysedSamples);
+		panelStatistics.add(lblPercentageNotAnalysedSamples);
 		
 		lblTotalOfSamples = new JLabel("NA");
 		lblTotalOfSamples.setBounds(164, 124, 32, 34);
-		panel.add(lblTotalOfSamples);
+		panelStatistics.add(lblTotalOfSamples);
 		
 		JLayeredPane layeredPaneCreateScrapieTest = new JLayeredPane();
 		layeredPaneCreateScrapieTest.setForeground(new Color(51, 51, 51));
