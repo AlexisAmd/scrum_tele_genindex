@@ -12,7 +12,7 @@ public class ModelListCategory extends DefaultComboBoxModel {
 	public ModelListCategory(Main pmain) {
 		main = pmain;
 		for(SpecieCategory sC : main.getTheCategories()) {
-			this.addElement(sC);
+			this.addElement(sC.getName());
 		}
 	}
 	
