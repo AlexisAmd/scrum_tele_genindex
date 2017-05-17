@@ -1,11 +1,16 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EtchedBorder;
 
 import Main.Main;
 
@@ -15,6 +20,9 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 	private JTextField textFieldPosition;
 	private JTextField textFieldValue;
 	
+	private Color darkBlack = new Color(51,51,51);
+	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
+	private Color blueBootstrap =  new Color(66,139,202);
 
 	private ModelListSpecie modelListSpecie;
 
@@ -27,23 +35,49 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		this.setBackground(Color.WHITE);
 		
 		textFieldPosition = new JTextField();
-		textFieldPosition.setBounds(348, 182, 86, 20);
+		textFieldPosition.setBounds(198, 138, 407, 39);
 		this.add(textFieldPosition);
 		textFieldPosition.setColumns(10);
 		
+		JLabel lblPeakPosition = new JLabel("Peak Position");
+		lblPeakPosition.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPeakPosition.setForeground(new Color(51, 51, 51));
+		lblPeakPosition.setFont(fontLabel);
+		lblPeakPosition.setBounds(10, 141, 151, 39);
+		this.add(lblPeakPosition);
+		
 		textFieldValue = new JTextField();
-		textFieldValue.setBounds(335, 248, 86, 20);
+		textFieldValue.setBounds(198, 183, 407, 39);
 		this.add(textFieldValue);
 		textFieldValue.setColumns(10);
 		
+		JLabel lblPeakValue = new JLabel("Peak Value");
+		lblPeakValue.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPeakValue.setForeground(new Color(51, 51, 51));
+		lblPeakValue.setFont(fontLabel);
+		lblPeakValue.setBounds(10, 186, 151, 39);
+		this.add(lblPeakValue);
+		
 		modelListSpecie = new ModelListSpecie(main);
 		JComboBox listSpecie1 = new JComboBox(modelListSpecie);
-		listSpecie1.setBounds(327, 73, 148, 38);
-		
+		listSpecie1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		listSpecie1.setBounds(198, 93, 407, 39);
 		this.add(listSpecie1);
+
+		JLabel lblListSpecie = new JLabel("Specie");
+		lblListSpecie.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblListSpecie.setForeground(new Color(51, 51, 51));
+		lblListSpecie.setFont(fontLabel);
+		lblListSpecie.setBounds(10, 96, 151, 39);
+		this.add(lblListSpecie);
 		
 		JButton btnCreateScrapieTest = new JButton("Create Scrapie Test");
-		btnCreateScrapieTest.setBounds(112, 312, 233, 38);
+		btnCreateScrapieTest.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
+		btnCreateScrapieTest.setBorderPainted(false);
+		btnCreateScrapieTest.setForeground(Color.WHITE);
+		btnCreateScrapieTest.setFont(fontLabel);
+		btnCreateScrapieTest.setBackground(blueBootstrap);
+		btnCreateScrapieTest.setBounds(198, 343, 248, 39);
 		this.add(btnCreateScrapieTest);
 		
 	}
