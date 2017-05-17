@@ -8,16 +8,17 @@ import View.MainFrame;
 
 public class CtrlCreateCategory implements MouseListener {
 
-	public CtrlCreateCategory(Main main, MainFrame mainFrame) {
-		// TODO Auto-generated constructor stub
+	private Main main;
+	private MainFrame mainFrame;
+	
+	public CtrlCreateCategory(Main pmain, MainFrame pmainFrame) {
+		main = pmain;
+		mainFrame = pmainFrame;
 	}
-
-
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		main.createCategory(mainFrame.getTextFieldCategoryName().getText());
 	}
 
 	@Override

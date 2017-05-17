@@ -8,8 +8,11 @@ import View.MainFrame;
 
 public class CtrlCreateOrder implements MouseListener {
 
-	public CtrlCreateOrder(Main main, MainFrame mainFrame) {
-		// TODO Auto-generated constructor stub
+	private Main main;
+	private MainFrame mainFrame;
+	
+	public CtrlCreateOrder(Main pmain, MainFrame pmainFrame) {
+		
 	}
 
 	@Override
