@@ -1,6 +1,7 @@
 package Main;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.util.List;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
@@ -184,6 +185,34 @@ public class Main {
 				
 		}
 		refresh();
+	}
+	
+	/**
+	 * Crée une commande avec des samples dedans.
+	 * @param selectedCustomer
+	 * @param selectedSpecie
+	 * @param selectedAnalysis
+	 * @param numberOfSamples
+	 */
+	public void createOrder(Customer selectedCustomer, Specie selectedSpecie, Analysis selectedAnalysis,
+			int numberOfSamples) {
+		
+		// Créer la commande
+		Order nOrder = new Order(selectedCustomer);
+		
+		// Génère les samples à faire
+		List<Sample> nList = new ArrayList<Sample>();
+		for(int i = 1; i <= numberOfSamples; i++) {
+			Sample nSample = new Sample(selectedAnalysis, selectedSpecie, nOrder);
+			nList.add(nSample);
+		}
+		
+		// Ajoute la liste de sample à la commande
+		nOrder.setSamples(nList);
+		
+		// Ajoute la commande à la liste des commandes du client
+		selectedCustomer.addOrder(nOrder);
+
 	}
 		
 	/**
