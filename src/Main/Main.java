@@ -94,22 +94,26 @@ public class Main {
 	 */
 	public void createCustomer(String pname, String ptown) {
 		
-		pname = WordUtils.capitalizeFully(pname);
-		ptown = WordUtils.capitalizeFully(ptown);
-		
-		boolean exist = false;
-		for(Customer c : theCustomers) {
-			if(( c.getName().toUpperCase().equals(pname.toUpperCase()) )   && 	( c.getTown().toUpperCase().equals(ptown.toUpperCase()) )) {
-				exist = true;
+		if(pname.length() < 3 || pname.length() > 15 || ptown.length() < 3 || ptown.length() > 15) {
+			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter les champs (entre 3 et 15 caractères).");
+		} else {
+			pname = WordUtils.capitalizeFully(pname);
+			ptown = WordUtils.capitalizeFully(ptown);
+			
+			boolean exist = false;
+			for(Customer c : theCustomers) {
+				if(( c.getName().toUpperCase().equals(pname.toUpperCase()) )   && 	( c.getTown().toUpperCase().equals(ptown.toUpperCase()) )) {
+					exist = true;
+				}
 			}
-		}
-		
-		if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
-			JOptionPane.showMessageDialog(new JFrame(), "Ce client existe déjà.");
-		} else { // On peut créer le client
-			Customer nCustomer = new Customer(pname, ptown);
-			theCustomers.add(nCustomer);
-			JOptionPane.showMessageDialog(new JFrame(), "Le client a bien été ajouté.");
+			
+			if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
+				JOptionPane.showMessageDialog(new JFrame(), "Ce client existe déjà.");
+			} else { // On peut créer le client
+				Customer nCustomer = new Customer(pname, ptown);
+				theCustomers.add(nCustomer);
+				JOptionPane.showMessageDialog(new JFrame(), "Le client a bien été ajouté.");
+			}
 		}
 		
 	}
@@ -120,21 +124,25 @@ public class Main {
 	 */
 	public void createCategory(String pname) {
 		
-		pname = WordUtils.capitalizeFully(pname);
-
-		boolean exist = false;
-		for(SpecieCategory sC : theCategories) {
-			if(sC.getName().toUpperCase().equals(pname.toUpperCase())) {
-				exist = true;
+		if(pname.length() < 3 || pname.length() > 15) {
+			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter le champs (entre 3 et 15 caractères).");
+		} else {
+			pname = WordUtils.capitalizeFully(pname);
+	
+			boolean exist = false;
+			for(SpecieCategory sC : theCategories) {
+				if(sC.getName().toUpperCase().equals(pname.toUpperCase())) {
+					exist = true;
+				}
 			}
-		}
-		
-		if(exist) { // La catégorie existe déjà
-			JOptionPane.showMessageDialog(new JFrame(), "Cette catégorie existe déjà.");
-		} else { // On peut créer la catégorie
-			SpecieCategory nCategory = new SpecieCategory(pname);
-			theCategories.add(nCategory);
-			JOptionPane.showMessageDialog(new JFrame(), "La catégorie a bien été créée.");
+			
+			if(exist) { // La catégorie existe déjà
+				JOptionPane.showMessageDialog(new JFrame(), "Cette catégorie existe déjà.");
+			} else { // On peut créer la catégorie
+				SpecieCategory nCategory = new SpecieCategory(pname);
+				theCategories.add(nCategory);
+				JOptionPane.showMessageDialog(new JFrame(), "La catégorie a bien été créée.");
+			}
 		}
 	}
 	
@@ -145,23 +153,27 @@ public class Main {
 	 */
 	public void createSpecie(String pname, SpecieCategory pcategory) {
 		
-		pname = WordUtils.capitalizeFully(pname);
-
-		boolean exist = false;
-		for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
-			for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
-				if(s.getName().toUpperCase().equals(pname.toUpperCase())) {
-					exist = true;
+		if(pname.length() < 3 || pname.length() > 15) {
+			JOptionPane.showMessageDialog(new JFrame(), "Veuillez compléter le champs (entre 3 et 15 caractères).");
+		} else {
+			pname = WordUtils.capitalizeFully(pname);
+	
+			boolean exist = false;
+			for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
+				for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+					if(s.getName().toUpperCase().equals(pname.toUpperCase())) {
+						exist = true;
+					}
 				}
 			}
-		}
-		
-		if(exist) { // Il existe déjà une espèce similaire dans une catégorie
-			JOptionPane.showMessageDialog(new JFrame(), "Cette espèce existe déjà.");
-		} else { // On peut creér l'espèce et la range dans la catégorie demandée
-			Specie nSpecie = new Specie(pname);
-			pcategory.addSpecie(nSpecie);
-			JOptionPane.showMessageDialog(new JFrame(), "L'espèce a bien été ajoutée.");
+			
+			if(exist) { // Il existe déjà une espèce similaire dans une catégorie
+				JOptionPane.showMessageDialog(new JFrame(), "Cette espèce existe déjà.");
+			} else { // On peut creér l'espèce et la range dans la catégorie demandée
+				Specie nSpecie = new Specie(pname);
+				pcategory.addSpecie(nSpecie);
+				JOptionPane.showMessageDialog(new JFrame(), "L'espèce a bien été ajoutée.");
+			}
 		}
 		
 	}
