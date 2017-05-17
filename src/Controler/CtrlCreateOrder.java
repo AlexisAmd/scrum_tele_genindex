@@ -20,6 +20,7 @@ public class CtrlCreateOrder implements MouseListener {
 	private LayeredPaneOrder mainFrame;
 	
 	public CtrlCreateOrder(Main pmain, LayeredPaneOrder layeredPaneOrder) {
+		main = pmain;
 		mainFrame = layeredPaneOrder;
 	}
 
@@ -49,10 +50,19 @@ public class CtrlCreateOrder implements MouseListener {
 			}
 		}
 		
-		int numberOfSamples = Integer.parseInt(mainFrame.getTextFieldNumberOfSamples().getText());
-		
-		main.createOrder(selectedCustomer, selectedSpecie, selectedAnalysis, numberOfSamples);
-		
+		try {
+			
+			int numberOfSamples = Integer.parseInt(mainFrame.getTextFieldNumberOfSamples().getText());
+			
+			if(numberOfSamples > 1) {
+				main.createOrder(selectedCustomer, selectedSpecie, selectedAnalysis, numberOfSamples);
+			} else {
+				JOptionPane.showMessageDialog(new JFrame(), "Please enter positive values.");
+			}
+			
+		} catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(new JFrame(), "Please enter a number of samples.");
+		}
 	}
 
 	@Override
