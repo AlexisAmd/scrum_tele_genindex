@@ -27,6 +27,8 @@ import javax.swing.JPanel;
 import javax.swing.JList;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ListSelectionModel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.Cursor;
@@ -62,7 +64,25 @@ public class MainFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		frame = new JFrame();
+		frame.setTitle("Genindex");
+		frame.setResizable(false);
 		frame.getContentPane().setForeground(new Color(66,139,202));
 		frame.setBounds(100, 100, 664, 476);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -163,7 +183,12 @@ public class MainFrame {
 		
 		JButton btnCreateOrder = new JButton("Create order");
 		btnCreateOrder.addMouseListener(new CtrlCreateOrder(main, this));
-		btnCreateOrder.setBounds(201, 322, 246, 41);
+		btnCreateOrder.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
+		btnCreateOrder.setBorderPainted(false);
+		btnCreateOrder.setForeground(Color.WHITE);
+		btnCreateOrder.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateOrder.setBackground(new Color(66,139,202));
+		btnCreateOrder.setBounds(198, 343, 248, 39);
 		layeredPaneOrder.add(btnCreateOrder);
 		
 		JLayeredPane layeredPaneSpecie = new JLayeredPane();
@@ -193,8 +218,12 @@ public class MainFrame {
 		
 		JButton btnCreateSpecie = new JButton("Add specie");
 		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this));
-		btnCreateSpecie.setBounds(234, 296, 255, 50);
-		
+		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
+		btnCreateSpecie.setBorderPainted(false);
+		btnCreateSpecie.setForeground(Color.WHITE);
+		btnCreateSpecie.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateSpecie.setBackground(new Color(66,139,202));
+		btnCreateSpecie.setBounds(198, 343, 248, 39);
 		layeredPaneSpecie.add(btnCreateSpecie);
 		
 		JLayeredPane layeredPaneCategory = new JLayeredPane();
@@ -210,7 +239,12 @@ public class MainFrame {
 		
 		JButton btnCreateCategory = new JButton("Add category");
 		btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this));
-		btnCreateCategory.setBounds(184, 256, 242, 88);
+		btnCreateCategory.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
+		btnCreateCategory.setBorderPainted(false);
+		btnCreateCategory.setForeground(Color.WHITE);
+		btnCreateCategory.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCreateCategory.setBackground(new Color(66,139,202));
+		btnCreateCategory.setBounds(198, 343, 248, 39);
 		layeredPaneCategory.add(btnCreateCategory);
 		
 		JLabel lblCategoryName = new JLabel("Category Name");
