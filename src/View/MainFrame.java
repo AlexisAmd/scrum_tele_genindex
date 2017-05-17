@@ -65,7 +65,7 @@ public class MainFrame {
 	
 	// Les panes
 	
-	private JLayeredPane layeredPaneCustomer, layeredPaneSpecie, scrapiePane;
+	private JLayeredPane layeredPaneCustomer, layeredPaneSpecie, layeredPaneCategory, scrapiePane;
 	
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
@@ -216,34 +216,10 @@ public class MainFrame {
 
 		// Ajout pane categorie
 		
-		JLayeredPane layeredPaneCategory = new JLayeredPane();
-		layeredPaneCategory.setForeground(new Color(51, 51, 51));
-		layeredPaneCategory.setBorder(null);
-		layeredPaneCategory.setBackground(Color.WHITE);
+		layeredPaneCategory = new LayeredPaneCategory(main);
 		tabbedPane.addTab("Add category", null, layeredPaneCategory, null);
 		
-		textFieldCategoryName = new JTextField();
-		textFieldCategoryName.setBounds(198, 142, 407, 39);
-		layeredPaneCategory.add(textFieldCategoryName);
-		textFieldCategoryName.setColumns(10);
-		
-		JButton btnCreateCategory = new JButton("Add category");
-		btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this));
-		btnCreateCategory.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
-		btnCreateCategory.setBorderPainted(false);
-		btnCreateCategory.setForeground(Color.WHITE);
-		btnCreateCategory.setFont(fontLabel);
-		btnCreateCategory.setBackground(blueBootstrap);
-		btnCreateCategory.setBounds(198, 343, 248, 39);
-	    btnCreateCategory.addMouseListener(new CtrlCreateCategory(main, this)); 
-		layeredPaneCategory.add(btnCreateCategory);
-		
-		JLabel lblCategoryName = new JLabel("Category Name");
-		lblCategoryName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCategoryName.setForeground(new Color(51, 51, 51));
-		lblCategoryName.setFont(fontLabel);
-		lblCategoryName.setBounds(10, 140, 151, 39);
-		layeredPaneCategory.add(lblCategoryName);
+		// Ajout pane explore
 		
 		JLayeredPane layeredPaneExplore = new JLayeredPane();
 		layeredPaneExplore.setForeground(new Color(51, 51, 51));

@@ -4,17 +4,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import View.LayeredPaneCategory;
 import View.LayeredPaneSpecie;
 import View.MainFrame;
 
 public class CtrlCreateCategory implements MouseListener {
 
 	private Main main;
-	private MainFrame mainFrame;
+	private LayeredPaneCategory mainFrame;
 	
-	public CtrlCreateCategory(Main pmain, MainFrame mainFrame2) {
+	public CtrlCreateCategory(Main pmain, LayeredPaneCategory layeredPaneCategory) {
 		main = pmain;
-		mainFrame = mainFrame2;
+		mainFrame = layeredPaneCategory;
 	}
 
 	@Override
