@@ -24,7 +24,6 @@ public class LayeredPaneOrder extends JLayeredPane {
 	private JTextField textFieldNumberOfSamples;
 	private Object selectedCategory, selectedCustomer, selectedSpecie, selectedAnalysis;
 
-	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
 
@@ -52,20 +51,16 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 		modelListCustomer = new ModelListCustomer(main);
 		JComboBox listCustomer = new JComboBox(modelListCustomer);
-
-
-	    selectedCustomer =    listCustomer.getSelectedItem(); 
-
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
 		this.add(listCustomer);
+		selectedCustomer =   listCustomer.getSelectedItem(); 
 		
 
 		modelListCategory = new ModelListCategory(main);
 		JComboBox listCategory = new JComboBox(modelListCategory);
 
-		listCategory = new JComboBox(new ModelListCategory(main));
 	    selectedCategory =    listCategory.getSelectedItem(); 
 
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -77,7 +72,6 @@ public class LayeredPaneOrder extends JLayeredPane {
 		modelListSpecie = new ModelListSpecie(main);
 		JComboBox listSpecie = new JComboBox(modelListSpecie);
 
-		listSpecie = new JComboBox(new ModelListSpecie(main));
 	    selectedSpecie =    listSpecie.getSelectedItem(); 
 
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -87,9 +81,8 @@ public class LayeredPaneOrder extends JLayeredPane {
 		
 
 		modelListAnalysis =new ModelListAnalysis(main);
-		JComboBox listAnalysis = new JComboBox();
+		JComboBox listAnalysis = new JComboBox(modelListAnalysis);
 
-		listAnalysis = new JComboBox(new ModelListAnalysis(main));
 	    selectedAnalysis =    listAnalysis.getSelectedItem(); 
 
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -148,6 +141,7 @@ public void refresh(){
 	modelListSpecie.refresh();
 	modelListAnalysis.refresh();
 	modelListCustomer.refresh();
+	System.out.println("le refresh est ok");
 }
 
 

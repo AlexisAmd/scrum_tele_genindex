@@ -5,7 +5,6 @@ import javax.swing.JFrame;
 import Main.Main;
 import java.awt.GridLayout;
 import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.ComponentOrientation;
@@ -19,17 +18,15 @@ public class MainFrame {
 	private Main main;
 	
 	// Les panes
-	
-	private static JLayeredPane layeredPaneCustomer;
-	private static JLayeredPane layeredPaneOrder;
-	private static JLayeredPane layeredPaneSpecie;
-	private static JLayeredPane layeredPaneCategory;
-	private static  JLayeredPane layeredPaneExplore;
-	private static JLayeredPane layeredScrapiePane;
+	private static LayeredPaneCustomer  layeredPaneCustomer;
+	private static LayeredPaneOrder layeredPaneOrder;
+	private static LayeredPaneSpecie layeredPaneSpecie;
+	private static LayeredPaneCategory layeredPaneCategory;
+	private static  LayeredPaneExplore layeredPaneExplore;
+	private static LayeredPaneScrapieTest layeredPaneScrapie;
 	
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
-	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
 
 	/**
@@ -108,20 +105,20 @@ public class MainFrame {
 
 		// Ajout du menu scrapie
 		
-		layeredScrapiePane = new LayeredPaneScrapieTest(main);
-		tabbedPane.addTab("Create Scrapie Test", null, layeredScrapiePane, null);
+		layeredPaneScrapie = new LayeredPaneScrapieTest(main);
+		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneScrapie, null);
 
 		frmGenindex.setVisible(true);
 		
 	}
 	
 public static void refresh(){
-	((LayeredPaneCustomer) layeredPaneCustomer).refresh();
- ((LayeredPaneOrder) layeredPaneOrder).refresh();
- ((LayeredPaneSpecie) layeredPaneSpecie).refresh();
- ((LayeredPaneCategory) layeredPaneCategory).refresh();
-((LayeredPaneExplore) layeredPaneExplore).refresh();
- ((LayeredPaneScrapieTest) layeredScrapiePane).refresh();
+layeredPaneCustomer.refresh();
+layeredPaneOrder.refresh();
+layeredPaneSpecie.refresh();
+layeredPaneCategory.refresh();
+layeredPaneExplore.refresh();
+layeredPaneScrapie.refresh();
 	
 }
 
