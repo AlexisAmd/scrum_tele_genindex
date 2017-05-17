@@ -177,7 +177,7 @@ public class MainFrame {
 		listCustomer.setBounds(198, 44, 407, 39);
 		layeredPaneOrder.add(listCustomer);
 		
-		listCategory = new JComboBox();
+		listCategory = new JComboBox(new ModelListCategory(main));
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
 		listCategory.setBounds(198, 94, 407, 39);
