@@ -68,6 +68,8 @@ public class MainFrame {
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
+	private JTextField textFieldPosition;
+	private JTextField textFieldValue;
 
 	/**
 	 * Create the application.
@@ -98,7 +100,7 @@ public class MainFrame {
 		}
 		
 		frmGenindex = new JFrame();
-		frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
+		//frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
 		frmGenindex.getContentPane().setBackground(Color.WHITE);
 		frmGenindex.setTitle("GENINDEX");
 		frmGenindex.setResizable(false);
@@ -179,7 +181,7 @@ public class MainFrame {
 		labelCustomer.setBounds(10, 42, 151, 39);
 		layeredPaneOrder.add(labelCustomer);
 		
-		listCustomer = new JComboBox();
+		listCustomer = new JComboBox(new ModelListCustomer());
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
@@ -191,7 +193,7 @@ public class MainFrame {
 		listCategory.setBounds(198, 94, 407, 39);
 		layeredPaneOrder.add(listCategory);
 		
-		listSpecie = new JComboBox();
+		listSpecie = new JComboBox(new ModelListSpecie());
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
@@ -320,7 +322,7 @@ public class MainFrame {
 		layeredPaneExplore.setBackground(Color.WHITE);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 		
-		JComboBox listCustomers = new JComboBox();
+		JComboBox listCustomers = new JComboBox(new ModelListCustomer());
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
@@ -453,6 +455,21 @@ public class MainFrame {
 		layeredPaneCreateScrapieTest.setBorder(null);
 		layeredPaneCreateScrapieTest.setBackground(Color.WHITE);
 		tabbedPane.addTab("Create Scrapie Test", null, layeredPaneCreateScrapieTest, null);
+		
+		textFieldPosition = new JTextField();
+		textFieldPosition.setBounds(348, 182, 86, 20);
+		layeredPaneCreateScrapieTest.add(textFieldPosition);
+		textFieldPosition.setColumns(10);
+		
+		textFieldValue = new JTextField();
+		textFieldValue.setBounds(335, 248, 86, 20);
+		layeredPaneCreateScrapieTest.add(textFieldValue);
+		textFieldValue.setColumns(10);
+		
+		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie());
+		listSpecie1.setBounds(327, 73, 148, 38);
+		
+		layeredPaneCreateScrapieTest.add(listSpecie1);
 		frmGenindex.setVisible(true);
 	}
 
