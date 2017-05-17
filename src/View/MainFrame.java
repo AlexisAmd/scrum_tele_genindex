@@ -295,6 +295,7 @@ public class MainFrame {
 		
 		tableOrders = new JTable();
 		tableOrders.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		//TODO generer la classe qui se charge de creer des model
 		tableOrders.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null},
@@ -347,8 +348,9 @@ public class MainFrame {
 		tableOrders.getColumnModel().getColumn(3).setMaxWidth(1);
 		tableOrders.setSelectionBackground(new Color(66, 139, 202));
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		scrollPane.setViewportView(tableOrders);
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		//TODO FIN TABLE A EXPORTER DANS UN EAUTRE VUE
+		scrollPane.setViewportView(tableOrders);
 		
 		JLabel lblChooseACustomer = new JLabel("Choose a customer");
 		lblChooseACustomer.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -365,24 +367,34 @@ public class MainFrame {
 		layeredPaneExplore.add(panelStatistics);
 		panelStatistics.setLayout(null);
 		
-		JLabel lblAnalysedSamples = new JLabel("AnalysedSamples");
+		JLabel lblAnalysedSamples = new JLabel("Analysed Samples");
+		lblAnalysedSamples.setFont(fontLabel);
+		lblAnalysedSamples.setForeground(darkBlack);
 		lblAnalysedSamples.setBounds(10, 31, 159, 34);
 		panelStatistics.add(lblAnalysedSamples);
 		
 		lblPercentageAnalysedSamples = new JLabel("NA");
 		lblPercentageAnalysedSamples.setBounds(164, 31, 32, 34);
+		lblPercentageAnalysedSamples.setFont(fontLabel);
+		lblPercentageAnalysedSamples.setForeground(darkBlack);
 		panelStatistics.add(lblPercentageAnalysedSamples);
 		
 		JLabel lblNonAnalysedSamples = new JLabel("Not Analysed Samples");
 		lblNonAnalysedSamples.setBounds(10, 79, 159, 34);
+		lblNonAnalysedSamples.setFont(fontLabel);
+		lblNonAnalysedSamples.setForeground(darkBlack);
 		panelStatistics.add(lblNonAnalysedSamples);
 		
 		JLabel lblTotalSamples = new JLabel("Total");
 		lblTotalSamples.setBounds(10, 123, 159, 34);
+		lblTotalSamples.setFont(fontLabel);
+		lblTotalSamples.setForeground(darkBlack);
 		panelStatistics.add(lblTotalSamples);
 		
 		lblPercentageNotAnalysedSamples = new JLabel("NA");
 		lblPercentageNotAnalysedSamples.setBounds(164, 79, 32, 34);
+		lblPercentageNotAnalysedSamples.setFont(fontLabel);
+		lblPercentageNotAnalysedSamples.setForeground(darkBlack);
 		panelStatistics.add(lblPercentageNotAnalysedSamples);
 		
 		lblTotalOfSamples = new JLabel("NA");
