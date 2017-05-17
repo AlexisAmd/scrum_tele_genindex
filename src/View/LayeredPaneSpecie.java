@@ -20,12 +20,16 @@ import Model.SpecieCategory;
 public class LayeredPaneSpecie extends JLayeredPane {
 
 	private Main main;
+	
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
-	private JComboBox listSpecieCategory;
+	
+
 	private JTextField textFieldSpecieName;
 	private Object selectedCategory;
+
+	private ModelListCategory modelListCategory;
 
 	public LayeredPaneSpecie(Main pmain) {
 		
@@ -35,7 +39,9 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.setBorder(null);
 		this.setBackground(Color.WHITE);
 		
-		listSpecieCategory = new JComboBox(new ModelListCategory(main));
+		modelListCategory = new ModelListCategory(main);
+		JComboBox listSpecieCategory = new JComboBox();
+		
 	    selectedCategory =    listSpecieCategory.getSelectedItem(); 
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setBounds(198, 93, 407, 39);
@@ -71,21 +77,18 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.add(btnCreateSpecie);
 	}
 
-	/**
-	 * @return the listSpecieCategory
-	 */
-	public JComboBox getListSpecieCategory() {
-		return listSpecieCategory;
-	}
+	protected void refresh(){
+		modelListCategory.refresh();
 
-	/**
-	 * @return the textFieldSpecieName
-	 */
-	public JTextField getTextFieldSpecieName() {
-		return textFieldSpecieName;
 	}
 
 	public Object getSelectedCategory() {
+		// TODO Auto-generated method stub
 		return selectedCategory;
+	}
+
+	public String getTextFieldSpecieName() {
+		// TODO Auto-generated method stub
+		return textFieldSpecieName.getText();
 	}
 }

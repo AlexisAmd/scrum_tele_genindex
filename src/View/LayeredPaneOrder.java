@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,15 +20,18 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 	private Main main;
 	
-	private JComboBox listCustomer;
-	private JComboBox listCategory;
-	private JComboBox listSpecie;
-	private JComboBox listAnalysis;
+
 	private JTextField textFieldNumberOfSamples;
 	
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
+
+
+	private ModelListCategory modelListCategory;
+	private ModelListSpecie modelListSpecie;
+	private ModelListAnalysis modelListAnalysis;
+	private ModelListCustomer modelListCustomer;
 	
 	public LayeredPaneOrder(Main pmain) {
 		main = pmain;
@@ -45,25 +49,29 @@ public class LayeredPaneOrder extends JLayeredPane {
 		labelCustomer.setBounds(10, 42, 151, 39);
 		this.add(labelCustomer);
 		
-		listCustomer = new JComboBox(new ModelListCustomer(main));
+		modelListCustomer = new ModelListCustomer(main);
+		JComboBox listCustomer = new JComboBox(modelListCustomer);
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
 		this.add(listCustomer);
 		
-		listCategory = new JComboBox(new ModelListCategory(main));
+		modelListCategory = new ModelListCategory(main);
+		JComboBox listCategory = new JComboBox(modelListCategory);
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCategory.setBackground(Color.WHITE);
 		listCategory.setBounds(198, 94, 407, 39);
 		this.add(listCategory);
 		
-		listSpecie = new JComboBox(new ModelListSpecie(main));
+		modelListSpecie = new ModelListSpecie(main);
+		JComboBox listSpecie = new JComboBox(modelListSpecie);
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
 		this.add(listSpecie);
 		
-		listAnalysis = new JComboBox(new ModelListAnalysis(main));
+		modelListAnalysis =new ModelListAnalysis(main);
+		JComboBox listAnalysis = new JComboBox();
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
 		listAnalysis.setBounds(198, 198, 407, 39);
@@ -114,38 +122,10 @@ public class LayeredPaneOrder extends JLayeredPane {
 	
 	}
 
-	/**
-	 * @return the listCustomer
-	 */
-	public JComboBox getListCustomer() {
-		return listCustomer;
-	}
-
-	/**
-	 * @return the listCategory
-	 */
-	public JComboBox getListCategory() {
-		return listCategory;
-	}
-
-	/**
-	 * @return the listSpecie
-	 */
-	public JComboBox getListSpecie() {
-		return listSpecie;
-	}
-
-	/**
-	 * @return the listAnalysis
-	 */
-	public JComboBox getListAnalysis() {
-		return listAnalysis;
-	}
-
-	/**
-	 * @return the textFieldNumberOfSamples
-	 */
-	public JTextField getTextFieldNumberOfSamples() {
-		return textFieldNumberOfSamples;
-	}
+protected void refresh(){
+	modelListCategory.refresh();
+	modelListSpecie.refresh();
+	modelListAnalysis.refresh();
+	modelListCustomer.refresh();
+}
 }

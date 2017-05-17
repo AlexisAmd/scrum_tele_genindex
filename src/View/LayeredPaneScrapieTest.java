@@ -15,6 +15,10 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 	private JTextField textFieldPosition;
 	private JTextField textFieldValue;
 	
+
+	private ModelListSpecie modelListSpecie;
+
+	
 	public LayeredPaneScrapieTest(Main pmain) {
 		main = pmain;
 		
@@ -32,7 +36,8 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		this.add(textFieldValue);
 		textFieldValue.setColumns(10);
 		
-		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie(main));
+		modelListSpecie = new ModelListSpecie(main);
+		JComboBox listSpecie1 = new JComboBox(modelListSpecie);
 		listSpecie1.setBounds(327, 73, 148, 38);
 		
 		this.add(listSpecie1);
@@ -55,6 +60,12 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 	 */
 	public JTextField getTextFieldValue() {
 		return textFieldValue;
+	}
+	
+	protected void refresh(){
+
+		modelListSpecie.refresh();
+
 	}
 	
 }

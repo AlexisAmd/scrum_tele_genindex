@@ -14,9 +14,15 @@ public class ModelListCustomer extends DefaultComboBoxModel {
 	
 	public ModelListCustomer(Main pmain) {
 		main = pmain;
+		refresh();
+
+}
+
+	protected void refresh() {
+		this.removeAllElements();
 		for(Customer c : main.getTheCustomers()) {
 			this.addElement(c.getName());
 		}
 	}
-
-}
+		
+	}

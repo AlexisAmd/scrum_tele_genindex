@@ -11,9 +11,15 @@ public class ModelListCategory extends DefaultComboBoxModel {
 	
 	public ModelListCategory(Main pmain) {
 		main = pmain;
+		refresh();
+	}
+
+	protected void refresh() {
+		this.removeAllElements();
 		for(SpecieCategory sC : main.getTheCategories()) {
 			this.addElement(sC.getName());
 		}
+		
 	}
 	
 }

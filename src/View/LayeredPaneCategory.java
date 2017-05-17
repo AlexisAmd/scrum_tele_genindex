@@ -61,4 +61,8 @@ public class LayeredPaneCategory extends JLayeredPane {
 		return textFieldCategoryName;
 	}
 	
+public void refresh(){
+	
+}
+	
 }

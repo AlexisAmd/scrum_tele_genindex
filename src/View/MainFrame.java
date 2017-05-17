@@ -20,7 +20,12 @@ public class MainFrame {
 	
 	// Les panes
 	
-	private JLayeredPane layeredPaneCustomer, layeredPaneOrder, layeredPaneSpecie, layeredPaneCategory, layeredPaneExplore, scrapiePane;
+	private static JLayeredPane layeredPaneCustomer;
+	private static JLayeredPane layeredPaneOrder;
+	private static JLayeredPane layeredPaneSpecie;
+	private static JLayeredPane layeredPaneCategory;
+	private static  JLayeredPane layeredPaneExplore;
+	private static JLayeredPane layeredScrapiePane;
 	
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
@@ -103,11 +108,21 @@ public class MainFrame {
 
 		// Ajout du menu scrapie
 		
-		scrapiePane = new LayeredPaneScrapieTest(main);
-		tabbedPane.addTab("Create Scrapie Test", null, scrapiePane, null);
+		layeredScrapiePane = new LayeredPaneScrapieTest(main);
+		tabbedPane.addTab("Create Scrapie Test", null, layeredScrapiePane, null);
 
 		frmGenindex.setVisible(true);
 		
 	}
+	
+public static void refresh(){
+	((LayeredPaneCustomer) layeredPaneCustomer).refresh();
+	((LayeredPaneCustomer) layeredPaneOrder).refresh();
+	((LayeredPaneCustomer) layeredPaneSpecie).refresh();
+	((LayeredPaneCustomer) layeredPaneCategory).refresh();
+	((LayeredPaneCustomer) layeredPaneExplore).refresh();
+	((LayeredPaneCustomer) layeredScrapiePane).refresh();
+	
+}
 
 }

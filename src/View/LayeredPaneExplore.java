@@ -30,6 +30,8 @@ public class LayeredPaneExplore extends JLayeredPane {
 	private JLabel lblPercentageAnalysedSamples;
 	private JLabel lblPercentageNotAnalysedSamples;
 	private JLabel lblTotalOfSamples;
+
+	private ModelListCustomer modelCustomer;
 	
 	public LayeredPaneExplore(Main pmain) {
 		main = pmain;
@@ -38,7 +40,8 @@ public class LayeredPaneExplore extends JLayeredPane {
 		this.setBorder(null);
 		this.setBackground(Color.WHITE);
 		
-		JComboBox listCustomers = new JComboBox(new ModelListCustomer(main));
+		modelCustomer = new ModelListCustomer(main);
+		JComboBox listCustomers = new JComboBox(modelCustomer);
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
@@ -168,31 +171,7 @@ public class LayeredPaneExplore extends JLayeredPane {
 		
 	}
 
-	/**
-	 * @return the tableOrders
-	 */
-	public JTable getTableOrders() {
-		return tableOrders;
-	}
-
-	/**
-	 * @return the lblPercentageAnalysedSamples
-	 */
-	public JLabel getLblPercentageAnalysedSamples() {
-		return lblPercentageAnalysedSamples;
-	}
-
-	/**
-	 * @return the lblPercentageNotAnalysedSamples
-	 */
-	public JLabel getLblPercentageNotAnalysedSamples() {
-		return lblPercentageNotAnalysedSamples;
-	}
-
-	/**
-	 * @return the lblTotalOfSamples
-	 */
-	public JLabel getLblTotalOfSamples() {
-		return lblTotalOfSamples;
+	public void refresh(){
+		modelCustomer.refresh();
 	}
 }

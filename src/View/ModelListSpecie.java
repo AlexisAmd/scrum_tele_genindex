@@ -19,14 +19,19 @@ import Model.SpecieCategory;
 public class ModelListSpecie extends DefaultComboBoxModel {
 
 	private Main main;
-	
+
 	public ModelListSpecie(Main pmain) {
 		main = pmain;
-		for(SpecieCategory sC : main.getTheCategories()) { // Pour chaque catégorie
-			for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
-				this.addElement(s.getName());
-			}
-		}
+		refresh();
+		
 	}
 
+protected void refresh(){
+	this.removeAllElements();// peut etre inutile
+	for(SpecieCategory sC : main.getTheCategories()) { // Pour chaque catégorie
+		for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+			this.addElement(s.getName());
+		}
+	}
+}
 }

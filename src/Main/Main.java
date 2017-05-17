@@ -52,7 +52,7 @@ public class Main {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static  void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -119,7 +119,7 @@ public class Main {
 				JOptionPane.showMessageDialog(new JFrame(), "The customer has been well created.");
 			}
 		}
-		
+		refresh();
 	}
 	
 	
@@ -148,7 +148,7 @@ public class Main {
 				JOptionPane.showMessageDialog(new JFrame(), "The category has been well created.");
 			}
 		}
-		
+		refresh();
 	}
 
 	/**
@@ -183,6 +183,7 @@ public class Main {
 			}
 				
 		}
+		refresh();
 	}
 		
 	/**
@@ -200,7 +201,7 @@ public class Main {
 			theAnalyses.add(nScrapieTest);
 			JOptionPane.showMessageDialog(new JFrame(), "The scrapie test has been well created.");
 		}
-		
+		refresh();
 	}
 	
 	/**
@@ -336,39 +337,23 @@ public class Main {
         theAnalyses.add(sxt);
 	}
 
-	/**
-	 * @return the currentUser
-	 */
-	public User getCurrentUser() {
-		return currentUser;
-	}
-
-	/**
-	 * @return the theUsers
-	 */
-	public ArrayList<User> getTheUsers() {
-		return theUsers;
-	}
-
-	/**
-	 * @return the theCategories
-	 */
 	public ArrayList<SpecieCategory> getTheCategories() {
 		return theCategories;
 	}
+	
+	public void refresh(){
+		MainFrame.refresh();
+	}
 
-	/**
-	 * @return the theAnalyses
-	 */
+	public ArrayList<Customer>  getTheCustomers() {
+		// TODO Auto-generated method stub
+		return  theCustomers;
+	}
+
 	public ArrayList<Analysis> getTheAnalyses() {
+		// TODO Auto-generated method stub
 		return theAnalyses;
 	}
 
-	/**
-	 * @return the theCustomers
-	 */
-	public ArrayList<Customer> getTheCustomers() {
-		return theCustomers;
-	}
-	
+
 }

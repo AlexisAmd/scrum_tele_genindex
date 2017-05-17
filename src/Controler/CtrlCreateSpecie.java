@@ -25,13 +25,15 @@ public class CtrlCreateSpecie implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		SpecieCategory selectedCategory = null; 
 		
+		//on recuprere l'object associé a la string (
 		for (SpecieCategory sc : main.getTheCategories()){
 			if(sc.getName().equals(mainFrame.getSelectedCategory())){
 				selectedCategory =   sc;
 			};
 		}
-		System.out.println("selection = "+selectedCategory);
-	    main.createSpecie(mainFrame.getTextFieldSpecieName().getText(), selectedCategory); 	
+		
+		//on demande a une methode du main d'ajouter la specie
+	    main.createSpecie(mainFrame.getTextFieldSpecieName(), selectedCategory); 	
 	}
 	
 	
