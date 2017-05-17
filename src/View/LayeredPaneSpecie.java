@@ -40,7 +40,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.setBackground(Color.WHITE);
 		
 		modelListCategory = new ModelListCategory(main);
-		JComboBox listSpecieCategory = new JComboBox();
+		JComboBox listSpecieCategory = new JComboBox(modelListCategory);
 		
 	    selectedCategory =    listSpecieCategory.getSelectedItem(); 
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -77,7 +77,7 @@ public class LayeredPaneSpecie extends JLayeredPane {
 		this.add(btnCreateSpecie);
 	}
 
-	protected void refresh(){
+	public void refresh(){
 		modelListCategory.refresh();
 
 	}

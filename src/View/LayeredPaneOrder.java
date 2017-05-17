@@ -143,7 +143,7 @@ public class LayeredPaneOrder extends JLayeredPane {
 	}
 
 
-protected void refresh(){
+public void refresh(){
 	modelListCategory.refresh();
 	modelListSpecie.refresh();
 	modelListAnalysis.refresh();

@@ -117,11 +117,11 @@ public class MainFrame {
 	
 public static void refresh(){
 	((LayeredPaneCustomer) layeredPaneCustomer).refresh();
-	((LayeredPaneCustomer) layeredPaneOrder).refresh();
-	((LayeredPaneCustomer) layeredPaneSpecie).refresh();
-	((LayeredPaneCustomer) layeredPaneCategory).refresh();
-	((LayeredPaneCustomer) layeredPaneExplore).refresh();
-	((LayeredPaneCustomer) layeredScrapiePane).refresh();
+ ((LayeredPaneOrder) layeredPaneOrder).refresh();
+ ((LayeredPaneSpecie) layeredPaneSpecie).refresh();
+ ((LayeredPaneCategory) layeredPaneCategory).refresh();
+((LayeredPaneExplore) layeredPaneExplore).refresh();
+ ((LayeredPaneScrapieTest) layeredScrapiePane).refresh();
 	
 }
 

@@ -88,7 +88,7 @@ public class LayeredPaneCustomer extends JLayeredPane {
 		return textFieldTown;
 	}
 	
-	protected void refresh(){
+	public void refresh(){
 		
 	}
 }

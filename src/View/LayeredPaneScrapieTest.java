@@ -62,7 +62,7 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		return textFieldValue;
 	}
 	
-	protected void refresh(){
+	public void refresh(){
 
 		modelListSpecie.refresh();
 
