@@ -279,12 +279,15 @@ public class MainFrame {
 		layeredPaneExplore.add(listCustomers);
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setOpaque(false);
 		scrollPane.setForeground(new Color(51, 51, 51));
 		scrollPane.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		scrollPane.setBounds(31, 116, 355, 255);
+		scrollPane.setBounds(41, 116, 345, 255);
 		layeredPaneExplore.add(scrollPane);
 		
 		tableOrders = new JTable();
+		tableOrders.setSelectionBackground(new Color(66, 139, 202));
+		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane.setViewportView(tableOrders);
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		
