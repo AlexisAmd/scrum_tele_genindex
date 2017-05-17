@@ -4,16 +4,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+import View.LayeredPaneSpecie;
 import View.MainFrame;
 
 public class CtrlCreateSpecie implements MouseListener {
 
 	private Main main;
-	private MainFrame mainFrame;
+	private LayeredPaneSpecie mainFrame;
 	
-	public CtrlCreateSpecie(Main pmain, MainFrame pmainFrame) {
+	public CtrlCreateSpecie(Main pmain, LayeredPaneSpecie layeredPaneSpecie) {
 		main = pmain;
-		mainFrame = pmainFrame;
+		mainFrame = layeredPaneSpecie;
 	}
 
 	@Override

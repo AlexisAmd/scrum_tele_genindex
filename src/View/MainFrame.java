@@ -57,7 +57,6 @@ public class MainFrame {
 	private JComboBox listAnalysis;
 	private JTextField textFieldSpecieName;
 	private JTextField textFieldCategoryName;
-	private JComboBox listSpecieCategory;
 	private JTable tableOrders;
 	private JLabel lblPercentageAnalysedSamples;
 	private JLabel lblPercentageNotAnalysedSamples;
@@ -66,7 +65,7 @@ public class MainFrame {
 	
 	// Les panes
 	
-	private JLayeredPane layeredPaneCustomer, scrapiePane;
+	private JLayeredPane layeredPaneCustomer, layeredPaneSpecie, scrapiePane;
 	
 	//CSS
 	private Color darkBlack = new Color(51,51,51);
@@ -126,6 +125,8 @@ public class MainFrame {
 		
 		layeredPaneCustomer = new LayeredPaneCustomer(main);
 		tabbedPane.addTab("Add customer", null, layeredPaneCustomer, null);		
+		
+		// Ajout du pane Ordre
 		
 		layeredPaneOrder = new JLayeredPane();
 		layeredPaneOrder.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -208,45 +209,11 @@ public class MainFrame {
 		labelNumberOfSamples.setBounds(10, 248, 151, 39);
 		layeredPaneOrder.add(labelNumberOfSamples);
 		
-		JLayeredPane layeredPaneSpecie = new JLayeredPane();
-		layeredPaneSpecie.setForeground(new Color(51, 51, 51));
-		layeredPaneSpecie.setBorder(null);
-		layeredPaneSpecie.setBackground(Color.WHITE);
+		// Ajout pane espèce
+		
+		layeredPaneSpecie = new LayeredPaneSpecie(main);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
-		
-		listSpecieCategory = new JComboBox(new ModelListCategory(main));
-		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		listSpecieCategory.setBounds(198, 93, 407, 39);
-		layeredPaneSpecie.add(listSpecieCategory);
-		
-		textFieldSpecieName = new JTextField();
-		textFieldSpecieName.setBounds(198, 143, 407, 39);
-		layeredPaneSpecie.add(textFieldSpecieName);
-		textFieldSpecieName.setColumns(10);
-		
-		JLabel lblCategory = new JLabel("Category");
-		lblCategory.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCategory.setForeground(new Color(51, 51, 51));
-		lblCategory.setFont(fontLabel);
-		lblCategory.setBounds(10, 96, 151, 39);
-		layeredPaneSpecie.add(lblCategory);
-		
-		JLabel lblName = new JLabel("Name");
-		lblName.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblName.setForeground(new Color(51, 51, 51));
-		lblName.setFont(fontLabel);
-		lblName.setBounds(10, 141, 151, 39);
-		layeredPaneSpecie.add(lblName);
-		
-		JButton btnCreateSpecie = new JButton("Add specie");
-		btnCreateSpecie.addMouseListener(new CtrlCreateSpecie(main, this));
-		btnCreateSpecie.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
-		btnCreateSpecie.setBorderPainted(false);
-		btnCreateSpecie.setForeground(Color.WHITE);
-		btnCreateSpecie.setFont(fontLabel);
-		btnCreateSpecie.setBackground(blueBootstrap);
-		btnCreateSpecie.setBounds(198, 343, 248, 39);
-		layeredPaneSpecie.add(btnCreateSpecie);
+
 		
 		JLayeredPane layeredPaneCategory = new JLayeredPane();
 		layeredPaneCategory.setForeground(new Color(51, 51, 51));

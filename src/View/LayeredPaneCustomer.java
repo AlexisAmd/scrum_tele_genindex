@@ -22,7 +22,6 @@ public class LayeredPaneCustomer extends JLayeredPane {
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
-
 	
 	public LayeredPaneCustomer(Main pmain) {
 		
