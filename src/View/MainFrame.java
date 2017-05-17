@@ -200,7 +200,7 @@ public class MainFrame {
 		listSpecie.setBounds(198, 146, 407, 39);
 		layeredPaneOrder.add(listSpecie);
 		
-		listAnalysis = new JComboBox(ModelListAnalysis(main));
+		listAnalysis = new JComboBox(new ModelListAnalysis(main));
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
 		listAnalysis.setBounds(198, 198, 407, 39);
