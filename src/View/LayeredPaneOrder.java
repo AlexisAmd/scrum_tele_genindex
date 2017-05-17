@@ -32,7 +32,7 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 
 	private ModelListCategory modelListCategory;
-	private ModelListSpecieByCategory modelListSpecie;
+	private ModelListSpecie modelListSpecie;
 	private ModelListAnalysis modelListAnalysis;
 	private ModelListCustomer modelListCustomer;
 	
@@ -78,7 +78,7 @@ public class LayeredPaneOrder extends JLayeredPane {
 		this.add(listCategory);
 		
 
-		modelListSpecie = new ModelListSpecieByCategory(main, (String) selectedCategory);
+		modelListSpecie = new ModelListSpecie(main, (String) selectedCategory);
 		JComboBox listSpecie = new JComboBox(modelListSpecie);
 
 	    selectedSpecie =    listSpecie.getSelectedItem(); 
