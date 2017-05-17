@@ -4,12 +4,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import Main.Main;
+<<<<<<< HEAD
 import Model.SpecieCategory;
+=======
+import View.LayeredPaneSpecie;
+>>>>>>> origin/master
 import View.MainFrame;
 
 public class CtrlCreateSpecie implements MouseListener {
 
 	private Main main;
+<<<<<<< HEAD
 	private MainFrame mainFrame;
 	private SpecieCategory selectedCategory;
 
@@ -18,6 +23,13 @@ public class CtrlCreateSpecie implements MouseListener {
 		main = pmain;
 		mainFrame = pmainFrame;
 		selectedCategory = pSelectedCategory;
+=======
+	private LayeredPaneSpecie mainFrame;
+	
+	public CtrlCreateSpecie(Main pmain, LayeredPaneSpecie layeredPaneSpecie) {
+		main = pmain;
+		mainFrame = layeredPaneSpecie;
+>>>>>>> origin/master
 	}
 
 	@Override
