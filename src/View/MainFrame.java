@@ -61,6 +61,7 @@ public class MainFrame {
 	private JLabel lblPercentageAnalysedSamples;
 	private JLabel lblPercentageNotAnalysedSamples;
 	private JLabel lblTotalOfSamples;
+	private JLayeredPane layeredPaneOrder;
 	
 	
 	//CSS
@@ -164,7 +165,7 @@ public class MainFrame {
 		layeredPaneCustomer.add(lblTown);
 		
 		
-		JLayeredPane layeredPaneOrder = new JLayeredPane();
+		layeredPaneOrder = new JLayeredPane();
 		layeredPaneOrder.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		layeredPaneOrder.setForeground(new Color(51, 51, 51));
 		layeredPaneOrder.setBorder(null);
@@ -495,4 +496,9 @@ public class MainFrame {
 	public JTextField getTextFieldNumberOfSamples() {
 		return textFieldNumberOfSamples;
 	}
+
+	public JFrame getFrmGenindex() {
+		return frmGenindex;
+	}
+
 }

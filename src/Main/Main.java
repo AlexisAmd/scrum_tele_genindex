@@ -1,9 +1,12 @@
 package Main;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.border.EtchedBorder;
 
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -21,6 +24,7 @@ import Model.SpecieCategory;
 import Model.User;
 import View.Login;
 import View.MainFrame;
+import View.ModelListCategory;
 
 /**
  * Permet de lancer l'application
@@ -144,8 +148,9 @@ public class Main {
 				JOptionPane.showMessageDialog(new JFrame(), "The category has been well created.");
 			}
 		}
+		
 	}
-	
+
 	/**
 	 * Crée une espèce et lui donne une catégorie. L'espèce ne doit appartenir qu'à une seule catégorie
 	 * @param pname le nom de l'espèce
@@ -364,6 +369,11 @@ public class Main {
 	 */
 	public ArrayList<Customer> getTheCustomers() {
 		return theCustomers;
+	}
+	
+	public void refresh() {
+		frame.getFrmGenindex().setVisible(false);
+		frame.getFrmGenindex().setVisible(true);
 	}
 	
 }
