@@ -41,6 +41,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
 import javax.swing.AbstractListModel;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 public class MainFrame {
@@ -181,7 +182,7 @@ public class MainFrame {
 		labelCustomer.setBounds(10, 42, 151, 39);
 		layeredPaneOrder.add(labelCustomer);
 		
-		listCustomer = new JComboBox(new ModelListCustomer());
+		listCustomer = new JComboBox(new ModelListCustomer(main));
 		listCustomer.setBackground(Color.WHITE);
 		listCustomer.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listCustomer.setBounds(198, 44, 407, 39);
@@ -193,13 +194,13 @@ public class MainFrame {
 		listCategory.setBounds(198, 94, 407, 39);
 		layeredPaneOrder.add(listCategory);
 		
-		listSpecie = new JComboBox(new ModelListSpecie());
+		listSpecie = new JComboBox(new ModelListSpecie(main));
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
 		layeredPaneOrder.add(listSpecie);
 		
-		listAnalysis = new JComboBox();
+		listAnalysis = new JComboBox(ModelListAnalysis(main));
 		listAnalysis.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listAnalysis.setBackground(Color.WHITE);
 		listAnalysis.setBounds(198, 198, 407, 39);
@@ -254,7 +255,7 @@ public class MainFrame {
 		layeredPaneSpecie.setBackground(Color.WHITE);
 		tabbedPane.addTab("Add specie", null, layeredPaneSpecie, "Click here to add a new specie");
 		
-		listSpecieCategory = new JComboBox();
+		listSpecieCategory = new JComboBox(new ModelListCategory(main));
 		listSpecieCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecieCategory.setBounds(198, 93, 407, 39);
 		layeredPaneSpecie.add(listSpecieCategory);
@@ -322,7 +323,7 @@ public class MainFrame {
 		layeredPaneExplore.setBackground(Color.WHITE);
 		tabbedPane.addTab("Explore", null, layeredPaneExplore, null);
 		
-		JComboBox listCustomers = new JComboBox(new ModelListCustomer());
+		JComboBox listCustomers = new JComboBox(new ModelListCustomer(main));
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
@@ -466,11 +467,16 @@ public class MainFrame {
 		layeredPaneCreateScrapieTest.add(textFieldValue);
 		textFieldValue.setColumns(10);
 		
-		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie());
+		JComboBox listSpecie1 = new JComboBox(new ModelListSpecie(main));
 		listSpecie1.setBounds(327, 73, 148, 38);
 		
 		layeredPaneCreateScrapieTest.add(listSpecie1);
 		frmGenindex.setVisible(true);
+	}
+
+	private ComboBoxModel ModelListAnalysis(Main main2) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**

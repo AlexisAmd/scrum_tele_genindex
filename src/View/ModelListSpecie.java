@@ -6,6 +6,8 @@ package View;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
 
+import Main.Main;
+
 /**
  * @author pc
  *
@@ -16,6 +18,10 @@ public class ModelListSpecie implements ComboBoxModel {
 	 * 
 	 */
 	public ModelListSpecie() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ModelListSpecie(Main main) {
 		// TODO Auto-generated constructor stub
 	}
 

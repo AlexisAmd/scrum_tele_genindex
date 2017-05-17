@@ -127,7 +127,6 @@ public class Main {
 	 * @param pname le nom de la catégorie
 	 */
 	public void createCategory(String pname) {
-		
 		if(pname.length() < 3 || pname.length() > 15) {
 			JOptionPane.showMessageDialog(new JFrame(), "Please complete the fields (between 3 and 15 caracters).");
 		} else {
@@ -179,11 +178,20 @@ public class Main {
 			} else { // On peut creér l'espèce et la range dans la catégorie demandée
 				Specie nSpecie = new Specie(pname);
 				pcategory.addSpecie(nSpecie);
+				
+				//affichage de toutes les especes en cosole
+				for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
+					for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+						System.out.println(s);
+					}}
+				
+					}
+				
 				JOptionPane.showMessageDialog(new JFrame(), "The specie has been added successfully.");
 			}
 		}
 		
-	}
+	
 	
 	/**
 	 * Ajoute un scrapie test (vérifie que les valeurs ne sont pas inférieures à 0)

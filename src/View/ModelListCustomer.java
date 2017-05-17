@@ -3,9 +3,15 @@ package View;
 import javax.swing.ComboBoxModel;
 import javax.swing.event.ListDataListener;
 
+import Main.Main;
+
 public class ModelListCustomer implements ComboBoxModel {
 
 	public ModelListCustomer() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ModelListCustomer(Main main) {
 		// TODO Auto-generated constructor stub
 	}
 
