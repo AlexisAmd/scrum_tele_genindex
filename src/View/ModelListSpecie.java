@@ -26,12 +26,12 @@ public class ModelListSpecie extends DefaultComboBoxModel {
 		
 	}
 
-protected void refresh(){
-	this.removeAllElements();// peut etre inutile
-	for(SpecieCategory sC : main.getTheCategories()) { // Pour chaque catégorie
-		for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
-			this.addElement(s.getName());
+	protected void refresh(){
+		this.removeAllElements();// peut etre inutile
+		for(SpecieCategory sC : main.getTheCategories()) { // Pour chaque catégorie
+			for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+				this.addElement(s.getName());
+			}
 		}
 	}
-}
 }

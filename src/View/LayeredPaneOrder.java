@@ -3,6 +3,8 @@ package View;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.border.EtchedBorder;
 
 import Controler.CtrlCreateOrder;
 import Main.Main;
+import Model.SpecieCategory;
 
 public class LayeredPaneOrder extends JLayeredPane {
 
@@ -29,7 +32,7 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 
 	private ModelListCategory modelListCategory;
-	private ModelListSpecie modelListSpecie;
+	private ModelListSpecieByCategory modelListSpecie;
 	private ModelListAnalysis modelListAnalysis;
 	private ModelListCustomer modelListCustomer;
 	
@@ -60,7 +63,13 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 		modelListCategory = new ModelListCategory(main);
 		JComboBox listCategory = new JComboBox(modelListCategory);
-
+		listCategory.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+			    selectedCategory =    listCategory.getSelectedItem(); 
+			    modelListSpecie.setsC((String) selectedCategory);
+				modelListSpecie.refresh();
+		    }
+		});
 	    selectedCategory =    listCategory.getSelectedItem(); 
 
 		listCategory.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -69,7 +78,7 @@ public class LayeredPaneOrder extends JLayeredPane {
 		this.add(listCategory);
 		
 
-		modelListSpecie = new ModelListSpecie(main);
+		modelListSpecie = new ModelListSpecieByCategory(main, (String) selectedCategory);
 		JComboBox listSpecie = new JComboBox(modelListSpecie);
 
 	    selectedSpecie =    listSpecie.getSelectedItem(); 
@@ -135,19 +144,13 @@ public class LayeredPaneOrder extends JLayeredPane {
 	
 	}
 
-
-public void refresh(){
-	modelListCategory.refresh();
-	modelListSpecie.refresh();
-	modelListAnalysis.refresh();
-	modelListCustomer.refresh();
-	System.out.println("le refresh est ok");
-}
-
-
-
-
-
+	public void refresh(){
+		modelListCategory.refresh();
+		modelListSpecie.refresh();
+		modelListAnalysis.refresh();
+		modelListCustomer.refresh();
+		System.out.println("le refresh est ok");
+	}
 
 	/**
 	 * @return the textFieldNumberOfSamples
