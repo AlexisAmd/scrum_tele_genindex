@@ -4,20 +4,13 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableModel;
 
 import Controler.CtrlCreateOrder;
 import Main.Main;
@@ -119,5 +112,40 @@ public class LayeredPaneOrder extends JLayeredPane {
 		labelNumberOfSamples.setBounds(10, 248, 151, 39);
 		this.add(labelNumberOfSamples);
 	
+	}
+
+	/**
+	 * @return the listCustomer
+	 */
+	public JComboBox getListCustomer() {
+		return listCustomer;
+	}
+
+	/**
+	 * @return the listCategory
+	 */
+	public JComboBox getListCategory() {
+		return listCategory;
+	}
+
+	/**
+	 * @return the listSpecie
+	 */
+	public JComboBox getListSpecie() {
+		return listSpecie;
+	}
+
+	/**
+	 * @return the listAnalysis
+	 */
+	public JComboBox getListAnalysis() {
+		return listAnalysis;
+	}
+
+	/**
+	 * @return the textFieldNumberOfSamples
+	 */
+	public JTextField getTextFieldNumberOfSamples() {
+		return textFieldNumberOfSamples;
 	}
 }
