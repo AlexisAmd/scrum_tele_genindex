@@ -225,7 +225,7 @@ public class Main {
 	 */
 	public void createScrapieText(Specie pspecie, int ppos, int pval) {
 		
-		if(ppos < 0 || pval < 0) {
+		if(ppos <= 0 || pval <= 0) {
 			JOptionPane.showMessageDialog(new JFrame(), "Please enter positive values.", "Not a proper value", JOptionPane.ERROR_MESSAGE);
 		} else {
 			ScrapieTest nScrapieTest = new ScrapieTest(pspecie, ppos, pval);

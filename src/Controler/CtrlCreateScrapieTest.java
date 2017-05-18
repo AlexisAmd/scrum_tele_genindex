@@ -7,22 +7,36 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import Main.Main;
+import Model.Specie;
+import Model.SpecieCategory;
+import View.LayeredPaneScrapieTest;
 import View.MainFrame;
 
-public class CtrlCreateScapieTest implements MouseListener {
+public class CtrlCreateScrapieTest implements MouseListener {
 	
 	private Main main;
-	private MainFrame mainFrame;
+	private LayeredPaneScrapieTest mainFrame;
 	
-	public CtrlCreateScapieTest(Main pmain, MainFrame pmainFrame) {
+	public CtrlCreateScrapieTest(Main pmain, LayeredPaneScrapieTest layeredPaneScrapieTest) {
 		main = pmain;
-		mainFrame = pmainFrame;
+		mainFrame = layeredPaneScrapieTest;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
+		Specie selectedSpecie = null; 
+		//on recuprere l'object associé a la string (
+		for (SpecieCategory sc : main.getTheCategories()){
+			for(Specie s : sc.getSpecies()) {
+				if(s.getName().equals(mainFrame.getSelectedSpecie())) {
+					selectedSpecie = s;
+				}
+			}
+		}
+		
 		try {
-			// main.createScrapieText(pspecie, mainFrame.getTextFieldPeakPosition().getText(), mainFrame.getTextFieldPeakValue().getText());
+			main.createScrapieText(selectedSpecie, Integer.parseInt(mainFrame.getTextFieldPosition().getText()), Integer.parseInt(mainFrame.getTextFieldValue().getText()));
 		} catch(NumberFormatException ex) {
 			JOptionPane.showMessageDialog(new JFrame(), "The input is not a number !", "Value error", JOptionPane.ERROR_MESSAGE);
 		}

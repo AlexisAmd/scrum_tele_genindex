@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 
+import Controler.CtrlCreateScrapieTest;
+import Controler.CtrlCreateSpecie;
 import Main.Main;
 
 public class LayeredPaneScrapieTest extends JLayeredPane {
@@ -23,6 +25,8 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 	private Color darkBlack = new Color(51,51,51);
 	private Font fontLabel = new Font("Tahoma", Font.PLAIN, 16);
 	private Color blueBootstrap =  new Color(66,139,202);
+
+	private Object selectedSpecie;
 
 	private ModelListSpecie modelListSpecie;
 
@@ -60,6 +64,7 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		
 		modelListSpecie = new ModelListSpecie(main);
 		JComboBox listSpecie1 = new JComboBox(modelListSpecie);
+	    selectedSpecie =    listSpecie1.getSelectedItem(); 
 		listSpecie1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie1.setBounds(198, 93, 407, 39);
 		this.add(listSpecie1);
@@ -72,6 +77,7 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		this.add(lblListSpecie);
 		
 		JButton btnCreateScrapieTest = new JButton("Create Scrapie Test");
+		btnCreateScrapieTest.addMouseListener(new CtrlCreateScrapieTest(main, this)); 
 		btnCreateScrapieTest.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));		
 		btnCreateScrapieTest.setBorderPainted(false);
 		btnCreateScrapieTest.setForeground(Color.WHITE);
@@ -96,10 +102,15 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		return textFieldValue;
 	}
 	
+	/**
+	 * @return the selectedSpecie
+	 */
+	public Object getSelectedSpecie() {
+		return selectedSpecie;
+	}
+	
 	public void refresh(){
-
 		modelListSpecie.refresh();
-
 	}
 	
 }
