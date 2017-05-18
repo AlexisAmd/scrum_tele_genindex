@@ -80,16 +80,21 @@ public class LayeredPaneOrder extends JLayeredPane {
 
 		modelListSpecie = new ModelListSpecie(main, (String) selectedCategory);
 		JComboBox listSpecie = new JComboBox(modelListSpecie);
-
 	    selectedSpecie =    listSpecie.getSelectedItem(); 
-
+	    listSpecie.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+			    selectedSpecie =    listSpecie.getSelectedItem(); 
+			    modelListAnalysis.setS((String) selectedSpecie);
+				modelListAnalysis.refresh();
+		    }
+		});
 		listSpecie.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie.setBackground(Color.WHITE);
 		listSpecie.setBounds(198, 146, 407, 39);
 		this.add(listSpecie);
 		
 
-		modelListAnalysis =new ModelListAnalysis(main);
+		modelListAnalysis =new ModelListAnalysis(main, (String) selectedSpecie);
 		JComboBox listAnalysis = new JComboBox(modelListAnalysis);
 
 	    selectedAnalysis =    listAnalysis.getSelectedItem(); 

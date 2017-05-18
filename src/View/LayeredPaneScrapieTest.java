@@ -3,6 +3,8 @@ package View;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -64,7 +66,16 @@ public class LayeredPaneScrapieTest extends JLayeredPane {
 		
 		modelListSpecie = new ModelListSpecie(main);
 		JComboBox listSpecie1 = new JComboBox(modelListSpecie);
-	    selectedSpecie =    listSpecie1.getSelectedItem(); 
+	    //selectedSpecie =    listSpecie1.getSelectedItem(); 
+	    	    
+		listSpecie1.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+			    selectedSpecie =    listSpecie1.getSelectedItem(); 
+
+		    }
+		});
+	    selectedSpecie =    modelListSpecie.getSelectedItem();
+	    
 		listSpecie1.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		listSpecie1.setBounds(198, 93, 407, 39);
 		this.add(listSpecie1);
