@@ -31,6 +31,7 @@ public class ModelListAnalysis extends DefaultComboBoxModel {
 		for(Analysis a : main.getTheAnalyses()) {
 			if(a instanceof SexingTest && a.getSpecie().equals(sP)) {
 				this.addElement(a.getName() + " | Male value : " + ((SexingTest) a).getMaleValue().getValue() + " - Female value : " + ((SexingTest) a).getFemaleValue().getValue());
+				
 			} else if(a instanceof ScrapieTest && a.getSpecie().equals(sP)){
 				this.addElement(a.getName() + " | Peak position : " + ((ScrapieTest) a).getScrapieSensibility().getPosition() + " - Peak value : " + ((ScrapieTest) a).getScrapieSensibility().getValue() );
 			}
