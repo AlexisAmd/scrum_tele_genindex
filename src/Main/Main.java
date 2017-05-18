@@ -66,7 +66,7 @@ public class Main {
 	}
 	
     /**
-     * Initialise des données
+     * Initialise des donnï¿½es
      */
 	public Main() {
 		generateData();
@@ -74,14 +74,14 @@ public class Main {
 	}
 	
 	/**
-	 * Si les paramètres sont corrects, génère la vue suivante
+	 * Si les paramï¿½tres sont corrects, gï¿½nï¿½re la vue suivante
 	 * @param pid
 	 * @param ppassword
 	 */
 
 	public boolean loginUser(String pid, String ppassword) {
 		for(User u : theUsers) {
-			if(u.getId().equals(pid) && u.getPassword().equals(ppassword)) { // On a trouvé un utilisateur
+			if(u.getId().equals(pid) && u.getPassword().equals(ppassword)) { // On a trouvï¿½ un utilisateur
 				this.currentUser = u;
 				login.setVisible(false); // You can't see me!
 				login.dispose(); // Destroy the JFrame object
@@ -89,13 +89,13 @@ public class Main {
 				return true;
 			}
 		}
-		// On a pas trouvé d'utilisateur, le couple id/pwd est incorrect
+		// On a pas trouvï¿½ d'utilisateur, le couple id/pwd est incorrect
 		JOptionPane.showMessageDialog(new JFrame(), "Wrong ID / Password.", "Login error", JOptionPane.ERROR_MESSAGE);
 		return false;
 	}
 	
 	/**
-	 * Permet de créer un customer. Check au préalable si le nouveau customer n'existe pas déjà
+	 * Permet de crï¿½er un customer. Check au prï¿½alable si le nouveau customer n'existe pas dï¿½jï¿½
 	 */
 	public void createCustomer(String pname, String ptown) {
 		
@@ -112,9 +112,9 @@ public class Main {
 				}
 			}
 			
-			if(exist) { // Il existe déjà un client avec le même nom dans le logiciel
+			if(exist) { // Il existe dï¿½jï¿½ un client avec le mï¿½me nom dans le logiciel
 				JOptionPane.showMessageDialog(new JFrame(), "This customer already exist.", "Already exist", JOptionPane.ERROR_MESSAGE);
-			} else { // On peut créer le client
+			} else { // On peut crï¿½er le client
 				Customer nCustomer = new Customer(pname, ptown);
 				theCustomers.add(nCustomer);
 				JOptionPane.showMessageDialog(new JFrame(), "The customer has been well created.");
@@ -126,7 +126,7 @@ public class Main {
 	
 	/**
 	 * Permet d'ajouter une categorie qui n'existe pas encore
-	 * @param pname le nom de la catégorie
+	 * @param pname le nom de la catï¿½gorie
 	 */
 	public void createCategory(String pname) {
 		if(pname.length() < 3 || pname.length() > 15) {
@@ -141,9 +141,9 @@ public class Main {
 				}
 			}
 			
-			if(exist) { // La catégorie existe déjà
+			if(exist) { // La catï¿½gorie existe dï¿½jï¿½
 				JOptionPane.showMessageDialog(new JFrame(), "This category already exist.", "Already exist", JOptionPane.ERROR_MESSAGE);
-			} else { // On peut créer la catégorie
+			} else { // On peut crï¿½er la catï¿½gorie
 				SpecieCategory nCategory = new SpecieCategory(pname);
 				theCategories.add(nCategory);
 				JOptionPane.showMessageDialog(new JFrame(), "The category has been well created.");
@@ -153,9 +153,9 @@ public class Main {
 	}
 
 	/**
-	 * Crée une espèce et lui donne une catégorie. L'espèce ne doit appartenir qu'à une seule catégorie
-	 * @param pname le nom de l'espèce
-	 * @param pcategory la catégorie à laquelle l'espèce appartient
+	 * Crï¿½e une espï¿½ce et lui donne une catï¿½gorie. L'espï¿½ce ne doit appartenir qu'ï¿½ une seule catï¿½gorie
+	 * @param pname le nom de l'espï¿½ce
+	 * @param pcategory la catï¿½gorie ï¿½ laquelle l'espï¿½ce appartient
 	 */
 	public void createSpecie(String pname, SpecieCategory pcategory) {
 		
@@ -166,8 +166,8 @@ public class Main {
 	
 			boolean exist = false;
 			SpecieCategory catExist = null;
-			for(SpecieCategory sC : theCategories) { // Pour chaque catégorie
-				for(Specie s : sC.getSpecies()) { // Pour chaque espèce de la catégorie
+			for(SpecieCategory sC : theCategories) { // Pour chaque catï¿½gorie
+				for(Specie s : sC.getSpecies()) { // Pour chaque espï¿½ce de la catï¿½gorie
 					if(s.getName().toUpperCase().equals(pname.toUpperCase())) {
 						exist = true;
 						catExist = sC;
@@ -175,9 +175,9 @@ public class Main {
 				}
 			}
 			
-			if(exist) { // Il existe déjà une espèce similaire dans une catégorie
+			if(exist) { // Il existe dï¿½jï¿½ une espï¿½ce similaire dans une catï¿½gorie
 				JOptionPane.showMessageDialog(new JFrame(), "This specie already exist in the category " + catExist.getName(), "Already exist", JOptionPane.ERROR_MESSAGE);
-			} else { // On peut creér l'espèce et la range dans la catégorie demandée
+			} else { // On peut creï¿½r l'espï¿½ce et la range dans la catï¿½gorie demandï¿½e
 				Specie nSpecie = new Specie(pname);
 				pcategory.addSpecie(nSpecie);
 				JOptionPane.showMessageDialog(new JFrame(), "The specie has been added successfully.");
@@ -188,7 +188,7 @@ public class Main {
 	}
 	
 	/**
-	 * Crée une commande avec des samples dedans.
+	 * Crï¿½e une commande avec des samples dedans.
 	 * @param selectedCustomer
 	 * @param selectedSpecie
 	 * @param selectedAnalysis
@@ -197,20 +197,20 @@ public class Main {
 	public void createOrder(Customer selectedCustomer, Specie selectedSpecie, Analysis selectedAnalysis,
 			int numberOfSamples) {
 		
-		// Créer la commande
+		// Crï¿½er la commande
 		Order nOrder = new Order(selectedCustomer);
 		
-		// Génère les samples à faire
+		// Gï¿½nï¿½re les samples ï¿½ faire
 		List<Sample> nList = new ArrayList<Sample>();
 		for(int i = 1; i <= numberOfSamples; i++) {
 			Sample nSample = new Sample(selectedAnalysis, selectedSpecie, nOrder);
 			nList.add(nSample);
 		}
 		
-		// Ajoute la liste de sample à la commande
+		// Ajoute la liste de sample ï¿½ la commande
 		nOrder.setSamples(nList);
 		
-		// Ajoute la commande à la liste des commandes du client
+		// Ajoute la commande ï¿½ la liste des commandes du client
 		selectedCustomer.addOrder(nOrder);
 		
 		JOptionPane.showMessageDialog(new JFrame(), "The order has been created.");
@@ -218,8 +218,8 @@ public class Main {
 	}
 		
 	/**
-	 * Ajoute un scrapie test (vérifie que les valeurs ne sont pas inférieures à 0)
-	 * @param pspecie l'espèce
+	 * Ajoute un scrapie test (vï¿½rifie que les valeurs ne sont pas infï¿½rieures ï¿½ 0)
+	 * @param pspecie l'espï¿½ce
 	 * @param ppos la position
 	 * @param pval la valeur
 	 */
@@ -236,7 +236,7 @@ public class Main {
 	}
 	
 	/**
-	 * Génère des données au préalable
+	 * Gï¿½nï¿½re des donnï¿½es au prï¿½alable
 	 */
 	public void generateData() {
 		
@@ -363,8 +363,8 @@ public class Main {
         o.setSamples(ls);
         
         // Order for Paul Cameron, status in progress (samples are not created yet)
-        o = new Order(paul);
-        paul.addOrder(o);
+        /*o = new Order(paul);
+        paul.addOrder(o);*/
             
         // Sexing tests management - no order created yet
         sc = new SpecieCategory("Birds");
