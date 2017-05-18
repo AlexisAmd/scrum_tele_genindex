@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import Main.Main;
+import Controler.*;
 
 public class LayeredPaneExplore extends JLayeredPane {
 
@@ -42,6 +43,39 @@ public class LayeredPaneExplore extends JLayeredPane {
 		
 		modelCustomer = new ModelListCustomer(main);
 		JComboBox listCustomers = new JComboBox(modelCustomer);
+		DefaultTableModel model = new DefaultTableModel(new Object[][] {
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+			{null, null, null},
+
+		},
+		new String[] {
+			"ID", "Sample Number","Status"
+		});
+		listCustomers.addActionListener(new CtrlDisplayOrders(model,listCustomers,main));
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
@@ -62,56 +96,21 @@ public class LayeredPaneExplore extends JLayeredPane {
 		tableOrders = new JTable();
 		tableOrders.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		//TODO generer la classe qui se charge de creer des model
-		tableOrders.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-				{null, null, null, null},
-			},
-			new String[] {
-				"ID", "Order", "Status", "Object"
-			}
-		) {
+		tableOrders.setModel(model); /*{
 			Class[] columnTypes = new Class[] {
 				String.class, String.class, Object.class, Object.class
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
-		});
+		})*/
 		tableOrders.getColumnModel().getColumn(0).setPreferredWidth(43);
 		tableOrders.getColumnModel().getColumn(1).setPreferredWidth(96);
 		tableOrders.getColumnModel().getColumn(2).setPreferredWidth(76);
-		tableOrders.getColumnModel().getColumn(3).setResizable(false);
+		/*tableOrders.getColumnModel().getColumn(3).setResizable(false);
 		tableOrders.getColumnModel().getColumn(3).setPreferredWidth(1);
 		tableOrders.getColumnModel().getColumn(3).setMinWidth(0);
-		tableOrders.getColumnModel().getColumn(3).setMaxWidth(1);
+		tableOrders.getColumnModel().getColumn(3).setMaxWidth(1);*/
 		tableOrders.setSelectionBackground(new Color(204, 204, 255));
 		tableOrders.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tableOrders.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -139,7 +138,7 @@ public class LayeredPaneExplore extends JLayeredPane {
 		lblAnalysedSamples.setBounds(10, 38, 159, 34);
 		panelStatistics.add(lblAnalysedSamples);
 		
-		lblPercentageAnalysedSamples = new JLabel("NA");
+		lblPercentageAnalysedSamples = new JLabel("");
 		lblPercentageAnalysedSamples.setBounds(164, 38, 32, 34);
 		lblPercentageAnalysedSamples.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblPercentageAnalysedSamples.setForeground(blueBootstrap);

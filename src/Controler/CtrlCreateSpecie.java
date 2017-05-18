@@ -31,7 +31,7 @@ public class CtrlCreateSpecie implements MouseListener {
 				selectedCategory =   sc;
 			};
 		}
-		
+		System.out.print(selectedCategory.getName());
 		//on demande a une methode du main d'ajouter la specie
 	    main.createSpecie(mainFrame.getTextFieldSpecieName(), selectedCategory); 	
 	}
