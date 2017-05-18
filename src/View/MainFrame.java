@@ -11,6 +11,7 @@ import java.awt.ComponentOrientation;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.Toolkit;
 
 public class MainFrame {
 
@@ -58,6 +59,7 @@ public class MainFrame {
 		}
 		
 		frmGenindex = new JFrame();
+		frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
 		//frmGenindex.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Users\\pc\\Documents\\GitHub\\scrum_tele_genindex\\img\\parrot.PNG"));
 		frmGenindex.getContentPane().setBackground(Color.WHITE);
 		frmGenindex.setTitle("GENINDEX");

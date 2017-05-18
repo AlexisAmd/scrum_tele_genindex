@@ -1,13 +1,13 @@
 package Main;
-import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.swing.JComboBox;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.border.EtchedBorder;
+
 
 import org.apache.commons.lang3.text.WordUtils;
 
@@ -25,7 +25,6 @@ import Model.SpecieCategory;
 import Model.User;
 import View.Login;
 import View.MainFrame;
-import View.ModelListCategory;
 
 /**
  * Permet de lancer l'application
