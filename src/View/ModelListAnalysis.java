@@ -16,10 +16,8 @@ public class ModelListAnalysis extends DefaultComboBoxModel {
 	}
 
 	protected void refresh() {
-		for(Analysis a : main.getTheAnalyses()) {
-			this.addElement(a.getName());
-		}
-		
+		this.addElement("Sexing test");
+		this.addElement("Scrapie test");
 	}
 	
 }
