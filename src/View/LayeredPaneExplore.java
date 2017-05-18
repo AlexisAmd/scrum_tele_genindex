@@ -2,6 +2,8 @@ package View;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -15,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import Model.*;
 
 import Main.Main;
 import Controler.*;
@@ -33,6 +36,10 @@ public class LayeredPaneExplore extends JLayeredPane {
 	private JLabel lblTotalOfSamples;
 
 	private ModelListCustomer modelCustomer;
+	private ModelJTableOrders modelJtable;
+	
+	private String intermediateCustomer;
+	private Customer selectedCustomer;
 	
 	public LayeredPaneExplore(Main pmain) {
 		main = pmain;
@@ -41,41 +48,27 @@ public class LayeredPaneExplore extends JLayeredPane {
 		this.setBorder(null);
 		this.setBackground(Color.WHITE);
 		
+		
+
+	    
 		modelCustomer = new ModelListCustomer(main);
 		JComboBox listCustomers = new JComboBox(modelCustomer);
-		DefaultTableModel model = new DefaultTableModel(new Object[][] {
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-			{null, null, null},
-
-		},
-		new String[] {
-			"ID", "Sample Number","Status"
+		listCustomers.setSelectedItem("azert");
+		listCustomers.addActionListener (new ActionListener () {
+		    public void actionPerformed(ActionEvent e) {
+		    	intermediateCustomer =    (String) listCustomers.getSelectedItem(); 
+			    for(Customer cus : main.getTheCustomers()) {
+					if (cus.getName().equals(selectedCustomer)){
+						selectedCustomer = cus;
+					}
+				}
+			    modelJtable = new ModelJTableOrders(main,selectedCustomer);
+		    }
 		});
-		listCustomers.addActionListener(new CtrlDisplayOrders(model,listCustomers,main));
+		
+		//selectedCustomer =    (String) modelCustomer.getSelectedItem();
+		
+		//listCustomers.addActionListener(new CtrlDisplayOrders(model,listCustomers,main));
 		listCustomers.setForeground(darkBlack);
 		listCustomers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		listCustomers.setBackground(Color.WHITE);
@@ -93,17 +86,9 @@ public class LayeredPaneExplore extends JLayeredPane {
 		scrollPane.setBounds(41, 116, 345, 255);
 		this.add(scrollPane);
 		
-		tableOrders = new JTable();
+		tableOrders = new JTable(modelJtable);
 		tableOrders.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		//TODO generer la classe qui se charge de creer des model
-		tableOrders.setModel(model); /*{
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, Object.class, Object.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-		})*/
+
 		tableOrders.getColumnModel().getColumn(0).setPreferredWidth(43);
 		tableOrders.getColumnModel().getColumn(1).setPreferredWidth(96);
 		tableOrders.getColumnModel().getColumn(2).setPreferredWidth(76);
@@ -138,7 +123,7 @@ public class LayeredPaneExplore extends JLayeredPane {
 		lblAnalysedSamples.setBounds(10, 38, 159, 34);
 		panelStatistics.add(lblAnalysedSamples);
 		
-		lblPercentageAnalysedSamples = new JLabel("");
+		lblPercentageAnalysedSamples = new JLabel("NA");
 		lblPercentageAnalysedSamples.setBounds(164, 38, 32, 34);
 		lblPercentageAnalysedSamples.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblPercentageAnalysedSamples.setForeground(blueBootstrap);
@@ -172,5 +157,6 @@ public class LayeredPaneExplore extends JLayeredPane {
 
 	public void refresh(){
 		modelCustomer.refresh();
+		modelJtable.refresh(selectedCustomer);
 	}
 }
